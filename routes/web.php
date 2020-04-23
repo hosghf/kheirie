@@ -31,5 +31,17 @@ Route::get('/varizModir', function () {
 Route::get('/acceptRegister', function () {
     return view('modir.acceptRegister');
 });
+Route::get('/register1', function () {
+    return view('registerRequest/registerReq1');
+});
+Route::get('/register2', function () {
+    return view('registerRequest/registerReq2');
+});
+Route::get('/register3', function () {
+    return view('registerRequest/registerReq3');
+});
+Route::get('/login1', function () {
+    return view('registerRequest/login');
+});
 Route::get('/test', 'test\testController@index');
 

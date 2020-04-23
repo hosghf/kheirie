@@ -18,6 +18,7 @@ class CreateIncomesTable extends Migration
             $table->decimal('amount');
             $table->bigInteger('payer_code');
             $table->tinyInteger('help')->default(0);
+            $table->tinyInteger('type');
             $table->timestamps();
         });
     }
