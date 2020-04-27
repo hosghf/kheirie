@@ -30,61 +30,58 @@
             </div>
         </div>
         <div class="form-holder">
+            @foreach ($errors->all() as $error)
+                <li class="alert alert-danger">{{ $error }}</li>
+            @endforeach
+            {{ var_dump( session('takafols') ) }}
             <div class="form-content form-sm">
                 <div class="form-items">
                     <h3 class="form-title">مشخصات طلبه (مرحله اول)</h3>
-                    <form>
+                    <form method="post" action="/reg1">
+                        @csrf
                         <div class="form-group">
                             <label>موارد ستاره دار الزامی میباشد</label>
                             <div>
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control d-inline col-11" name="name" placeholder="نام" required>
+                                <input type="text" class="form-control d-inline col-11" id="st_name" name="st_name" value="{{ isset($reg1) ? $reg1['st_name'] : old('st_name')}}"  placeholder="نام">
                             </div>
                             <div>
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control d-inline col-11" name="st_family" placeholder="نام خانوادگی" required>
+                                <input type="text" class="form-control d-inline col-11" value="{{ isset($reg1) ? $reg1['st_family'] : old('st_name')}}"  name="st_family" placeholder="نام خانوادگی" >
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder="کد طلبگی">
+                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg1) ? $reg1['st_code_talabegy'] : old('st_code_talabegy')}}"  id="st_code_talabegy" name="st_code_talabegy" placeholder="کد طلبگی">
                             </div>
                             <div class="col">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder=" کد ملی ">
+                                <input type="text" id="st_code_meli" class="form-control col-11 d-inline"  value="{{ isset($reg1) ? $reg1['st_code_meli'] : old('st_code_meli')}}"  name="st_code_meli" placeholder=" کد ملی ">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder=" نام پدر ">
+                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg1) ? $reg1['fathers_name'] : old('fathers_name')}}" name="fathers_name" placeholder=" نام پدر ">
                             </div>
                             <div class="col">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder=" تلفن همراه ">
+                                <input type="text" class="form-control col-11 d-inline"  value="{{ isset($reg1) ? $reg1['st_mobile'] : old('st_mobile')}}"  name="st_mobile" placeholder=" تلفن همراه ">
                             </div>
                         </div>
 
-                        <!-- <div class="form-group">
-                            <label>مدرسه</label>
-                            <div class="custom-options">
-                                <input type="radio" id="rad1" name="rad"><label for="rad1"> الزهرا </label>
-                                <input type="radio" id="rad2" name="rad"><label for="rad2"> خاتون </label>
-                                <input type="radio" id="rad3" name="rad"><label for="rad3">رقیه</label>
-                            </div>
-                        </div> -->
                         <div class="form-group mt-4" style="text-align: right;">
                             <label> <span class="text-danger">*</span>
                                 مدرسه</label>
-                            <select class="form-control" style="direction: rtl;">
-                                <option>فثضل</option>
-                                <option>احمد</option>
+                            <select class="form-control" name="school">
+                                <option></option>
+                                <option>الزهرا</option>
+                                <option selected>احمدیه</option>
                             </select>
                         </div>
                         <div class="form-button text-right">
                             <button id="submit" type="submit" class="ibtn">بعدی</button>
-                            <button type="button" class="btn btn-light">قبلی</button>
                         </div>
                     </form>
                 </div>

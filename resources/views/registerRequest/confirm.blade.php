@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iofrm</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
-    <link rel="stylesheet" type="text/css" href="css/iofrm-style.css">
-    <link rel="stylesheet" type="text/css" href="css/iofrm-theme15.css">
-    <link rel="stylesheet" type="text/css" href="css/farsi_fonts.css">
+    <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-theme15.css">
+    <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/farsi_fonts.css">
 
 </head>
 <body>
@@ -35,32 +35,32 @@
                     <h3 class="form-title">تایید اطلاعات</h3>
                     <form>
                         <div class="form-group">
-                            <h5 class="pb-3">مشخصات فردی</h5>
+                            <h5 class="pb-3">مشخصات طلبه</h5>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>نام</label>
-                                <p>عسگری</p>
+                                <p>{{ $reg1['st_name'] }}</p>
                             </div>
                             <div class="col">
                                 <label>نام خانوادگی</label>
-                                <p>حمید</p>
+                                <p>{{ $reg1['st_family'] }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>کد ملی</label>
-                                <p>2323323</p>
+                                <p>{{$reg1['st_code_meli']}}</p>
                             </div>
                             <div class="col">
                                 <label>کد طلبگی</label>
-                                <p>86678</p>
+                                <p>{{ $reg1['st_code_talabegy'] }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>نام پدر</label>
-                                <p>محمد</p>
+                                <p>{{ $reg1['fathers_name'] }}</p>
                             </div>
                             <div class="col">
                                 <label>مدرسه</label>
@@ -174,8 +174,8 @@
                             </div>
                         </div>
                         <div class="form-button text-right">
-                            <button id="submit" type="submit" class="ibtn">ثبت نام</button>
-                            <button type="button" class="btn btn-light">قبلی</button>
+                            <button id="submit" type="button" class="ibtn">ثبت نام</button>
+                            <a type="button" href="/backReg4" class="btn btn-light">قبلی</a>
                         </div>
                     </form>
                 </div>

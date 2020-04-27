@@ -30,8 +30,9 @@ class testController extends Controller
 //        }
 //        $dem = Student::find(1);
 //        echo $dem->demands;
-        $st = Demand::find(1);
-        echo $st->student;
+//        $st = Demand::find(1);
+//        echo $st->student;
+          $x = [1, 3, 4, 9];
 
     }
 }

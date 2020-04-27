@@ -265,3 +265,9 @@
 .form-content .form-items {
     max-width: 420px;
 }
+
+.alert{
+    margin-bottom: 0;
+    text-align: right;
+    border-radius: 0;
+}

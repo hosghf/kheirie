@@ -30,24 +30,29 @@
             </div>
         </div>
         <div class="form-holder">
+            @foreach ($errors->all() as $error)
+                <li class="alert alert-danger">{{ $error }}</li>
+            @endforeach
+            {{ isset($takafols) ? var_dump($takafols) : '' }}
             <div class="form-content form-sm">
                 <div class="form-items">
                     <h3 class="form-title"> مشخصات سرپرست خانواده (مرحله دوم) </h3>
-                    <form>
+                    <form method="post" action="/reg2">
+                        @csrf
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control d-inline col-11" placeholder=" نام ">
+                                <input type="text" class="form-control d-inline col-11" value="{{ isset($reg2) ? $reg2['prov_name'] : old('prov_name')}}" name="prov_name"  placeholder=" نام ">
                             </div>
                             <div class="col">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder=" نام خانوادگی ">
+                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg2) ? $reg2['prov_family'] : old('prov_family')}}" name="prov_family" placeholder=" نام خانوادگی ">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder=" کد ملی ">
+                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg2) ? $reg2['prov_code_meli'] : old('prov_code_meli')}}" name="prov_code_meli" placeholder=" کد ملی ">
                             </div>
                         </div>
 
@@ -62,53 +67,24 @@
                         <div class="form-row pt-3">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" placeholder=" شغل سرپرست ">
+                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg2) ? $reg2['prov_job'] : old('prov_job')}}" name="prov_job" placeholder=" شغل سرپرست ">
                             </div>
                         </div>
                         <div class="form-group">
                             <label>توضیحات</label>
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control" value="{{ isset($reg2) ? $reg2['prov_job_explain'] : old('prov_job_explain')}}"  name="prov_job_explain"></textarea>
                         </div>
                         <div class="form-group mt-3" style="text-align: right;">
                             <span class="text-danger">*</span>
                             <label> میزان درآمد ماهیانه </label>
-                            <select class="form-control" style="direction: rtl;">
+                            <select class="form-control" name="prov_salary" style="direction: rtl;">
                                 <option>فثضل</option>
                                 <option>احمد</option>
                             </select>
                         </div>
-
-                        <h3 class="mt-5">مشخصات افراد تحت تکفل</h3>
-                        <div class="form-row mb-5 p-2 border border-gray rounded">
-                            <div class="mb-2 mt-2">
-                                <label> 2- </label>
-                                <label> عبد الحسن </label><label> - </label>
-                                <label> عباسچی راد </label> <label> - </label>
-                                <label> پدر بزرگ </label>
-                                <button type="button" class="btn btn-danger">حذف</button>
-                            </div>
-                            <div class="mb-2 mt-2">
-                                <label> 2- </label>
-                                <label> عبد الحسن </label><label> - </label>
-                                <label> عباسچی راد </label> <label> - </label>
-                                <label> پدر بزرگ </label>
-                                <button type="button" class="btn btn-danger">حذف</button>
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder=" نام ">
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder=" نام خانوادگی ">
-                            </div>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" placeholder=" نسبت ">
-                            </div>
-                            <button type="button" class="btn btn-success">ذخیره</button>
-
-                        </div>
                         <div class="form-button text-right">
                             <button id="submit" type="submit" class="ibtn">بعدی</button>
-                            <button type="button" class="btn btn-light">قبلی</button>
+                            <a type="button" href="/backReg1" class="btn btn-light">قبلی</a>
                         </div>
                     </form>
                 </div>
