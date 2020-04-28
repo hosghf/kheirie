@@ -33,7 +33,6 @@
             @foreach ($errors->all() as $error)
                 <li class="alert alert-danger">{{ $error }}</li>
             @endforeach
-            {{ null !== session('takafols') ? var_dump(session('takafols')) : '' }}
             <div class="form-content form-sm">
                 <div class="form-items">
                     <h3 class="mb-5">مشخصات افراد تحت تکفل(مرحله سوم)</h3>
@@ -63,20 +62,20 @@
                         </div>
 
                         <div id='takafolShow' class="form-row mb-5 p-2 border border-gray rounded">
-                            <input class="" id="last_id" name="last_id" value="{{isset($last_id) ? $last_id : 0}}">
+                            <input class="d-none" id="last_id" name="last_id" value="{{isset($last_id) ? $last_id : 0}}">
                             @if(!empty($takafols))
                                 @foreach($takafols as $tak => $val)
                                     <div  class= "{{ $val[3] }} takafols mb-2 mt-2 col-12"> {{-- get class name --}}
                                         <label>{{$val[0]}}</label><label> - </label>
                                         <label>{{$val[1]}}</label> <label> - </label>
                                         <label>{{$val[2]}}</label>
-                                        <button type="button" onclick="t1(this)" class="btn btn-danger delete"> حذف </button>
+                                        <button type="button" onclick="t1(this)" class="btn btn-danger delete pull-left"> حذف </button>
                                     </div>
 
-                                    <input type='text' class='{{ $val[3] }} takafols' name='{{ $tak }}[] '  value='{{$val[0]}}'>
-                                    <input type='text' class=' {{ $val[3] }} takafols' name='{{ $tak }}[] '  value='{{$val[1]}}'>
-                                    <input type='text' class=' {{ $val[3] }} takafols' name='{{ $tak }}[] '  value='{{$val[2]}}'>
-                                    <input type='text' class=' {{ $val[3] }} takafols' name='{{ $tak }}[] '  value='{{$val[3]}}'>
+                                    <input type='text' class='{{ $val[3] }} takafols d-none' name='{{ $tak }}[] '  value='{{$val[0]}}'>
+                                    <input type='text' class=' {{ $val[3] }} takafols d-none' name='{{ $tak }}[] '  value='{{$val[1]}}'>
+                                    <input type='text' class=' {{ $val[3] }} takafols d-none' name='{{ $tak }}[] '  value='{{$val[2]}}'>
+                                    <input type='text' class=' {{ $val[3] }} takafols d-none' name='{{ $tak }}[] '  value='{{$val[3]}}'>
 
                                 @endforeach
                             @endif

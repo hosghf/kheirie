@@ -33,7 +33,6 @@
             @foreach ($errors->all() as $error)
                 <li class="alert alert-danger">{{ $error }}</li>
             @endforeach
-            {{ isset($takafols) ? var_dump($takafols) : '' }}
             <div class="form-content form-sm">
                 <div class="form-items">
                     <h3 class="form-title"> مشخصات سرپرست خانواده (مرحله دوم) </h3>
@@ -42,32 +41,32 @@
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control d-inline col-11" value="{{ isset($reg2) ? $reg2['prov_name'] : old('prov_name')}}" name="prov_name"  placeholder=" نام ">
+                                <input type="text" class="form-control d-inline col-11 @error('prov_name')border border-danger @enderror" value="{{ isset($reg2) ? $reg2['prov_name'] : old('prov_name')}}" name="prov_name"  placeholder=" نام ">
                             </div>
                             <div class="col">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg2) ? $reg2['prov_family'] : old('prov_family')}}" name="prov_family" placeholder=" نام خانوادگی ">
+                                <input type="text" class="form-control col-11 d-inline @error('prov_family')border border-danger @enderror" value="{{ isset($reg2) ? $reg2['prov_family'] : old('prov_family')}}" name="prov_family" placeholder=" نام خانوادگی ">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg2) ? $reg2['prov_code_meli'] : old('prov_code_meli')}}" name="prov_code_meli" placeholder=" کد ملی ">
+                                <input type="text" class="form-control col-11 d-inline @error('prov_code_meli')border border-danger @enderror" value="{{ isset($reg2) ? $reg2['prov_code_meli'] : old('prov_code_meli')}}" name="prov_code_meli" placeholder=" کد ملی ">
                             </div>
                         </div>
 
                         <div class="form-group mt-3" style="text-align: right;">
                             <span class="text-danger">*</span>
                             <label>نسبت با طلبه</label>
-                            <select class="form-control" style="direction: rtl;">
-                                <option>فثضل</option>
-                                <option>احمد</option>
+                            <select class="form-control" name="relation_to_st" style="direction: rtl;">
+                                <option value="1">فثضل</option>
+                                <option value="2">احمد</option>
                             </select>
                         </div>
                         <div class="form-row pt-3">
                             <div class="col-sm-6">
                                 <span class="text-danger">*</span>
-                                <input type="text" class="form-control col-11 d-inline" value="{{ isset($reg2) ? $reg2['prov_job'] : old('prov_job')}}" name="prov_job" placeholder=" شغل سرپرست ">
+                                <input type="text" class="form-control col-11 d-inline @error('prov_job')border border-danger @enderror" value="{{ isset($reg2) ? $reg2['prov_job'] : old('prov_job')}}" name="prov_job" placeholder=" شغل سرپرست ">
                             </div>
                         </div>
                         <div class="form-group">
@@ -75,11 +74,11 @@
                             <textarea class="form-control" value="{{ isset($reg2) ? $reg2['prov_job_explain'] : old('prov_job_explain')}}"  name="prov_job_explain"></textarea>
                         </div>
                         <div class="form-group mt-3" style="text-align: right;">
-                            <span class="text-danger">*</span>
+                            <span class="text-danger ">*</span>
                             <label> میزان درآمد ماهیانه </label>
                             <select class="form-control" name="prov_salary" style="direction: rtl;">
-                                <option>فثضل</option>
-                                <option>احمد</option>
+                                <option value="1">فثضل</option>
+                                <option value="2">احمد</option>
                             </select>
                         </div>
                         <div class="form-button text-right">

@@ -40,31 +40,37 @@
                         <div class="form-row">
                             <div class="col">
                                 <label>نام</label>
-                                <p>{{ $reg1['st_name'] }}</p>
+                                <p>{{ $reg1['st_name'] ?? '' }}</p>
                             </div>
                             <div class="col">
                                 <label>نام خانوادگی</label>
-                                <p>{{ $reg1['st_family'] }}</p>
+                                <p>{{ $reg1['st_family'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>کد ملی</label>
-                                <p>{{$reg1['st_code_meli']}}</p>
+                                <p>{{$reg1['code_meli'] ?? '' }}</p>
                             </div>
                             <div class="col">
                                 <label>کد طلبگی</label>
-                                <p>{{ $reg1['st_code_talabegy'] }}</p>
+                                <p>{{ $reg1['code_talabegi'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>نام پدر</label>
-                                <p>{{ $reg1['fathers_name'] }}</p>
+                                <p>{{ $reg1['fathers_name'] ?? '' }}</p>
                             </div>
                             <div class="col">
                                 <label>مدرسه</label>
-                                <p>فیضیه</p>
+                                <p>{{ $reg1['school'] ?? '' }}</p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label> شماره همراه طلبه </label>
+                                <p>{{ $reg1['st_mobile'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -72,109 +78,97 @@
                         </div>
                         <div class="form-row">
                             <div class="col">
-                                <label>نام</label>
-                                <p>عسگری</p>
+                                <label>نام سرپرست</label>
+                                <p>{{ $reg2['prov_name'] ?? '' }}</p>
                             </div>
                             <div class="col">
                                 <label>نام خانوادگی</label>
-                                <p>حمید</p>
+                                <p>{{ $reg2['prov_family'] ?? '' }}</p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <label> نسبت با طلبه </label>
+                                <p>{{ $reg2['relation_to_st'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label>کد ملی</label>
-                                <p>2323323</p>
+                                <p>{{ $reg2['prov_code_meli'] ?? '' }}</p>
                             </div>
                             <div class="col">
-                                <label>نام پدر</label>
-                                <p>کریم</p>
+                                <label> شغل سرپرست</label>
+                                <p>{{ $reg2['prov_job'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
-                                <label>تعداد افراد تحت تکفل</label>
-                                <p>3</p>
-                            </div>
-                            <div class="col">
-                                <label>شغل</label>
-                                <p>کارمند</p>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-12">
-                                <label>توضیحات</label>
-                                <p>شسما شمنتاب شستابمشب سماشسنا سنمتاب شسنمبا شسمنا نسشبمن</p>
+                                <label>توضیحات شغل</label>
+                                <p>{{ $reg2['prov_job_explain'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-12">
                                 <label>میزان درآمد</label>
-                                <p>بین یک تا 2 ملیون</p>
+                                <p>{{ $reg2['prov_salary'] ?? '' }}</p>
                             </div>
+                        </div>
+                        <div class="form-group mt-4">
+                            <h5 class="pb-3"> اطلاعات تماس </h5>
                         </div>
                         <div class="form-row">
                             <div class="col-12">
                                 <label> آدرس </label>
-                                <p>خیابان تاج کوچه 4 پلاک 12</p>
+                                <p>{{ $reg4['address'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-12">
                                 <label> کد پستی </label>
-                                <p>12345-78908</p>
+                                <p>{{ $reg4['postal_code'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label> تلفن ثابت  </label>
-                                <p>12345-78908</p>
+                                <p>{{ $reg4['state_phone'] ?? '' }}</p>
                             </div>
                             <div class="col">
                                 <label> تلفن همراه </label>
-                                <p>12345-78908</p>
+                                <p>{{ $reg4['prov_mobil'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label> آدرس محل کار </label>
-                                <p>شنمب مسسات بساتمسنتاب سناسینمتبا سشبتن </p>
+                                <p>{{ $reg4['prov_work_address'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <label> تلفن محل کار </label>
-                                <p>8787687686 </p>
+                                <p>{{ $reg4['work_phone'] ?? '' }}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <h5 class="pt-3">مشخصات افراد تحت تکفل</h5>
                         </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <label> 1-</label>
-                                <label> برادر </label> <label> - </label>
-                                <label> علیرضا </label><label> - </label>
-                                <label> میرمحمودی </label>
+                        @if(!empty($takafols))
+                            <div class="d-none">{{ $i = 1 }}</div>
+                            @foreach($takafols as $t)
+                            <div class="form-row">
+                                <div class="col">
+                                    <label> {{ $i++ }} -</label>
+                                    <label> {{ $t[0] }} </label> <label> - </label>
+                                    <label> {{ $t[1] }} </label><label> - </label>
+                                    <label> {{ $t[2] }} </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <label>2-</label>
-                                <label> برادر </label> <label> - </label>
-                                <label> محمد رضا </label><label> - </label>
-                                <label> میرمحمودی </label>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <label>2-</label>
-                                <label> پدر بزرگ </label> <label> - </label>
-                                <label> عبد الحسن </label><label> - </label>
-                                <label> عباسچی راد </label>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                         <div class="form-button text-right">
-                            <button id="submit" type="button" class="ibtn">ثبت نام</button>
+                            <a id="submit" href="/storeReg" type="button" class="ibtn">ثبت نام</a>
                             <a type="button" href="/backReg4" class="btn btn-light">قبلی</a>
                         </div>
                     </form>

@@ -52,3 +52,5 @@ Route::get('backReg3', 'RegisterationRequest\RegisterRequestController@backReg3'
 Route::post('reg4', 'RegisterationRequest\RegisterRequestController@reg4');
 Route::get('backReg4', 'RegisterationRequest\RegisterRequestController@backReg4');
 Route::get('confirm', 'RegisterationRequest\RegisterRequestController@confirm');
+Route::get('storeReg', 'RegisterationRequest\RegisterRequestController@store');
+Route::get('finalMessage', 'RegisterationRequest\RegisterRequestController@finalMessage');

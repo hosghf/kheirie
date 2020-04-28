@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\registerationRequest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dependent;
+use App\Models\Provider;
+use App\Models\Student;
 use Illuminate\Http\Request;
+Use Exception;
+use Illuminate\Support\Facades\DB;
 
 class RegisterRequestController extends Controller
 {
     public function index(){
             session()->forget('reg1');
             session()->forget('reg2');
-            session()->forget('reg3');
+            session()->forget('reg4');
             session()->forget('takafols');
         return view('registerRequest.registerReq1');
     }
@@ -19,16 +24,18 @@ class RegisterRequestController extends Controller
         $v = $request->validate([
             'st_name' => 'required',
             'st_family' => 'required',
-            'st_code_meli' => 'required',
-            'st_code_talabegy' => 'required|numeric',
+            'code_meli' => 'required|unique:students',
+            'code_talabegi' => 'required|numeric|unique:students',
             'fathers_name' => 'required',
             'st_mobile' => 'required|regex:/(09)[0-9]{9}/|digits:11|numeric'
             ],
-            ['st_code_meli.required' => 'لطفا کد ملی را وارد کنید.',
+            ['code_meli.required' => 'لطفا کد ملی را وارد کنید.',
+             'code_meli.unique' => 'کد ملی تکراری میباشد، اگر قبلا ثبت نام کرده اید، با نام کاربری و رمز عبور به سیستم وارد شوید',
              'st_name.required' => 'لطفا نام را وارد کنید.',
              'st_family.required' => 'لطفا نام خانوادگی را وارد کنید.',
-             'st_code_talabegy.required' => 'لطفا کد طلبگی را وارد کنید.',
-             'st_code_talabegy.numeric' => 'کد طلبگی را بصورت عدد وارد کنید',
+             'code_talabegi.required' => 'لطفا کد طلبگی را وارد کنید.',
+             'code_talabegi.numeric' => 'کد طلبگی را بصورت عدد وارد کنید',
+             'code_talabegi.unique' => 'کد طلبگی در سیستم موجود میباشد، اگر قبلا ثبت نام کرده اید میتوانید با نام کاربری و رمز عبور وارد سیستم شوید.',
              'fathers_name.required' => 'لطفا نام پدر را وارد کنید.',
              'st_mobile.regex' => 'شماره موبایل معتبر وارد کنید',
              'st_mobile.required' => 'لطفا شماره موبایل را وارد کنید.',
@@ -90,7 +97,6 @@ class RegisterRequestController extends Controller
     public function backReg3(){
         $takafols = session()->get('takafols');
         $last_id = session('last_id') !== null ? session('last_id') : 0;
-        var_dump(session('last_id'));
         return view('registerRequest.registerReq3', ['takafols' => $takafols, 'last_id' => $last_id]);
     }
     public function reg4(Request $request){
@@ -102,7 +108,7 @@ class RegisterRequestController extends Controller
         $reg4 = $request->except('_token');
         $request->session()->put('reg4', $reg4);
 
-        return view('registerRequest.confirm');
+        return redirect('/confirm');
     }
     public function backReg4(){
         $reg4 = session('reg4');
@@ -112,8 +118,81 @@ class RegisterRequestController extends Controller
         $reg1 = session('reg1');
         $reg2 = session('reg2');
         $reg4 = session('reg4');
-        var_dump($reg1);
-        return view('registerRequest.confirm', [ 'reg1' => $reg1, 'reg2' => $reg2 ,'reg4' => $reg4]);
+        $takafols = session('takafols');
+        return view('registerRequest.confirm', [ 'reg1' => $reg1, 'reg2' => $reg2 ,'reg4' => $reg4, 'takafols' => $takafols]);
+    }
+    public function store(){
+        $reg1 = session('reg1');
+        $reg2 = session('reg2');
+        $reg4 = session('reg4');
+        $takafols = session('takafols');
+
+        //add to student table
+        $student = new Student;
+        $student->name = $reg1['st_name'];
+        $student->family = $reg1['st_family'];
+        $student->code_meli = $reg1['code_meli'];
+        $student->code_talabegi = $reg1['code_talabegi'];
+        $student->father_name = $reg1['fathers_name'];
+        $student->mobile = $reg1['st_mobile'];
+        $student->school_id = $reg1['school'];
+        $student->status_code = 1;
+
+        //add provider of student to providers table
+        $provider = new Provider;
+        $provider->name = $reg2['prov_name'];
+        $provider->family = $reg2['prov_family'];
+        $provider->code_meli = $reg2['prov_code_meli'];
+        $provider->job = $reg2['prov_job'];
+        $provider->explanation = $reg2['prov_job_explain'];
+        $provider->salary_code = $reg2['prov_salary'];
+        $provider->nesbat_ba_talabe = $reg2['relation_to_st']; //نسبت با دانشجو
+        $provider->address = $reg4['address'];
+        $provider->postal_code = $reg4['postal_code'];
+        $provider->phone = $reg4['state_phone'];
+        $provider->mobile = $reg4['prov_mobil'];
+        $provider->work_address = $reg4['prov_work_address'];
+        $provider->work_phone = $reg4['work_phone'];
+        $provider->status_code = 1;
+
+        //add takafols to db dependents
+
+        try{
+            DB::beginTransaction(); //for transaction, table's database engine should be set on innodb
+            $student->save();
+            $st_id = $student->id;
+            var_dump($st_id);
+            $provider->student_id = $st_id;
+            $provider->save();
+            foreach($takafols as $tak){
+                $dependent = new Dependent;
+                $dependent->name = $tak[0];
+                $dependent->family = $tak[1];
+                $dependent->relation = $tak[2];
+                $dependent->provider_id = $provider->id;
+                $dependent->save();
+            }
+            DB::commit();
+            echo 'student is added and provider added';
+        } catch (Exception $e){
+            DB::rollBack();
+                if($e->errorInfo[1] == 1062){
+                    echo "کد ملی یا کد طلبگی قبلا در سیستم ثبت شده";
+                }
+                echo $e->getCode();
+                echo '<br>';
+                echo $e->getMessage();
+                echo '<br>';
+                echo $e->errorInfo[1];
+        }
+        return redirect('finalMessage');
+    }
+    public function finalMessage(){
+        session()->forget('reg1');
+        session()->forget('reg2');
+        session()->forget('reg4');
+        session()->forget('takafols');
+        return view('registerRequest.finalMessage');
     }
 
 }

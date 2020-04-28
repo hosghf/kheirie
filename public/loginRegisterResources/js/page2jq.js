@@ -22,10 +22,10 @@ $('#save').click(function () {
                                         "</div>");
 
     //add invisable forms of the tahte takafol values
-    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols ' name='takafol" + id + "[]  '  value=\" "+ name +"  \"  >");
-    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols ' name='takafol" + id + "[]  '  value=\" "+ family +"  \"  >");
-    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols ' name='takafol" + id + "[]  '  value=\" "+ relative +"  \"  >");
-    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols ' name='takafol" + id + "[]  '  value=\" "+ id +"  \"  >");
+    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols d-none' name='takafol" + id + "[]  '  value=\" "+ name +"  \"  >");
+    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols d-none' name='takafol" + id + "[]  '  value=\" "+ family +"  \"  >");
+    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols d-none' name='takafol" + id + "[]  '  value=\" "+ relative +"  \"  >");
+    $('#takafolShow').append("<input type=\'text\' class=' "+ id +" takafols d-none' name='takafol" + id + "[]  '  value=\" "+ id +"  \"  >");
 
 
 });

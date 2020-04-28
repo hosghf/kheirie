@@ -4,6 +4,8 @@ namespace App\Http\Controllers\test;
 
 use App\Http\Controllers\Controller;
 use App\Models\Demand;
+use App\Models\Dependent;
+use App\Models\nesbateBaTalabe;
 use App\Models\Role;
 use App\Models\School;
 use App\Models\Student;
@@ -33,6 +35,21 @@ class testController extends Controller
 //        $st = Demand::find(1);
 //        echo $st->student;
           $x = [1, 3, 4, 9];
+
+//          $takafols = session('takafols');
+////          var_dump($takafols);
+//        foreach($takafols as $tak){
+//            $dependent = new Dependent;
+//            $dependent->name = $tak[0];
+//            $dependent->family = $tak[1];
+//            $dependent->relation = $tak[2];
+//            $dependent->provider_id = 7;
+//            $dependent->save();
+////            var_dump($tak);
+//        }
+
+       $x =  nesbateBaTalabe::first();
+       echo $x;
 
     }
 }
