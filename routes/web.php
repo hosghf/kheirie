@@ -31,17 +31,21 @@ Route::get('/varizModir', function () {
 Route::get('/acceptRegister', function () {
     return view('modir.acceptRegister');
 });
-Route::get('/register2', function () {
-    return view('registerRequest/registerReq2');
-});
-Route::get('/register3', function () {
-    return view('registerRequest/registerReq3');
-});
 Route::get('/login1', function () {
     return view('registerRequest/login');
 });
 Route::get('/test', 'test\testController@index');
 
+//finance
+Route::get('/admin/varizha', 'admin\testController@index');
+
+//school management
+Route::get('/admin/school', 'admin\manageSchoolController@index');
+Route::post('/admin/addSchool', 'admin\manageSchoolController@add');
+Route::get('/admin/editSchool/{school}', 'admin\manageSchoolController@showUpdate');
+Route::post('/admin/editSchool/{school}', 'admin\manageSchoolController@update');
+
+//registration routes
 Route::get('reg1', 'RegisterationRequest\RegisterRequestController@index');
 Route::post('reg1', 'RegisterationRequest\RegisterRequestController@reg1');
 Route::get('backReg1', 'RegisterationRequest\RegisterRequestController@backReg1');

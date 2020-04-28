@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title> @yield('title') </title>
-    <link rel="stylesheet" href="dashbordResources/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dashbordResources/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/dashbordResources/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/dashbordResources/dist/css/adminlte.min.css">
     <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
-    <link rel="stylesheet" href="dashbordResources/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="/dashbordResources/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
-    <link rel="stylesheet" href="dashbordResources/dist/css/custom-style.css">
+    <link rel="stylesheet" href="/dashbordResources/dist/css/custom-style.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -222,10 +222,10 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="dashbordResources/plugins/jquery/jquery.min.js"></script>
+<script src="/dashbordResources/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="dashbordResources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/dashbordResources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="dashbordResources/dist/js/adminlte.min.js"></script>
+<script src="/dashbordResources/dist/js/adminlte.min.js"></script>
 </body>
 </html>

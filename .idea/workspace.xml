@@ -2,30 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea39cc81-93f9-4f51-a34b-912628e6f65f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2014_04_21_081857_create_roles_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_094835_create_schools_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_100148_create_students_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_160108_create_providers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_175522_create_dependents_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_183810_create_demands_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_214734_create_status_codes_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_215333_create_payments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_04_21_215950_create_incomes_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/school/showUpdate.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/registerationRequest/RegisterRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/registerationRequest/RegisterRequestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/test/testController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/test/testController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_04_21_081857_create_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_094835_create_schools_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_100148_create_students_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_160108_create_providers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_175522_create_dependents_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_183810_create_demands_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_214734_create_status_codes_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_215333_create_payments_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_04_21_215950_create_incomes_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/loginRegisterResources/js/page2jq.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/loginRegisterResources/js/page2jq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registerRequest/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registerRequest/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registerRequest/registerReq1.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registerRequest/registerReq1.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registerRequest/registerReq2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registerRequest/registerReq2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registerRequest/registerReq3.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registerRequest/registerReq3.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registerRequest/registerReq4.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/registerRequest/registerReq4.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashbordLayout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashbordLayout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +35,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="18" column="26" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="26" />
+            <state relative-caret-position="340">
+              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/finance/varizha_list.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -80,14 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="F:/admin-lte-template/project/dashbord.html" />
-        <option value="$PROJECT_DIR$/resources/views/dashbordLayout.blade.php" />
-        <option value="F:/admin-lte-template/project/request.html" />
-        <option value="$PROJECT_DIR$/resources/views/admin/requests.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/variz_list.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/variz_list.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/adminDashbord.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/schools.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/requests_list.blade.php" />
         <option value="F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/login3.html" />
         <option value="F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/profile1.html" />
@@ -113,7 +107,6 @@
         <option value="$PROJECT_DIR$/resources/views/registerRequest/registerReq4.blade.php" />
         <option value="$PROJECT_DIR$/public/loginRegisterResources/js/page2jq.js" />
         <option value="$PROJECT_DIR$/resources/views/registerRequest/registerReq3.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/registerRequest/finalMessage.blade.php" />
         <option value="$PROJECT_DIR$/public/loginRegisterResources/css/iofrm-theme10.css" />
         <option value="$PROJECT_DIR$/resources/views/registerRequest/confirm.blade.php" />
@@ -131,6 +124,15 @@
         <option value="$PROJECT_DIR$/app/Models/Salary.php" />
         <option value="$PROJECT_DIR$/app/Models/typeOfIncome.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/test/testController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_04_28_193602_create_nesbate_ba_talabe_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_04_28_193717_create_salaries_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2020_04_28_193754_create_type_of_incomes_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashbordLayout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/school/school.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/school/showUpdate.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/admin/manageSchoolController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/finance/varizha_list.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
       </list>
     </option>
   </component>
@@ -232,8 +234,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="243" />
-    <option name="y" value="-19" />
+    <option name="x" value="640" />
     <option name="width" value="640" />
     <option name="height" value="760" />
   </component>
@@ -255,6 +256,61 @@
               <item name="kheirie" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="registerationRequest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kheirie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kheirie" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="finance" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -271,17 +327,17 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\laravel_kheirie\kheirie\resources\views\admin\finance" />
+      <recent name="F:\laravel_kheirie\kheirie\resources\views\admin\school" />
+      <recent name="F:\laravel_kheirie\kheirie\public\loginRegisterResources\css" />
+      <recent name="F:\laravel_kheirie\kheirie\resources\views\registerRequest" />
+      <recent name="F:\laravel_kheirie\kheirie\public\loginRegisterResources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\laravel_kheirie\kheirie\public\loginRegisterResources\css" />
       <recent name="F:\laravel_kheirie\kheirie\app\Models" />
       <recent name="F:\laravel_kheirie\kheirie\app\model" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\laravel_kheirie\kheirie\public\loginRegisterResources\css" />
-      <recent name="F:\laravel_kheirie\kheirie\resources\views\registerRequest" />
-      <recent name="F:\laravel_kheirie\kheirie\public\loginRegisterResources" />
-      <recent name="F:\laravel_kheirie\kheirie\public\loginRegisterResources\js" />
-      <recent name="F:\laravel_kheirie\kheirie\public\dashbordResources\dist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -314,19 +370,20 @@
       <updated>1587404785271</updated>
       <workItem from="1587404786693" duration="1237000" />
       <workItem from="1587575395611" duration="83339000" />
-      <workItem from="1587897448064" duration="60394000" />
+      <workItem from="1587897448064" duration="62072000" />
+      <workItem from="1588092591360" duration="12864000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175581000" />
+    <option name="totallyTimeSpent" value="190123000" />
   </component>
   <component name="TodoView" selected-index="3" />
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.30637255" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25326797" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -352,66 +409,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/css/iofrm-theme15.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="255" selection-start-line="255" selection-end-line="263" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/login3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/profile1.html" />
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/requests_list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1636">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/admin-lte-template/project/ModirVariz.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="223" column="14" lean-forward="true" selection-start-line="223" selection-start-column="14" selection-end-line="223" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/modir/variz.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/modir/acceptRegister.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/loginRegisterResources/js/bootstrap.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/admin-lte-template/project/ModirNewRegister.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="266" column="14" selection-start-line="206" selection-start-column="8" selection-end-line="266" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/registration1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="15" column="30" selection-end-line="91" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/registration2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -435,13 +432,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/loginRegisterResources/css/iofrm-style.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_215950_create_incomes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://F:/iofrm/iofrm-html_v10-www.persianscript.ir/iofrm/Template - changed/css/iofrm-theme3.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -474,30 +464,9 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_04_21_081857_create_roles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_100148_create_students_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_04_21_081857_create_roles_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_100148_create_students_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -540,13 +509,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_160108_create_providers_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_160108_create_providers_table.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/registerRequest/registerReq2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -568,105 +531,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/registerationRequest/RegisterRequestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1594">
-          <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
-          <folding>
-            <element signature="e#61#97#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_141759_create_table_salary.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_141713_create_type_of_income_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_141624_crete_nesbate_ba_talabes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142020_create_nesbat_ba_talabe_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142144_create_nesbat_ba_talabe_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142330_create_test_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_214734_create_status_codes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="29" column="31" selection-start-line="29" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142448_create_nesbat_ba_talabe_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="28" column="44" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142925_create_type_of_incomes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_175522_create_dependents_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="e#7#52#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_143520_create_nesbate_ba_talabe_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_143302_create_salaries_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_141759_create_table_salary.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_141713_create_type_of_income_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_141624_crete_nesbate_ba_talabes_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142020_create_nesbat_ba_talabe_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142144_create_nesbat_ba_talabe_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142330_create_test_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_214734_create_status_codes_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142448_create_nesbat_ba_talabe_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_142925_create_type_of_incomes_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_175522_create_dependents_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_143520_create_nesbate_ba_talabe_table.php" />
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_143302_create_salaries_table.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/Salary.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/typeOfIncome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -677,10 +564,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/typeOfIncome.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_215333_create_payments_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+        <state relative-caret-position="374">
+          <caret line="31" column="21" selection-start-line="31" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_193602_create_nesbate_ba_talabe_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_193717_create_salaries_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_28_193754_create_type_of_incomes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_04_21_215950_create_incomes_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="32" column="21" selection-start-line="32" selection-end-line="33" />
         </state>
       </provider>
     </entry>
@@ -695,10 +610,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/requests_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="95" column="7" selection-start-line="95" selection-end-line="95" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashbordLayout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="228" column="14" selection-start-line="228" selection-start-column="14" selection-end-line="228" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/registerationRequest/RegisterRequestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="122" column="5" selection-start-line="122" selection-start-column="5" selection-end-line="122" selection-end-column="5" />
+          <folding>
+            <element signature="e#61#97#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/admin/manageSchoolController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="49" column="63" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/school/school.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="83" column="47" lean-forward="true" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/school/showUpdate.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="23" column="63" selection-start-line="23" selection-start-column="63" selection-end-line="23" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/finance/varizha_list.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="26" />
+        <state relative-caret-position="340">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
         </state>
       </provider>
     </entry>
