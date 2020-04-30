@@ -18,7 +18,7 @@ class CreateDependentsTable extends Migration
             $table->string('name');
             $table->string('family');
             $table->string('relation');
-            $table->bigInteger('provider_id');
+            $table->bigInteger('provider_id')->unsigned();
             $table->timestamps();
         });
         Schema::table('dependents', function (Blueprint $table){

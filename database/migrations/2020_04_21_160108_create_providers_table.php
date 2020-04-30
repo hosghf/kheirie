@@ -18,10 +18,9 @@ class CreateProvidersTable extends Migration
             $table->string('name');
             $table->string('family');
             $table->string('code_meli')->unique();
-            $table->string('status_code');
-            $table->tinyInteger('under_sponsorship');
+            $table->tinyInteger('nesbat_ba_talabe');
             $table->string('job');
-            $table->string('explanation');
+            $table->string('explanation')->nullable();
             $table->tinyInteger('salary_code');
             $table->string('address');
             $table->string('postal_code');
@@ -29,8 +28,8 @@ class CreateProvidersTable extends Migration
             $table->string('mobile');
             $table->string('work_address');
             $table->string('work_phone');
-            $table->string('work_postal_code');
-            $table->bigInteger('student_id');
+            $table->string('work_postal_code')->nullable();
+            $table->bigInteger('student_id')->unsigned();
             $table->timestamps();
         });
         Schema::table('providers', function (Blueprint $table){

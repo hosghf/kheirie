@@ -15,9 +15,9 @@ class CreateIncomesTable extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
-            $table->decimal('amount');
-            $table->bigInteger('payer_code');
-            $table->tinyInteger('help')->default(0);
+            $table->decimal('amount', 16,2);
+            $table->bigInteger('school_code');
+            $table->string('transaction_number');
             $table->tinyInteger('type');
             $table->timestamps();
         });

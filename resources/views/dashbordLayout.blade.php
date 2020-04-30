@@ -83,9 +83,6 @@
             <div>
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
-                    </div>
                     <div class="info">
                         <a href="#" class="d-block">فریناز لاری </a>
                     </div>
@@ -97,7 +94,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="./dashbord.html" class="nav-link active">
+                            <a href="/admin/dashbord" class="nav-link {{ Route::currentRouteName() == 'dashbord' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     داشبورد
@@ -107,7 +104,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="./requests.html" class="nav-link">
+                            <a href="/admin/demand/list" class="nav-link {{ isset($demands) ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     درخواست ها
@@ -116,7 +113,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item has-treeview">
+                        <li class="nav-item has-treeview {{ isset($varizha) || isset($pays) || isset($helps) ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa fa-dashboard"></i>
                                 <p>
@@ -126,20 +123,20 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="varizha.html" class="nav-link">
+                                    <a href="/admin/varizha" class="nav-link {{ isset($varizha) ? 'active' : '' }}">
                                         <p>واریز های مدیران
                                             <span class="right badge badge-danger">جدید ۵</span>
                                         </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
+                                    <a href="/admin/helps" class="nav-link {{ isset($helps) ? 'active' : '' }}">
                                         <!--<i class="fa fa-circle-o nav-icon"></i>-->
                                         <p> کمک های مردمی </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
+                                    <a href="/admin/payList" class="nav-link {{ isset($pays) ? 'active' : '' }}">
                                         <!--<i class="fa fa-circle-o nav-icon"></i>-->
                                         <p> پرداخت ها </p>
                                     </a>
@@ -148,7 +145,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="./dashbord.html" class="nav-link">
+                            <a href="/admin/school" class="nav-link {{isset($schools) ? 'active' : ''}}">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     مدیریت مدارس
@@ -172,28 +169,24 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark"> داشبورد </h1>
+                        <h1 class="m-0 text-dark"> @yield('title') </h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-left">
-                            <li class="breadcrumb-item"><a href="#">داشبورد</a></li>
+                            <li class="breadcrumb-item"><a href="#">@yield('title')</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
 
-
         <div class="content">
             <div class="container-fluid">
-
                 {{-- locate rows here --}}
                 @yield('content')
 
             </div>
         </div>
-
-
     </div>
     <!-- /.content-wrapper -->
 
@@ -214,7 +207,7 @@
             09398454623-
         </div>
         <!-- Default to the left -->
-        <strong> CopyLeft &copy; 2020 <a> شبکه دیدبان </a>.</strong>
+        <strong> CopyRight &copy; 2020 <a> شبکه دیدبان </a>.</strong>
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -227,5 +220,6 @@
 <script src="/dashbordResources/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="/dashbordResources/dist/js/adminlte.min.js"></script>
+@yield('js')
 </body>
 </html>

@@ -1,6 +1,7 @@
 @extends('../dashbordLayout')
 
-@section('title', 'لیست واریز ها')
+@section('title', 'لیست درخواست ها')
+
 @section('content')
 
 
@@ -27,27 +28,33 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> واریز ها </h3>
+                    <h3 class="card-title"> درخواست ها </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                     <table class="table table-hover">
                         <tbody><tr>
                             <th>شماره</th>
-                            <th>مبلغ</th>
-                            <th>مدرسه</th>
-                            <th>نوع</th>
-                            <th>تاریخ</th>
+                            <th>نام</th>
+                            <th>نام خانوادگی</th>
+                            <th>کد ملی طلبه</th>
+                            <th>شغل سرپرست</th>
+                            <th> درآمد سرپرست </th>
+                            <th> کد درخواست </th>
+                            <th> تاریخ تایید مدیر </th>
                         </tr>
-                        @if(isset($varizha))
+                        @if(isset($demands))
                             <div class="d-none">{{ $x = 1 }}</div>
-                            @foreach($varizha as $variz)
-                                <tr>
+                            @foreach($demands as $demand)
+                                <tr href="/admin/demand/{{ $demand->id }}" class="tr">
                                     <td>{{ $x++ }}</td>
-                                    <td>{{ $variz->amount }}</td>
-                                    <td> {{ $variz->school->school_name }} </td>
-                                    <td>{{ $variz->typeOfIncome->title }}</td>
-                                    <td class="text-right"> {{ $variz->x }} </td>
+                                    <td>{{ $demand->student->name }}</td>
+                                    <td> {{ $demand->student->family }} </td>
+                                    <td>{{ $demand->student_code_meli }}</td>
+                                    <td>{{ $demand->student->provider->job }}</td>
+                                    <td>{{ $demand->student->provider->salary_code }}</td>
+                                    <td>{{ $demand->id }}</td>
+                                    <td> {{ $demand->m1 }} </td>
                                 </tr>
                             @endforeach
                         @endif
@@ -55,14 +62,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    {{$varizha->links()}}
-                    {{--<ul class="pagination pagination-sm m-0 float-right">--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">«</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۱</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۲</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۳</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">»</a></li>--}}
-                    {{--</ul>--}}
+                    {{$demands->links()}}
                 </div>
                 <!-- /.card-footer-->
             </div>
@@ -71,4 +71,8 @@
     </div>
 
 
+@endsection
+
+@section('js')
+    <script src="/dashbordResources/dist/js/clickTable.js"></script>
 @endsection

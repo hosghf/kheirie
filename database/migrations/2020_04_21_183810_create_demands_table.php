@@ -16,12 +16,11 @@ class CreateDemandsTable extends Migration
         Schema::create('demands', function (Blueprint $table) {
             $table->id();
             $table->string('student_code_meli');
-            $table->string('status_code');
+            $table->tinyInteger('status_code');
             $table->timestamps();
         });
         Schema::table('demands', function (Blueprint $table) {
-            $table->foreign('student_code_meli')->references('code_meli')
-                ->on('students')->onDelete('cascade');
+            $table->foreign('student_code_meli')->references('code_meli')->on('students');
         });
     }
 

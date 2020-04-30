@@ -1,6 +1,7 @@
 @extends('../dashbordLayout')
 
-@section('title', 'لیست واریز ها')
+@section('title', 'لیست پرداخت ها')
+
 @section('content')
 
 
@@ -12,7 +13,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-6 col-md-2">
-                        <input type="text" class="form-control" placeholder="مدرسه">
+                        <input type="text" class="form-control" placeholder="نام خانوادگی واریز کننده">
                     </div>
                     <div class="col-sm-6 col-md-2">
                         <input type="button" class="form-control btn btn-info" value="جستجو">
@@ -27,7 +28,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> واریز ها </h3>
+                    <h3 class="card-title"> کمک ها </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
@@ -35,19 +36,21 @@
                         <tbody><tr>
                             <th>شماره</th>
                             <th>مبلغ</th>
-                            <th>مدرسه</th>
-                            <th>نوع</th>
+                            <th>کد ملی دانشجو</th>
+                            <th> کد درخواست </th>
+                            <th>شماره تراکنش</th>
                             <th>تاریخ</th>
                         </tr>
-                        @if(isset($varizha))
+                        @if(isset($pays))
                             <div class="d-none">{{ $x = 1 }}</div>
-                            @foreach($varizha as $variz)
+                            @foreach($pays as $pay)
                                 <tr>
                                     <td>{{ $x++ }}</td>
-                                    <td>{{ $variz->amount }}</td>
-                                    <td> {{ $variz->school->school_name }} </td>
-                                    <td>{{ $variz->typeOfIncome->title }}</td>
-                                    <td class="text-right"> {{ $variz->x }} </td>
+                                    <td>{{ $pay->amount }}</td>
+                                    <td>{{ $pay->st_code_meli }} </td>
+                                    <td> {{ $pay->demand_code }} </td>
+                                    <td> {{ $pay->transaction_number }} </td>
+                                    <td> {{ $pay->x }} </td>
                                 </tr>
                             @endforeach
                         @endif
@@ -55,7 +58,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    {{$varizha->links()}}
+                    {{ $pays->links() }}
                     {{--<ul class="pagination pagination-sm m-0 float-right">--}}
                         {{--<li class="page-item"><a class="page-link" href="#">«</a></li>--}}
                         {{--<li class="page-item"><a class="page-link" href="#">۱</a></li>--}}

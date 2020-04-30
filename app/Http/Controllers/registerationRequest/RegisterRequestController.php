@@ -153,7 +153,6 @@ class RegisterRequestController extends Controller
         $provider->mobile = $reg4['prov_mobil'];
         $provider->work_address = $reg4['prov_work_address'];
         $provider->work_phone = $reg4['work_phone'];
-        $provider->status_code = 1;
 
         //add takafols to db dependents
 
@@ -174,6 +173,7 @@ class RegisterRequestController extends Controller
             }
             DB::commit();
             echo 'student is added and provider added';
+            return redirect('finalMessage');
         } catch (Exception $e){
             DB::rollBack();
                 if($e->errorInfo[1] == 1062){
@@ -185,7 +185,6 @@ class RegisterRequestController extends Controller
                 echo '<br>';
                 echo $e->errorInfo[1];
         }
-        return redirect('finalMessage');
     }
     public function finalMessage(){
         session()->forget('reg1');

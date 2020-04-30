@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Provider extends Model
 {
     public function dependents(){
-        $this->hasMany('App\Models\Dependent');
+        return $this->hasMany('App\Models\Dependent');
     }
 
     public function student(){
-        $this->belongsTo('Appp\Models\Student');
+        return $this->belongsTo('Appp\Models\Student');
     }
 }

@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Dependent extends Model
 {
     public function provider(){
-        $this->belongsTo('App\Models\Provider');
+        return $this->belongsTo('App\Models\Provider');
     }
 }

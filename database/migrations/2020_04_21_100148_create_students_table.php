@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('family');
             $table->string('father_name');
             $table->string('mobile');
-            $table->bigInteger('school_id');
+            $table->bigInteger('school_id')->unsigned();
             $table->tinyInteger('status_code');
             $table->timestamps();
         });
