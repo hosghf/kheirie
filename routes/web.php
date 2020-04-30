@@ -16,12 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/request', function () {
-    return view('admin.requests_list');
-});
-Route::get('/variz', function () {
-    return view('admin.variz_list');
-});
+
+
 Route::get('/varizModir', function () {
     return view('modir.variz');
 });
@@ -34,27 +30,27 @@ Route::get('/login1', function () {
 Route::get('/test', 'test\testController@index');
 
 
-//admin
+//admin/dashbord
 Route::get('/admin/dashbord', 'admin\dashbordController@index')->name('dashbord');
-
 //admin/finance
 Route::get('/admin/varizha', 'admin\varizPayHelpController@varizList');
 Route::get('/admin/helps', 'admin\varizPayHelpController@helps');
 Route::get('/admin/payList', 'admin\varizPayHelpController@paymentList');
-
+//admin/demand
 Route::get('/admin/demand/list', 'admin\demandsController@list');
 Route::get('/admin/demand/{id}', 'admin\demandsController@show');
-
 //demand pay
 Route::get('/admin/demand/{id}/payShow', 'admin\demandsController@payShow');
-Route::get('/admin/demand/{id}/payConfirm', 'admin\demandsController@payConfirm');
 Route::post('/admin/demand/{id}/pay', 'admin\demandsController@pay');
-
 //school management
 Route::get('/admin/school', 'admin\manageSchoolController@index');
 Route::post('/admin/addSchool', 'admin\manageSchoolController@add');
 Route::get('/admin/editSchool/{school}', 'admin\manageSchoolController@showUpdate');
 Route::post('/admin/editSchool/{school}', 'admin\manageSchoolController@update');
+//admin settings
+Route::get('/admin/settings', 'admin\settingsController@index');
+Route::post('/admin/settings/addType', 'admin\settingsController@addType');
+
 
 //registration routes
 Route::get('reg1', 'RegisterationRequest\RegisterRequestController@index');

@@ -15,10 +15,11 @@ class CreateIncomesTable extends Migration
     {
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
-            $table->decimal('amount', 16,2);
+            $table->decimal('amount', 18,2);
             $table->bigInteger('school_code');
-            $table->string('transaction_number');
             $table->tinyInteger('type');
+            $table->tinyInteger('dargah')->default(1);
+            $table->string('kartTransactNum');
             $table->timestamps();
         });
     }

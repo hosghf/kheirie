@@ -24,22 +24,26 @@ class demandsController extends Controller
     }
 
     public function show($id){
-        $codeMeli = Demand::find($id)->student_code_meli;
-        $student = Student::where('code_meli', $codeMeli)->first();
+        $demand = Demand::find($id);
+        $student = Student::where('code_meli', $demand->student_code_meli)->first();
         $provider = $student->provider;
         $provider->relation = nesbateBaTalabe::find($provider->nesbat_ba_talabe)->first()->title;
         $provider->salary = Salary::find($provider->salary_code)->first()->title;
         $dependents =  $student->provider->dependents;
-        return view('admin.demand.demand', ['student' => $student, 'provider' => $provider, 'dependents' => $dependents, 'id' => $id ]);
+
+        //tarikh
+        $demand->tarikh= Verta($demand->updated_at);
+        $demand->tarikh = $demand->tarikh->format('n-j-Y');
+        $demand->tarikh = Verta::persianNumbers($demand->tarikh);
+        $demand->shomare = Verta::persianNumbers($demand->id);
+
+        return view('admin.demand.demand', ['student' => $student, 'provider' => $provider, 'dependents' => $dependents, 'id' => $id, 'demand' => $demand ]);
     }
     public function payShow($id){
         $demandId = $id;
         $codeMeli = Demand::find($id)->student_code_meli;
         $student = Student::where('code_meli', $codeMeli)->first();
         return view('admin.demand.pay', ['demandId' => $demandId, 'student' => $student]);
-    }
-    public function payConfirm(){
-
     }
     public function pay(Request $request, $id){
         $demandId = $id;

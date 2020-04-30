@@ -3,6 +3,20 @@
 @section('title', 'درخواست')
 
 @section('content')
+<script>
+
+    var arabicNumbers = ['0', '۱', '۲', '۳', '4', '5', '6', '7', '8', '۹'];
+    $('.translate').text(function(i, v) {
+        var chars = v.split('');
+        for (var i = 0; i < chars.length; i++) {
+            if (/d/.test(chars[i])) {
+                chars[i] = arabicNumbers[chars[i]];
+            }
+        }
+        return chars.join('');
+    })
+
+</script>
 
     <div class="content">
         <div class="container-fluid">
@@ -13,7 +27,11 @@
                     <div class="row">
                         <div class="col-12">
                             <h4>
-                                درخواست شماره 20<small class="float-left">تاریخ: ۱۳۹۷/۰۹/۳۰</small>
+                                درخواست شماره
+                                @if(isset($demand)) <span> {{ $demand->shomare }}
+                                <small class="float-left">تاریخ:
+                                    <span> {{ $demand->tarikh }}</span> @endif
+                                </small>
                             </h4>
                         </div>
                         <!-- /.col -->
@@ -29,7 +47,7 @@
                             <p class="col-md-4 col-sm-6  mt-4"><span class="text-bold"> نام پدر</span>: {{ $student->father_name }}</p>
                             <p class="col-md-4 col-sm-6  mt-4"><span class="text-bold"> کد طلبگی </span> : {{ $student->code_talabegi }}</p>
                             <p class="col-md-4 col-sm-6  mt-4"><span class="text-bold"> کد ملی </span> : {{ $student->code_meli }}</p>
-                            <p class="col-md-4 col-sm-6  mt-4"> <span class="text-bold"> همراه طلبه </span>: {{ $student->mobile }}</p>
+                            <p class="col-md-4 col-sm-6  mt-4 translate"> <span class="text-bold"> همراه طلبه </span>: {{ Verta::persianNumbers($student->mobile ) }}</p>
                             <p class="col-md-4 col-sm-6  mt-4"> <span class="text-bold"> مدرسه </span> :{{ $student->school->school_name }}</p>
                         </div>
                         <div class="row invoice-col mt-5">

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class typeOfIncome extends Model
 {
+    public $timestamps = false;
+
     protected $table = 'type_of_incomes';
 
     public function  incomes(){

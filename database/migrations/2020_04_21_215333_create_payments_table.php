@@ -16,9 +16,10 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('st_code_meli');
-            $table->string('transaction_number')->nullable();
             $table->bigInteger('demand_code')->unique();
-            $table->decimal('amount');
+            $table->decimal('amount', 18, 2);
+            $table->tinyInteger('chek')->default(1);
+            $table->string('kartCheckPath')->nullable();
             $table->timestamps();
         });
     }

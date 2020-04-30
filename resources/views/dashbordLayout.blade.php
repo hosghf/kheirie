@@ -154,6 +154,15 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="/admin/school" class="nav-link {{isset($schools) ? 'active' : ''}}">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                     تنظیمات برنامه
+                                </p>
+                            </a>
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
