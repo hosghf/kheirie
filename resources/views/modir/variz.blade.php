@@ -90,7 +90,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-
+                    {{ isset($varizha) ? $varizha->links() : '' }}
                 </div>
                 <!-- /.card-footer-->
             </div>

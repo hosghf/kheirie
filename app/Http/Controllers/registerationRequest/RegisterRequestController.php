@@ -130,7 +130,11 @@ class RegisterRequestController extends Controller
         $reg2 = session('reg2');
         $reg4 = session('reg4');
         $takafols = session('takafols');
-        return view('registerRequest.confirm', [ 'reg1' => $reg1, 'reg2' => $reg2 ,'reg4' => $reg4, 'takafols' => $takafols]);
+        $school = School::all();
+        $relation = nesbateBaTalabe::all();
+        $salary = Salary::all();
+        return view('registerRequest.confirm', [ 'reg1' => $reg1, 'reg2' => $reg2 ,
+            'reg4' => $reg4, 'takafols' => $takafols, 'school' => $school, 'relation' => $relation, 'salary' => $salary]);
     }
     public function store(){
         $reg1 = session('reg1');
@@ -174,27 +178,31 @@ class RegisterRequestController extends Controller
             var_dump($st_id);
             $provider->student_id = $st_id;
             $provider->save();
-            foreach($takafols as $tak){
-                $dependent = new Dependent;
-                $dependent->name = $tak[0];
-                $dependent->family = $tak[1];
-                $dependent->relation = $tak[2];
-                $dependent->provider_id = $provider->id;
-                $dependent->save();
+
+            if(isset($takafols) || null != $takafols) {
+                foreach ($takafols as $tak) {
+                    $dependent = new Dependent;
+                    $dependent->name = $tak[0];
+                    $dependent->family = $tak[1];
+                    $dependent->relation = $tak[2];
+                    $dependent->provider_id = $provider->id;
+                    $dependent->save();
+                }
             }
+
             DB::commit();
             echo 'student is added and provider added';
             return redirect('finalMessage');
         } catch (Exception $e){
             DB::rollBack();
-                if($e->errorInfo[1] == 1062){
-                    echo "کد ملی یا کد طلبگی قبلا در سیستم ثبت شده";
-                }
+//                if($e->errorInfo[1] == 1062){
+//                    echo "کد ملی یا کد طلبگی قبلا در سیستم ثبت شده";
+//                }
                 echo $e->getCode();
                 echo '<br>';
                 echo $e->getMessage();
                 echo '<br>';
-                echo $e->errorInfo[1];
+//                echo $e->errorInfo[1];
         }
     }
     public function finalMessage(){

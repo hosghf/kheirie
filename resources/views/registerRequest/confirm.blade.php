@@ -64,7 +64,15 @@
                             </div>
                             <div class="col">
                                 <label>مدرسه</label>
-                                <p>{{ $reg1['school'] ?? '' }}</p>
+                                <p>@if(isset($reg1))
+                                        @foreach($school as $s)
+                                            @if($s->id == $reg1['school'])
+                                                {{ $s->school_name }}
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="form-row">
@@ -89,7 +97,15 @@
                         <div class="form-row">
                             <div class="col">
                                 <label> نسبت با طلبه </label>
-                                <p>{{ $reg2['relation_to_st'] ?? '' }}</p>
+                                <p>@if(isset($reg2))
+                                        @foreach($relation as $rel)
+                                                @if($rel->id == $reg2['relation_to_st'])
+                                                    {{ $rel->title }}
+                                                    @break
+                                                @endif
+                                        @endforeach
+                                   @endif
+                                </p>
                             </div>
                         </div>
                         <div class="form-row">
@@ -111,7 +127,15 @@
                         <div class="form-row">
                             <div class="col-12">
                                 <label>میزان درآمد</label>
-                                <p>{{ $reg2['prov_salary'] ?? '' }}</p>
+                                <p>@if(isset($reg2))
+                                        @foreach($salary as $sal)
+                                            @if($sal->id == $reg2['prov_salary'])
+                                                {{ $sal->title }}
+                                                @break
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                </p>
                             </div>
                         </div>
                         <div class="form-group mt-4">

@@ -11,16 +11,13 @@ use Illuminate\Http\Request;
 class varizController extends Controller
 {
     public function list(){
-        $varizha = Income::where('school_code', 1)->get();
+        $varizha = Income::where('school_code', 1)->paginate();
         $daste = typeOfIncome::all();
 
         foreach($varizha as $v) {
             $v->tarikh = Verta($v->created_at);
             $v->tarikh = $v->tarikh->format('Y-j-n');
             $v->tarikh = Verta::persianNumbers($v->tarikh);
-//            if($daste->id == $v->type ) {
-//                $v->daste = $daste->title;
-//            }
         }
         return view('modir.variz', ['varizha' => $varizha, 'daste' => $daste]);
     }

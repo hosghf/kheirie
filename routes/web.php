@@ -24,11 +24,12 @@ Route::post('/modir/varizModir', 'modir\varizController@variz');
 Route::get('/modir/acceptRegisterShow', 'modir\sabteNameController@index');
 Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept');
 
+Route::get('/modir/darkhastList', 'modir\darkhastController@list');
+
 Route::get('/login1', function () {
     return view('registerRequest/login');
 });
 Route::get('/test', 'test\testController@index');
-
 
 //admin/dashbord
 Route::get('/admin/dashbord', 'admin\dashbordController@index')->name('dashbord');

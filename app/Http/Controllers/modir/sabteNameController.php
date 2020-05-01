@@ -16,6 +16,7 @@ class sabteNameController extends Controller
         $student = Student::find($id)->first();
         $student->status_code = 2;
         $student->save();
-        return redirect('/modir/acceptRegisterShow');
+//        return redirect('/modir/acceptRegisterShow');
+        return redirect()->back();
     }
 }

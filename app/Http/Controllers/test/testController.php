@@ -12,6 +12,8 @@ use App\Models\Status_code;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Collection;
+use Illuminate\Database\Eloquent\Builder;
 
 class testController extends Controller
 {
@@ -52,7 +54,14 @@ class testController extends Controller
 //       $x =  nesbateBaTalabe::first();
 //       echo $x;
 
-        $x =  Status_code::find(1);
-        echo $x;
+//        $x =  Status_code::find(1);
+//        echo $x;
+//        $demands = Demand::has('school' , '!=' , 3)->get();
+
+        $demands = Demand::whereHas('student', function (Builder $query) {
+            $query->where('school_id', 1);
+        })->where('status_code', '!=', 3)->paginate();
+        dd($demands);
+
     }
 }
