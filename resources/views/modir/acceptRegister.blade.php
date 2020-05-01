@@ -22,43 +22,29 @@
                             <th>تایید</th>
                             <th>رد</th>
                         </tr>
-                        <tr>
-                            <td>۱۸۳</td>
-                            <td>محمد</td>
-                            <td>۱۱-۷-۲۰۱۴</td>
-                            <td>757565765</td>
-                            <td>ناتن</td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-success btn-sm">تایید ثبت نام</button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-danger btn-sm"> رد ثبت نام </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>۱۸۳</td>
-                            <td>محمد</td>
-                            <td>۱۱-۷-۲۰۱۴</td>
-                            <td>757565765</td>
-                            <td>ناتن</td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-success btn-sm">تایید ثبت نام</button>
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-danger btn-sm"> رد ثبت نام </button>
-                            </td>
-                        </tr>
+                        <div class="d-none">{{$x = 1}}</div>
+                        @if(isset($students))
+                        @foreach($students as $st)
+                            <tr>
+                                <td>{{$x++}}</td>
+                                <td>{{$st->name}}</td>
+                                <td>{{$st->family}}</td>
+                                <td>{{$st->code_talabegi}}</td>
+                                <td>{{$st->code_meli}}</td>
+                                <td>
+                                    <a type="button" href="/modir/acceptRegister/{{$st->id}}" class="btn btn-block btn-success btn-sm">تایید ثبت نام</a>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn btn-block btn-danger btn-sm"> رد ثبت نام </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                            @endif
                         </tbody></table>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    <ul class="pagination pagination-sm m-0 float-right">
-                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                        <li class="page-item"><a class="page-link" href="#">۱</a></li>
-                        <li class="page-item"><a class="page-link" href="#">۲</a></li>
-                        <li class="page-item"><a class="page-link" href="#">۳</a></li>
-                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                    </ul>
+                  @if(isset($students))  {{ $students->links() }} @endif
                 </div>
                 <!-- /.card-footer-->
             </div>

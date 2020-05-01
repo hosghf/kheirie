@@ -7,17 +7,49 @@
     <div class="row">
         <div class="card card-info col">
             <div class="card-header">
-                <h3 class="card-title"> تعیین مبلغ واریزی </h3>
+                <h3 class="card-title"> واریز مدیر </h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-2 col-sm-6">
-                        <input type="text" class="form-control" placeholder="مبلغ">
+                <form method="post" class="col-12" action="/modir/varizModir">
+                    @csrf
+                    <div class="form-row">
+                        <div class="col-md-2 col-sm-6 mt-4">
+                            <label>مبلغ</label>
+                            <input type="text" name="amount" class="form-control" placeholder="مبلغ">
+                        </div>
+                        <div class="col-md-2 col-sm-6 mt-4">
+                            <label> دسته </label>
+                            <select name="daste" class="form-control">
+                                @foreach($daste as $d)
+=                                  <option value="{{ $d->id }}"> {{$d->title}} </option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-sm-6 col-md-2">
-                        <input type="button" class="form-control btn btn-info" value="پرداخت">
+                    <div class="form-row mt-4">
+                        <div class="col-md-2 col-sm-6 mt-4">
+                            <label>نوع پرداخت</label>
+                            <select name="darghah" class="form-control">
+                                <option value="1">درگاه پرداخت</option>
+                                <option value="0">کارت به کارت</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mt-4">
+                            <label>شماره چک/فیش</label>
+                            <input type="text" name="checkFishNum" class="form-control">
+                        </div>
+                        <div class="col-md-3 col-sm-6 mt-4">
+                            <label>تصویر چک/فیش</label>
+                            <input type="file" name="image" class="form-control" placeholder="انتخاب تصویر">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="col-sm-6 col-md-2 mt-4">
+                        <label> </label>
+                        <input type="submit" class="form-control btn btn-info" value="تایید و پرداخت">
+                    </div>
+
+                </form>
             </div>
             <!-- /.card-body -->
         </div>
@@ -35,49 +67,30 @@
                         <tbody><tr>
                             <th>شماره</th>
                             <th>مبلغ</th>
+                            <th>مدرسه</th>
+                            <th>دسته</th>
+                            <th>نوع پرداخت</th>
+                            <th>شماره چک یا فیش</th>
                             <th>تاریخ</th>
-                            <th>توضیحات</th>
-                            <th>دلیل</th>
                         </tr>
-                        <tr>
-                            <td>۱۸۳</td>
-                            <td>محمد</td>
-                            <td>۱۱-۷-۲۰۱۴</td>
-                            <td><span class="badge badge-success">تایید شده</span></td>
-                            <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
-                        </tr>
-                        <tr>
-                            <td>۲۱۹</td>
-                            <td>حسام</td>
-                            <td>۱۱-۷-۲۰۱۴</td>
-                            <td><span class="badge bg-danger">در حال بررسی</span></td>
-                            <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
-                        </tr>
-                        <tr>
-                            <td>۶۵۷</td>
-                            <td>رضا</td>
-                            <td>۱۱-۷-۲۰۱۴</td>
-                            <td><span class="badge badge-primary">تایید شده</span></td>
-                            <td><button class="btn">asfsf</button></td>
-                        </tr>
-                        <tr>
-                            <td>۱۷۵</td>
-                            <td>پرهام</td>
-                            <td>۱۱-۷-۲۰۱۴</td>
-                            <td><span class="badge badge-danger">رد شده</span></td>
-                            <td>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</td>
-                        </tr>
+                        @if(isset($varizha))
+                            @foreach($varizha as $v)
+                                <tr>
+                                    <td>{{ $v->id }}</td>
+                                    <td>{{ $v->amount }}</td>
+                                    <td>{{ $v->school_code }}</td>
+                                    <td>{{ $v->typeOfIncome->title }}</td>
+                                    <td>{{ $v->type ? 'درگاه اینترنتی' : 'کارت به کارت' }}</td>
+                                    <td>{{ $v->kartTransactNum }}</td>
+                                    <td>{{ $v->tarikh }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
                         </tbody></table>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
-                    <ul class="pagination pagination-sm m-0 float-right">
-                        <li class="page-item"><a class="page-link" href="#">«</a></li>
-                        <li class="page-item"><a class="page-link" href="#">۱</a></li>
-                        <li class="page-item"><a class="page-link" href="#">۲</a></li>
-                        <li class="page-item"><a class="page-link" href="#">۳</a></li>
-                        <li class="page-item"><a class="page-link" href="#">»</a></li>
-                    </ul>
+
                 </div>
                 <!-- /.card-footer-->
             </div>

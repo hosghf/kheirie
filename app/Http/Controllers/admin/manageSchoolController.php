@@ -14,6 +14,21 @@ class manageSchoolController extends Controller
     }
 
     public function add(Request $request){
+
+        $request->validate([
+            'code_meli_modir' => 'required',
+            'modir_phone' => 'required',
+            'school_name' => 'required',
+            'managerName' => 'required',
+            'managerFamily' => 'required',
+        ],[
+            'code_meli_modir.required' => 'کد ملی مدیر را وارد کنید.',
+            'modir_phone.required' => 'تلفن مدیر را وارد کنید.',
+            'school_name.required' => 'نام مدرسه را وارد کنید',
+            'managerName.required' => 'نام مدیر را وارد کنید.',
+            'managerFamily.required' => 'نام خانوادگی مدیر را وارد کنید',
+        ]);
+
         $school = new School;
         $school->school_name = $request->school_name;
         $school->address = $request->school_address;

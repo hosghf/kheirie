@@ -17,13 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//modir
+Route::get('/modir/varizModir', 'modir\varizController@list');
+Route::post('/modir/varizModir', 'modir\varizController@variz');
 
-Route::get('/varizModir', function () {
-    return view('modir.variz');
-});
-Route::get('/acceptRegister', function () {
-    return view('modir.acceptRegister');
-});
+Route::get('/modir/acceptRegisterShow', 'modir\sabteNameController@index');
+Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept');
+
 Route::get('/login1', function () {
     return view('registerRequest/login');
 });
@@ -45,6 +45,7 @@ Route::post('/admin/demand/{id}/pay', 'admin\demandsController@pay');
 //school management
 Route::get('/admin/school', 'admin\manageSchoolController@index');
 Route::post('/admin/addSchool', 'admin\manageSchoolController@add');
+Route::get('/admin/addSchool', 'admin\manageSchoolController@index');
 Route::get('/admin/editSchool/{school}', 'admin\manageSchoolController@showUpdate');
 Route::post('/admin/editSchool/{school}', 'admin\manageSchoolController@update');
 //admin settings

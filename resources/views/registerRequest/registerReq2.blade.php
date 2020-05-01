@@ -13,13 +13,13 @@
 </head>
 <body>
 <div class="form-body" class="container-fluid">
-    <div class="website-logo">
-        <a href="index.html">
-            <div class="logo">
-                <img class="logo-size" src="" alt="">
-            </div>
-        </a>
-    </div>
+    {{--<div class="website-logo">--}}
+        {{--<a href="index.html">--}}
+            {{--<div class="logo">--}}
+                {{--<img class="logo-size" src="" alt="">--}}
+            {{--</div>--}}
+        {{--</a>--}}
+    {{--</div>--}}
     <div class="row">
         <div class="img-holder">
             <div class="bg"></div>
@@ -59,8 +59,17 @@
                             <span class="text-danger">*</span>
                             <label>نسبت با طلبه</label>
                             <select class="form-control" name="relation_to_st" style="direction: rtl;">
-                                <option value="1">فثضل</option>
-                                <option value="2">احمد</option>
+                                @if(isset($relations))
+                                    @foreach($relations as $rel)
+                                        <option value="{{$rel->id}}"
+                                        @if(isset($reg2))
+                                            @if($reg2['relation_to_st'] == $rel->id)
+                                                {{'selected'}}
+                                            @endif
+                                        @endif
+                                        >{{ $rel->title }}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
                         <div class="form-row pt-3">
@@ -77,8 +86,17 @@
                             <span class="text-danger ">*</span>
                             <label> میزان درآمد ماهیانه </label>
                             <select class="form-control" name="prov_salary" style="direction: rtl;">
-                                <option value="1">فثضل</option>
-                                <option value="2">احمد</option>
+                                @if(isset($salaries))
+                                    @foreach($salaries as $sal)
+                                       <option value="{{$sal->id}}"
+                                           @if(isset($reg2))
+                                               @if($reg2['prov_salary'] == $sal->id)
+                                                   {{'selected'}}
+                                               @endif
+                                           @endif
+                                               >{{$sal->title}}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
                         <div class="form-button text-right">

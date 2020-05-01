@@ -155,7 +155,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="/admin/school" class="nav-link {{isset($schools) ? 'active' : ''}}">
+                            <a href="/admin/settings" class="nav-link">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                      تنظیمات برنامه

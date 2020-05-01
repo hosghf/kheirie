@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ثبت درخواست مرحله اول</title>
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/fontawesome-all.min.css">
+    {{--<link rel="stylesheet" type="text/css" href="loginRegisterResources/css/fontawesome-all.min.css">--}}
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-theme15.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/farsi_fonts.css">
@@ -13,13 +13,13 @@
 </head>
 <body>
 <div class="form-body" class="container-fluid">
-    <div class="website-logo">
-        <a href="index.html">
-            <div class="logo">
-                <img class="logo-size" src="" alt="">
-            </div>
-        </a>
-    </div>
+    {{--<div class="website-logo">--}}
+        {{--<a href="index.html">--}}
+            {{--<div class="logo">--}}
+                {{--<img class="logo-size" src="" alt="">--}}
+            {{--</div>--}}
+        {{--</a>--}}
+    {{--</div>--}}
     <div class="row">
         <div class="img-holder">
             <div class="bg"></div>
@@ -74,9 +74,17 @@
                             <label> <span class="text-danger">*</span>
                                 مدرسه</label>
                             <select class="form-control" name="school">
-                                <option value="0"  ></option>
-                                <option value="1" selected >الزهرا</option>
-                                <option value="1">احمدیه</option>
+=                                @if(isset($school))
+                                    @foreach($school as $s)
+                                        <option value="{{$s->id}}"
+                                                @if(isset($reg1))
+                                                    @if($reg1['school'] == $s->id)
+                                                        {{'selected'}}
+                                                    @endif
+                                                @endif
+                                        > {{$s->school_name}}</option>
+                                    @endforeach
+                                @endif
                             </select>
                         </div>
                         <div class="form-button text-right">
@@ -88,9 +96,9 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="loginRegisterResources/js/jquery.min.js"></script>
-<script type="text/javascript" src="loginRegisterResources/js/popper.min.js"></script>
-<script type="text/javascript" src="loginRegisterResources/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="loginRegisterResources/js/main.js"></script>
+{{--<script type="text/javascript" src="loginRegisterResources/js/jquery.min.js"></script>--}}
+{{--<script type="text/javascript" src="loginRegisterResources/js/popper.min.js"></script>--}}
+{{--<script type="text/javascript" src="loginRegisterResources/js/bootstrap.min.js"></script>--}}
+{{--<script type="text/javascript" src="loginRegisterResources/js/main.js"></script>--}}
 </body>
 </html>

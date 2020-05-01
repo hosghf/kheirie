@@ -58,6 +58,9 @@ class demandsController extends Controller
         $payment = new Payment;
         $payment->st_code_meli = $codeMeli;
         $payment->demand_code = $id;
+        $payment->chek = $request->check;
+        $payment->tasvirkartCheck = $request->image;
+        $payment->fishChkNum = $request->fishCheckNum;
         $payment->amount = $request->amount;
         $payment->save();
 

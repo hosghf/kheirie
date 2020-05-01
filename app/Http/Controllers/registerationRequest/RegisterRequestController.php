@@ -4,7 +4,10 @@ namespace App\Http\Controllers\registerationRequest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dependent;
+use App\Models\nesbateBaTalabe;
 use App\Models\Provider;
+use App\Models\Salary;
+use App\Models\School;
 use App\Models\Student;
 use Illuminate\Http\Request;
 Use Exception;
@@ -13,11 +16,12 @@ use Illuminate\Support\Facades\DB;
 class RegisterRequestController extends Controller
 {
     public function index(){
-            session()->forget('reg1');
-            session()->forget('reg2');
-            session()->forget('reg4');
-            session()->forget('takafols');
-        return view('registerRequest.registerReq1');
+        session()->forget('reg1');
+        session()->forget('reg2');
+        session()->forget('reg4');
+        session()->forget('takafols');
+        $school = School::all();
+        return view('registerRequest.registerReq1', ['school' => $school]);
     }
     public function reg1(Request $request){
 
@@ -48,7 +52,8 @@ class RegisterRequestController extends Controller
     }
     public function backReg1(){
         $reg1 = session('reg1');
-        return view('registerRequest.registerReq1', ['reg1' => $reg1]);
+        $school = School::all();
+        return view('registerRequest.registerReq1', ['reg1' => $reg1, 'school' => $school]);
     }
     public function reg2(Request $request){
 
@@ -75,7 +80,10 @@ class RegisterRequestController extends Controller
 
     public function backReg2(){
         $reg2 = session('reg2');
-        return view('registerRequest.registerReq2', ['reg2' => $reg2]);
+        $relations = nesbateBaTalabe::all();
+        $salaries = Salary::all();
+        return view('registerRequest.registerReq2', ['reg2' => $reg2,
+            'relations' => $relations, 'salaries' => $salaries]);
     }
 
     public function reg3(Request $request){
@@ -102,8 +110,11 @@ class RegisterRequestController extends Controller
     public function reg4(Request $request){
 
         $validat = $request->validate([
+            'prov_mobil' => 'required',
+            'address' => 'required',
         ],[
-
+            'prov_mobil.required' => 'همراه سرپرست را وارد کنید.',
+            'address.required' => 'آدرس منزل را وارد کنید.',
         ]);
         $reg4 = $request->except('_token');
         $request->session()->put('reg4', $reg4);

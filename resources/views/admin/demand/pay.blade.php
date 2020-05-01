@@ -21,15 +21,32 @@
                             مورد تایید است و مبلغ زیر به حساب ایشان واریز میشود.
                             </p>
 
-                            <form method="post" class="col-12" action="/admin/demand/{{ $demandId }}/pay">
+                            <form method="post" class="col-12 mt-5" action="/admin/demand/{{ $demandId }}/pay">
                                 @csrf
-                                <div class="row">
-                                        <div class="col-md-2 col-sm-6">
-                                            <input type="text" name="amount" class="form-control" placeholder="مبلغ">
-                                        </div>
-                                        <div class="col-sm-6 col-md-2">
-                                            <input type="submit" class="form-control btn btn-info" value="تایید و پرداخت">
-                                        </div>
+                                <div class="form-row">
+                                    <div class="col-md-2 col-sm-6 mt-4">
+                                        <label>مبلغ</label>
+                                        <input type="text" name="amount" class="form-control" placeholder="مبلغ">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 mt-4">
+                                        <label>نوع پرداخت</label>
+                                        <select name="check" class="form-control">
+                                            <option value="1" >چک</option>
+                                            <option value="0">کارت به کارت</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 mt-4">
+                                        <label>شماره چک/فیش</label>
+                                        <input type="text" name="fishCheckNum" class="form-control" placeholder="">
+                                    </div>
+                                    <div class="col-md-3 col-sm-6 mt-4">
+                                        <label>تصویر چک/فیش</label>
+                                        <input type="file" name="image" class="form-control" placeholder="انتخاب تصویر">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-2 mt-4">
+                                    <label> </label>
+                                    <input type="submit" class="form-control btn btn-info" value="تایید و پرداخت">
                                 </div>
                             </form>
                     </div>

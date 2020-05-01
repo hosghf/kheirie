@@ -16,12 +16,12 @@ class CreateSchoolsTable extends Migration
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
             $table->string('school_name');
-            $table->string('address');
-            $table->string('school_phone');
+            $table->string('address')->nullable();
+            $table->string('school_phone')->nullable();
             $table->string('manager_name');
             $table->string('manager_family');
             $table->string('manager_code_meli')->unique();
-            $table->string('manager_mobile');
+            $table->string('manager_mobile')->unique();
             $table->timestamps();
         });
     }

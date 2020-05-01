@@ -49,7 +49,7 @@
                                     <td>{{ $pay->amount }}</td>
                                     <td>{{ $pay->st_code_meli }} </td>
                                     <td> {{ $pay->demand_code }} </td>
-                                    <td> {{ $pay->transaction_number }} </td>
+                                    <td> {{ $pay->kartCheckPath }} </td>
                                     <td> {{ $pay->x }} </td>
                                 </tr>
                             @endforeach

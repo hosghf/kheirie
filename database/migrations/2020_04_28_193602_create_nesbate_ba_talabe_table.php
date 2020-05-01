@@ -17,6 +17,43 @@ class CreateNesbateBaTalabeTable extends Migration
             $table->id();
             $table->string('title');
         });
+
+        \App\Models\nesbateBaTalabe::create(
+            [
+                'id' => 1,
+                'title' => 'پدر',
+            ]
+        );
+        \App\Models\nesbateBaTalabe::create(
+            [
+                'id' => 2,
+                'title' => 'همسر',
+            ]
+        );
+        \App\Models\nesbateBaTalabe::create(
+            [
+                'id' => 3,
+                'title' => 'برادر',
+            ]
+        );
+        \App\Models\nesbateBaTalabe::create(
+            [
+                'id' => 4,
+                'title' => 'مادر',
+            ]
+        );
+        \App\Models\nesbateBaTalabe::create(
+            [
+                'id' => 5,
+                'title' => 'خواهر',
+            ]
+        );
+        \App\Models\nesbateBaTalabe::create(
+            [
+                'id' => 6,
+                'title' => 'سایر',
+            ]
+        );
     }
 
     /**

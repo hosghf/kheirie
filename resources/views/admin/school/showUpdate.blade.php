@@ -9,7 +9,7 @@
             <div class="row">
                 @if(session()->has('message'))
                     <div class="col-11 m-auto">
-                        <div class="alert alert-danger alert-dismissible">
+                        <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             {{ session()->get('message') }}
                         </div>

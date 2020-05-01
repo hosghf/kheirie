@@ -20,6 +20,7 @@ class CreateIncomesTable extends Migration
             $table->tinyInteger('type');
             $table->tinyInteger('dargah')->default(1);
             $table->string('kartTransactNum');
+            $table->string('tasvirFish');
             $table->timestamps();
         });
     }

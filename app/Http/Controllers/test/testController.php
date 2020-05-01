@@ -8,6 +8,7 @@ use App\Models\Dependent;
 use App\Models\nesbateBaTalabe;
 use App\Models\Role;
 use App\Models\School;
+use App\Models\Status_code;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -48,8 +49,10 @@ class testController extends Controller
 ////            var_dump($tak);
 //        }
 
-       $x =  nesbateBaTalabe::first();
-       echo $x;
+//       $x =  nesbateBaTalabe::first();
+//       echo $x;
 
+        $x =  Status_code::find(1);
+        echo $x;
     }
 }

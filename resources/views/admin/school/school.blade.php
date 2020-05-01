@@ -3,13 +3,15 @@
 @section('title', 'مدارس')
 
 @section('content')
-
+    @foreach ($errors->all() as $error)
+        <li class="alert alert-danger">{{ $error }}</li>
+    @endforeach
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 @if(session()->has('message'))
                     <div class="col-11 m-auto">
-                        <div class="alert alert-danger alert-dismissible">
+                        <div class="alert alert-success alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                             {{ session()->get('message') }}
                         </div>
@@ -45,7 +47,7 @@
                                     <input type="text" class="form-control" name="school_phone" id="" placeholder=" تلفن مدرسه ">
                                 </div>
                                 <div class="form-group col-6">
-                                    <input type="text" class="form-control" name="code_meli_modir" id="" placeholder=" کد ملی مدیر ">
+                                    <input type="text" class="form-control @error('code_meli_modir') border border-danger @enderror" name="code_meli_modir" id="" placeholder=" کد ملی مدیر ">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -58,13 +60,10 @@
                                     <input type="submit" class="btn btn-info" value="ثبت مدرسه">
                                 </div>
                             </div>
-
                         </div>
                         <!-- /.card-body -->
                     </form>
                 </div>
-
-
 
             </div>
             <!-- /.row -->
