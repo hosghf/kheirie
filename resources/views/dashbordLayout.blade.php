@@ -26,47 +26,11 @@
             </li>
         </ul>
 
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="جستجو" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-
         <!-- Right navbar links -->
         <ul class="navbar-nav mr-auto">
             <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell-o"></i>
-                    <span class="badge badge-warning navbar-badge">15</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
-                    <span class="dropdown-item dropdown-header">15 نوتیفیکیشن</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-envelope ml-2"></i> 4 پیام جدید
-                        <span class="float-left text-muted text-sm">3 دقیقه</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-users ml-2"></i> 8 درخواست دوستی
-                        <span class="float-left text-muted text-sm">12 ساعت</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fa fa-file ml-2"></i> 3 گزارش جدید
-                        <span class="float-left text-muted text-sm">2 روز</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">مشاهده همه نوتیفیکیشن</a>
-                </div>
-            </li>
+            <i class="fa fa-home"></i>
+            <a href="/logout">خروج</a>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -93,6 +57,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
+                       @can('isAdmin')
                         <li class="nav-item">
                             <a href="/admin/dashbord" class="nav-link {{ Route::currentRouteName() == 'dashbord' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-th"></i>
@@ -153,7 +118,6 @@
                                 </p>
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a href="/admin/settings" class="nav-link">
                                 <i class="nav-icon fa fa-th"></i>
@@ -162,6 +126,34 @@
                                 </p>
                             </a>
                         </li>
+                        <br>
+                        @endcan
+                        @can('isModir')
+                        <li class="nav-item">
+                            <a href="/modir/varizModir" class="nav-link">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                    واریر نقدی
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/modir/acceptRegisterShow" class="nav-link">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                    تایید ثبت نام ها
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/modir/darkhastList" class="nav-link">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                    درخواست ها
+                                </p>
+                            </a>
+                        </li>
+                        @endcan
 
                     </ul>
                 </nav>

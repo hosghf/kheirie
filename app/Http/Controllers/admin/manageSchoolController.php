@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\School;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class manageSchoolController extends Controller
 {
@@ -18,15 +20,17 @@ class manageSchoolController extends Controller
         $request->validate([
             'code_meli_modir' => 'required',
             'modir_phone' => 'required',
+            'password' => 'required',
             'school_name' => 'required',
-            'managerName' => 'required',
             'managerFamily' => 'required',
+            'managerName' => 'required',
         ],[
             'code_meli_modir.required' => 'کد ملی مدیر را وارد کنید.',
-            'modir_phone.required' => 'تلفن مدیر را وارد کنید.',
+            'modir_phone.required' => 'همراه مدیر را وارد کنید.',
             'school_name.required' => 'نام مدرسه را وارد کنید',
-            'managerName.required' => 'نام مدیر را وارد کنید.',
+            'password.required' => ' پسورد را وارد کنید.',
             'managerFamily.required' => 'نام خانوادگی مدیر را وارد کنید',
+            'managerName.required' => 'نام خانوادگی مدیر را وارد کنید',
         ]);
 
         $school = new School;
@@ -42,7 +46,13 @@ class manageSchoolController extends Controller
 
         $schools = School::all();
 
-        return view('admin.school.school', ['schools' => $schools]);
+        $user = new User;
+        $user->username = $school->manager_mobile;
+        $user->password = Hash::make($request->password);
+        $user->role_id = 3;
+        $user->save();
+
+//        return view('admin.school.school', ['schools' => $schools]);
     }
 
     public function showUpdate($id){

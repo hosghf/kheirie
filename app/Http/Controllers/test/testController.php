@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class testController extends Controller
 {
@@ -58,10 +59,18 @@ class testController extends Controller
 //        echo $x;
 //        $demands = Demand::has('school' , '!=' , 3)->get();
 
-        $demands = Demand::whereHas('student', function (Builder $query) {
-            $query->where('school_id', 1);
-        })->where('status_code', '!=', 3)->paginate();
-        dd($demands);
+//        $demands = Demand::whereHas('student', function (Builder $query) {
+//            $query->where('school_id', 1);
+//        })->where('status_code', '!=', 3)->paginate();
+//        dd($demands);
+
+        echo auth()->user()->username;
+    }
+    public function myauth(Request $request){
+        $cr = $request->only('username', 'password');
+        if(Auth::attempt($cr)){
+            echo 'hiii';
+        }
 
     }
 }

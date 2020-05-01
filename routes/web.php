@@ -17,41 +17,50 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//modir
-Route::get('/modir/varizModir', 'modir\varizController@list');
-Route::post('/modir/varizModir', 'modir\varizController@variz');
+Route::group(['middleware' => ['auth'], 'middleware' =>['can:isModir']], function () {
 
-Route::get('/modir/acceptRegisterShow', 'modir\sabteNameController@index');
-Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept');
+    Route::get('/modir/varizModir', 'modir\varizController@list');
+    Route::post('/modir/varizModir', 'modir\varizController@variz');
 
-Route::get('/modir/darkhastList', 'modir\darkhastController@list');
+    Route::get('/modir/acceptRegisterShow', 'modir\sabteNameController@index');
+    Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept');
 
-Route::get('/login1', function () {
-    return view('registerRequest/login');
+    Route::get('/modir/darkhastList', 'modir\darkhastController@list');
 });
-Route::get('/test', 'test\testController@index');
+//modir
 
-//admin/dashbord
-Route::get('/admin/dashbord', 'admin\dashbordController@index')->name('dashbord');
-//admin/finance
-Route::get('/admin/varizha', 'admin\varizPayHelpController@varizList');
-Route::get('/admin/helps', 'admin\varizPayHelpController@helps');
-Route::get('/admin/payList', 'admin\varizPayHelpController@paymentList');
-//admin/demand
-Route::get('/admin/demand/list', 'admin\demandsController@list');
-Route::get('/admin/demand/{id}', 'admin\demandsController@show');
-//demand pay
-Route::get('/admin/demand/{id}/payShow', 'admin\demandsController@payShow');
-Route::post('/admin/demand/{id}/pay', 'admin\demandsController@pay');
-//school management
-Route::get('/admin/school', 'admin\manageSchoolController@index');
-Route::post('/admin/addSchool', 'admin\manageSchoolController@add');
-Route::get('/admin/addSchool', 'admin\manageSchoolController@index');
-Route::get('/admin/editSchool/{school}', 'admin\manageSchoolController@showUpdate');
-Route::post('/admin/editSchool/{school}', 'admin\manageSchoolController@update');
-//admin settings
-Route::get('/admin/settings', 'admin\settingsController@index');
-Route::post('/admin/settings/addType', 'admin\settingsController@addType');
+
+Route::get('/test', 'test\testController@index');
+Route::post('/test', 'test\testController@myauth');
+
+Route::group(['middleware' => ['auth'], 'middleware' =>['can:isAdmin'] ], function () {
+
+    //admin/dashbord
+    Route::get('/admin/dashbord', 'admin\dashbordController@index')->name('dashbord');
+    //admin/finance
+    Route::get('/admin/varizha', 'admin\varizPayHelpController@varizList')->middleware('auth');
+    Route::get('/admin/helps', 'admin\varizPayHelpController@helps');
+    Route::get('/admin/payList', 'admin\varizPayHelpController@paymentList');
+    //admin/demand
+    Route::get('/admin/demand/list', 'admin\demandsController@list');
+    Route::get('/admin/demand/{id}', 'admin\demandsController@show');
+    //demand pay
+    Route::get('/admin/demand/{id}/payShow', 'admin\demandsController@payShow');
+    Route::post('/admin/demand/{id}/pay', 'admin\demandsController@pay');
+    //school management
+    Route::get('/admin/school', 'admin\manageSchoolController@index');
+    Route::post('/admin/addSchool', 'admin\manageSchoolController@add');
+    Route::get('/admin/addSchool', 'admin\manageSchoolController@index');
+    Route::get('/admin/editSchool/{school}', 'admin\manageSchoolController@showUpdate');
+    Route::post('/admin/editSchool/{school}', 'admin\manageSchoolController@update');
+    //admin settings
+    Route::get('/admin/settings', 'admin\settingsController@index');
+    Route::post('/admin/settings/addType', 'admin\settingsController@addType');
+
+    //change user
+    Route::post('/changeP/{username}', 'user\userManagementController@changePass');
+
+});
 
 
 //registration routes
@@ -67,3 +76,12 @@ Route::get('backReg4', 'RegisterationRequest\RegisterRequestController@backReg4'
 Route::get('confirm', 'RegisterationRequest\RegisterRequestController@confirm');
 Route::get('storeReg', 'RegisterationRequest\RegisterRequestController@store');
 Route::get('finalMessage', 'RegisterationRequest\RegisterRequestController@finalMessage');
+
+//login
+Route::get('login', 'myLoginController@show');
+Route::get('logout', 'myLoginController@logout');
+Route::post('login', 'myLoginController@myauth');
+
+//Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
