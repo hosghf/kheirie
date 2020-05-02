@@ -15,10 +15,14 @@ class demandsController extends Controller
 {
     public function list(){
         $demands = Demand::where('status_code' , '!=' , 3)->paginate(6);
+        $sal = Salary::all();
         foreach($demands as $demand){
             $m1= Verta($demand->updated_at);
             $m1 = $m1->format('Y-n-j');
             $demand->m1 = Verta::persianNumbers($m1);
+            foreach ($sal as $s){
+                $s->id == $demand->student->provider->salary_code ? $demand->sal = $s->title : '' ;
+            }
         }
         return view('admin.demand.demands_list', ['demands' => $demands]);
     }
@@ -46,7 +50,38 @@ class demandsController extends Controller
         return view('admin.demand.pay', ['demandId' => $demandId, 'student' => $student]);
     }
     public function pay(Request $request, $id){
+        $payment = Payment::where('demand_code', 10)->first();
+        if($payment){
+            session()->flash('error', 'درخواست قبلا پرداخت شده.');
+            return redirect()->back();
+        }
+
         $demandId = $id;
+
+        $request->validate([
+            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'amount' => 'numeric'
+        ],[
+            'file.max' => 'سایز تصویر کمتر از 2 مگابایت باشد.',
+            'file.mimes' => 'فرمت تصویر jpg,pnp,gif باشد.',
+            'amount.numeric' => 'لطفابرای مبلغ مقدار صحیح وارد کنید.'
+        ]);
+
+        // uploading images
+        $destination= base_path().'/public/fishImages/'.date('Y').'/'.date('m');
+        if(!is_dir($destination))
+        {
+            mkdir($destination,0777,true);
+        }
+
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+//            $name = time().$image->getClientOriginalName();
+            $filename = time().'.'.$image->getClientOriginalExtension();
+            $image->move($destination, $filename);
+//            return back()->with('success','Image Upload successfully');
+        }
+        // end of image uploading
 
         $demand = Demand::find($id);
         $demand->status_code = 3;
@@ -55,14 +90,16 @@ class demandsController extends Controller
         $codeMeli = Demand::find($id)->student_code_meli;
         $student = Student::where('code_meli', $codeMeli)->first();
 
+        var_dump($payment);
         $payment = new Payment;
         $payment->st_code_meli = $codeMeli;
         $payment->demand_code = $id;
         $payment->chek = $request->check;
-        $payment->tasvirkartCheck = $request->image;
+        $payment->tasvirkartCheck = $filename;
         $payment->fishChkNum = $request->fishCheckNum;
         $payment->amount = $request->amount;
         $payment->save();
+
 
         return view('admin.demand.payConfirm', ['demandId' => $demandId, 'student' => $student, 'amount' => $request->amount]);
     }

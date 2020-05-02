@@ -47,8 +47,9 @@
             <div>
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="info">
-                        <a href="#" class="d-block">فریناز لاری </a>
+                    <div class="info text-white">
+                        نام کاربری شما:
+                        {{ auth()->user()->username }}
                     </div>
                 </div>
 

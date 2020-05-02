@@ -16,7 +16,7 @@ class userManagementController extends Controller
             $user->save();
             return redirect()->back();
         }else{
-
+            echo 'oops';
         }
     }
 }

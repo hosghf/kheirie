@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     <div class="row">
         <div class="card card-info col">
             <div class="card-header">
@@ -42,6 +41,7 @@
                             <th> درآمد سرپرست </th>
                             <th> کد درخواست </th>
                             <th> تاریخ تایید مدیر </th>
+                            <th>  </th>
                         </tr>
                         @if(isset($demands))
                             <div class="d-none">{{ $x = 1 }}</div>
@@ -49,12 +49,13 @@
                                 <tr href="/admin/demand/{{ $demand->id }}" class="tr">
                                     <td>{{ $x++ }}</td>
                                     <td>{{ $demand->student->name }}</td>
-                                    <td> {{ $demand->student->family }} </td>
+                                    <td>{{ $demand->student->family }} </td>
                                     <td>{{ $demand->student_code_meli }}</td>
                                     <td>{{ $demand->student->provider->job }}</td>
-                                    <td>{{ $demand->student->provider->salary_code }}</td>
+                                    <td>{{ $demand->sal}}</td>
                                     <td>{{ $demand->id }}</td>
-                                    <td> {{ $demand->m1 }} </td>
+                                    <td>{{ $demand->m1 }} </td>
+                                    <td> <a href="/admin/demand/{{ $demand->id }}" class="btn btn-primary"> مشاهده </a> </td>
                                 </tr>
                             @endforeach
                         @endif

@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => ['auth'], 'middleware' =>['can:isModir']], function () {
+Route::group(['middleware' => ['can:isModir', 'auth']], function () {
 
     Route::get('/modir/varizModir', 'modir\varizController@list');
     Route::post('/modir/varizModir', 'modir\varizController@variz');
@@ -26,6 +26,8 @@ Route::group(['middleware' => ['auth'], 'middleware' =>['can:isModir']], functio
     Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept');
 
     Route::get('/modir/darkhastList', 'modir\darkhastController@list');
+    Route::get('/modir/darkhast/{id}', 'modir\darkhastController@show');
+    Route::get('/modir/darkhast/{id}/taeed', 'modir\darkhastController@taeed');
 });
 //modir
 
@@ -33,10 +35,11 @@ Route::group(['middleware' => ['auth'], 'middleware' =>['can:isModir']], functio
 Route::get('/test', 'test\testController@index');
 Route::post('/test', 'test\testController@myauth');
 
-Route::group(['middleware' => ['auth'], 'middleware' =>['can:isAdmin'] ], function () {
+Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
 
     //admin/dashbord
     Route::get('/admin/dashbord', 'admin\dashbordController@index')->name('dashbord');
+    Route::get('/home', 'admin\dashbordController@index')->name('dashbord');
     //admin/finance
     Route::get('/admin/varizha', 'admin\varizPayHelpController@varizList')->middleware('auth');
     Route::get('/admin/helps', 'admin\varizPayHelpController@helps');
@@ -78,10 +81,10 @@ Route::get('storeReg', 'RegisterationRequest\RegisterRequestController@store');
 Route::get('finalMessage', 'RegisterationRequest\RegisterRequestController@finalMessage');
 
 //login
-Route::get('login', 'myLoginController@show');
+Auth::routes();
+//Route::get('login', 'myLoginController@show');
 Route::get('logout', 'myLoginController@logout');
 Route::post('login', 'myLoginController@myauth');
 
-//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');

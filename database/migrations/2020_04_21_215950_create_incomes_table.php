@@ -19,8 +19,8 @@ class CreateIncomesTable extends Migration
             $table->bigInteger('school_code');
             $table->tinyInteger('type');
             $table->tinyInteger('dargah')->default(1);
-            $table->string('kartTransactNum');
-            $table->string('tasvirFish');
+            $table->string('kartTransactNum')->nullable();
+            $table->string('tasvirFish')->nullable();
             $table->timestamps();
         });
     }

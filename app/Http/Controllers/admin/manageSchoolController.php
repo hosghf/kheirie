@@ -52,7 +52,7 @@ class manageSchoolController extends Controller
         $user->role_id = 3;
         $user->save();
 
-//        return view('admin.school.school', ['schools' => $schools]);
+        return view('admin.school.school', ['schools' => $schools]);
     }
 
     public function showUpdate($id){
@@ -64,6 +64,7 @@ class manageSchoolController extends Controller
     public function update(Request $request, $id){
 
         $school = School::find($id);
+        $oldUsername = $school->manager_mobile;
         $school->school_name = $request->school_name;
         $school->address = $request->school_address;
         $school->school_phone = $request->school_phone;
@@ -74,8 +75,18 @@ class manageSchoolController extends Controller
         $school->save();
         $request->session()->flash('message', 'تغییرات اعمال شد');
 
-        $schools = School::all();
+        $user = User::where('username', $oldUsername)->first();
+        if($user) {
+            $user->username = $request->modir_phone;
+        } else {
+            $user = new User;
+            $user->username = $request->modir_phone;
+            $user->password = Hash::make($school->manager_code_meli);
+            $user->role_id =3;
+        }
+        $user->save();
 
-        return view('admin.school.school', ['schools' => $schools]);
+        $schools = School::all();
+//        return view('admin.school.school', ['schools' => $schools]);
     }
 }

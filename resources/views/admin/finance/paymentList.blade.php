@@ -28,7 +28,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title"> کمک ها </h3>
+                    <h3 class="card-title"> پرداخت ها </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
@@ -49,7 +49,7 @@
                                     <td>{{ $pay->amount }}</td>
                                     <td>{{ $pay->st_code_meli }} </td>
                                     <td> {{ $pay->demand_code }} </td>
-                                    <td> {{ $pay->kartCheckPath }} </td>
+                                    <td> {{ $pay->fishChkNum }} </td>
                                     <td> {{ $pay->x }} </td>
                                 </tr>
                             @endforeach

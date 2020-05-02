@@ -21,19 +21,19 @@
         </a>
     </div>
     <div class="row">
-        <div class="img-holder">
-            <div class="bg"></div>
-            <div class="info-holder">
+        {{--<div class="img-holder">--}}
+            {{--<div class="bg"></div>--}}
+            {{--<div class="info-holder">--}}
 
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="form-holder">
             <div class="form-content">
                 <div class="form-items">
                     <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>
                     <p class="mt-4"> جهت ثبت درخواست در سیستم بر روی ثبت درخواست کلیک کنید </p>
                     <div class="page-links">
-                        <a href="login3.html" class="active ml-3">ورود</a><a href="register3.html">ثبت درخواست</a>
+                        <a href="login" class="active ml-3">ورود</a><a href="reg1">ثبت درخواست</a>
                     </div>
                     <form method="post" action="/login">
                         @csrf

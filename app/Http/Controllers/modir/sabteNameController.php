@@ -4,13 +4,15 @@ namespace App\Http\Controllers\modir;
 
 use App\Http\Controllers\Controller;
 use App\Models\Demand;
+use App\Models\School;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
 class sabteNameController extends Controller
 {
     public function index(){
-        $students = Student::where('status_code', 1)->paginate(6);
+        $school = School::where('manager_mobile', auth()->user()->username)->first();
+        $students = Student::where('status_code', 1)->where('school_id',$school->id )->paginate(6);
         return view('modir.acceptRegister', [ 'students' => $students]);
     }
     public function accept($id){
@@ -18,8 +20,7 @@ class sabteNameController extends Controller
         $student->status_code = 2;
         $student->save();
 
-        $demands = new Demand;
-        $demands->student_code_meli = $student->code_meli;
+        $demands = Demand::firstOrNew(['student_code_meli' => $student->code_meli]);
         $demands->status_code = 1;
         $demands->save();
 

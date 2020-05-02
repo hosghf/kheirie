@@ -25,6 +25,7 @@
                     </div>
                     <h3 class="text-center">ثبت نام شما با موفقیت انجام شد.</h3>
                     <p class="text-center mt-4">درخواست شما در سیستم ثبت شد، پس از بررسی در صورت توافق با درخواست شما نتیجه به شما اطلاع داده خواهد شد.</p>
+                    <a href="login" class="btn btn-warning">بازگشت</a>
                 </div>
             </div>
         </div>

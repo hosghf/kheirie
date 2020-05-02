@@ -3,14 +3,22 @@
 @section('title', 'واریز نقدی مدیر')
 
 @section('content')
-
+    @foreach ($errors->all() as $error)
+        <li class="alert alert-danger">{{ $error }}</li>
+    @endforeach
+    @if (session()->has('error'))
+        <li class="alert alert-danger">{{ session('error') }}</li>
+    @endif
+    @if (session()->has('message'))
+        <li class="alert alert-danger">{{ session('message') }}</li>
+    @endif
     <div class="row">
         <div class="card card-info col">
             <div class="card-header">
                 <h3 class="card-title"> واریز مدیر </h3>
             </div>
             <div class="card-body">
-                <form method="post" class="col-12" action="/modir/varizModir">
+                <form method="post" class="col-12" enctype="multipart/form-data" action="/modir/varizModir">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-2 col-sm-6 mt-4">
@@ -40,7 +48,7 @@
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
                             <label>تصویر چک/فیش</label>
-                            <input type="file" name="image" class="form-control" placeholder="انتخاب تصویر">
+                            <input type="file" name="file" class="form-control" placeholder="انتخاب تصویر">
                         </div>
                     </div>
 

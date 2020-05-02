@@ -41,7 +41,8 @@
                             <th>شغل سرپرست</th>
                             <th> درآمد سرپرست </th>
                             <th> کد درخواست </th>
-                            <th> تاریخ تایید مدیر </th>
+                            <th> تاریخ ثبت </th>
+                            <th> وضعیت </th>
                         </tr>
                         @if(isset($demands))
                             <div class="d-none">{{ $x = 1 }}</div>
@@ -55,6 +56,14 @@
                                     <td>{{ $demand->student->provider->salary_code }}</td>
                                     <td>{{ $demand->id }}</td>
                                     <td>{{ $demand->m1 }} </td>
+                                    <td>
+                                        @if($demand->status_code == 2)
+                                            <span class="badge badge-success"> تایید مدیر </span>
+                                        @elseif($demand->status_code == 1)
+                                            <span class="badge badge-danger">  جدیر </span>
+                                        @endif
+                                    </td>
+                                    <td> <a href="/modir/darkhast/{{$demand->id}}" class="btn btn-primary"> مشاهده </a> </td>
                                 </tr>
                             @endforeach
                         @endif

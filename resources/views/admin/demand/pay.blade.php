@@ -3,7 +3,12 @@
 @section('title', ' تایید و پرداخت ')
 
 @section('content')
-
+    @foreach ($errors->all() as $error)
+        <li class="alert alert-danger">{{ $error }}</li>
+    @endforeach
+    @if (session()->has('error'))
+        <li class="alert alert-danger">{{ session('error') }}</li>
+    @endif
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -21,7 +26,8 @@
                             مورد تایید است و مبلغ زیر به حساب ایشان واریز میشود.
                             </p>
 
-                            <form method="post" class="col-12 mt-5" action="/admin/demand/{{ $demandId }}/pay">
+                            <form method="post" class="col-12 mt-5" enctype="multipart/form-data"
+                                  action="/admin/demand/{{ $demandId }}/pay">
                                 @csrf
                                 <div class="form-row">
                                     <div class="col-md-2 col-sm-6 mt-4">
@@ -41,7 +47,7 @@
                                     </div>
                                     <div class="col-md-3 col-sm-6 mt-4">
                                         <label>تصویر چک/فیش</label>
-                                        <input type="file" name="image" class="form-control" placeholder="انتخاب تصویر">
+                                        <input type="file" name="file" class="form-control" placeholder="انتخاب تصویر">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-2 mt-4">

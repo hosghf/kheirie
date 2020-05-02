@@ -13,13 +13,13 @@
 </head>
 <body>
 <div class="form-body" class="container-fluid">
-    <div class="website-logo">
-        <a href="index.html">
-            <div class="logo">
-                <img class="logo-size" src="" alt="">
-            </div>
-        </a>
-    </div>
+    {{--<div class="website-logo">--}}
+        {{--<a href="index.html">--}}
+            {{--<div class="logo">--}}
+                {{--<img class="logo-size" src="" alt="">--}}
+            {{--</div>--}}
+        {{--</a>--}}
+    {{--</div>--}}
     <div class="row">
         <div class="img-holder">
             <div class="bg"></div>
@@ -33,7 +33,7 @@
                     <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>
                     <p class="mt-4"> جهت ثبت درخواست در سیستم بر روی ثبت درخواست کلیک کنید </p>
                     <div class="page-links">
-                        <a href="login3.html" class="active ml-3">ورود</a><a href="register3.html">ثبت درخواست</a>
+                        <a href="login" class="active ml-3">ورود</a><a href="reg1">ثبت درخواست</a>
                     </div>
                     <form method="post" action="/login">
                         @csrf
