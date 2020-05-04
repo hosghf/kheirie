@@ -21,6 +21,9 @@
                              تایید شد و برای مدیریت ارسال شد.
                             </p>
                     </div>
+                    <div class="card-footer">
+                         <a href="/modir/darkhastList" class="btn btn-primary col-sm-12 col-md-3">بازگشته به درخواست ها</a>
+                    </div>
                     <!-- /.card-body -->
                 </div>
             </div>

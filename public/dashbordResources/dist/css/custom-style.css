@@ -7,7 +7,6 @@
     url('../fonts/Vazir.ttf') format('truetype');
     font-weight: normal;
 }
-
 @font-face {
     font-family: Vazir;
     src: url('../fonts/Vazir-Bold.eot');
@@ -61,7 +60,9 @@
 /*---------------------------------- End of fonts ---------------------------------- */
 
 body {
-    font-family: 'Vazir', sans-serif !important;
+    /*font-family: 'Vazir', sans-serif !important;*/
+    /*font-family: 'iranyekan-light', sans-serif !important;*/
+    font-family: 'iranyekan', sans-serif;
 }
 
 .ltr {

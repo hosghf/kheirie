@@ -3,7 +3,15 @@
 @section('title', 'تایید ثبت نام')
 
 @section('content')
-
+    @foreach ($errors->all() as $error)
+        <li class="alert alert-danger">{{ $error }}</li>
+    @endforeach
+    @if (session()->has('error'))
+        <li class="alert alert-danger">{{ session('error') }}</li>
+    @endif
+    @if (session()->has('message'))
+        <li class="alert alert-success">{{ session('message') }}</li>
+    @endif
     <div class="row">
         <div class="col-12">
             <div class="card">

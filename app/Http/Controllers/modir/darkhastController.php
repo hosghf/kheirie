@@ -14,16 +14,31 @@ use App\Models\Salary;
 
 class darkhastController extends Controller
 {
-    public function list(){
-        $school = School::where('manager_mobile', auth()->user()->username)->first();
-        $demands = Demand::whereHas('student', function (Builder $query) use ($school) {
-            $query->where('school_id', $school->id);
-        })->where('status_code', '!=', 3)->paginate();
+    public function list(Request $request){
 
+        $school = School::where('manager_mobile', auth()->user()->username)->first();
+        if(!empty($request->code_meli)){
+            $demands = Demand::whereHas('student', function (Builder $query) use ($school) {
+                $query->where('school_id', $school->id);
+            })->where('status_code', '!=', 3)->where('student_code_meli', $request->code_meli)->paginate(6);
+        }else{
+            $demands = Demand::whereHas('student', function (Builder $query) use ($school) {
+                $query->where('school_id', $school->id);
+            })->where('status_code', '!=', 3)->paginate(6);
+        }
+
+
+        $sal = Salary::all();
         foreach($demands as $demand){
             $m1= Verta($demand->created_at);
             $m1 = $m1->format('Y-n-j');
             $demand->m1 = Verta::persianNumbers($m1);
+
+            foreach ($sal as $s){
+                if($s->id == $demand->student->provider->salary_code){
+                    $demand->s = $s->title;
+                }
+            }
         }
         return view('modir.demands_list', ['demands' => $demands]);
     }
@@ -47,14 +62,12 @@ class darkhastController extends Controller
 
     public function taeed($id){
 
-
         $demand = Demand::find($id);
         $demand->status_code = 2;
         $demand->save();
 
         $student = Student::where('code_meli', $demand->student_code_meli)->first();
 
-        echo $demand->status_code;
         return view('modir.taeedConfirm', ['demandId' => $demand->id, 'student' => $student]);
 
     }

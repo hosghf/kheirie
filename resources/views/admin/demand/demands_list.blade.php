@@ -3,21 +3,26 @@
 @section('title', 'لیست درخواست ها')
 
 @section('content')
-
+    @foreach ($errors->all() as $error)
+        <li class="alert alert-danger">{{ $error }}</li>
+    @endforeach
     <div class="row">
         <div class="card card-info col">
             <div class="card-header">
                 <h3 class="card-title"> جستجو </h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2">
-                        <input type="text" class="form-control" placeholder="مدرسه">
+                <form action="/admin/demand/list" method="post">
+                    @csrf
+                    <div class="form-row">
+                        <div class="col-sm-6 col-md-3">
+                            <input type="text" name="code_meli" class="form-control" placeholder="کد ملی">
+                        </div>
+                        <div class="col-sm-6 col-md-2">
+                            <input type="submit" class="form-control btn btn-info" value="جستجو">
+                        </div>
                     </div>
-                    <div class="col-sm-6 col-md-2">
-                        <input type="button" class="form-control btn btn-info" value="جستجو">
-                    </div>
-                </div>
+                </form>
             </div>
             <!-- /.card-body -->
         </div>

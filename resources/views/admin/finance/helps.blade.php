@@ -48,7 +48,7 @@
                             @foreach($helps as $help)
                                 <tr>
                                     <td>{{ $x++ }}</td>
-                                    <td>{{ $help->amount }}</td>
+                                    <td>{{ $help->price }}</td>
                                     <td>{{ $help->name }} </td>
                                     <td> {{$help->family}} </td>
                                     <td> {{ $help->organization }} </td>

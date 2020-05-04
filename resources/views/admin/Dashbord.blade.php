@@ -44,7 +44,7 @@
                 <div class="icon">
                     <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer"> نفر</a>
+                <a href="#" class="small-box-footer"> تومان</a>
             </div>
         </div>
         <!-- ./col -->

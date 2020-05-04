@@ -13,40 +13,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::group(['middleware' => ['can:isModir', 'auth']], function () {
-
-    Route::get('/modir/varizModir', 'modir\varizController@list');
-    Route::post('/modir/varizModir', 'modir\varizController@variz');
-
-    Route::get('/modir/acceptRegisterShow', 'modir\sabteNameController@index');
-    Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept');
-
-    Route::get('/modir/darkhastList', 'modir\darkhastController@list');
-    Route::get('/modir/darkhast/{id}', 'modir\darkhastController@show');
-    Route::get('/modir/darkhast/{id}/taeed', 'modir\darkhastController@taeed');
-});
-//modir
-
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/test', 'test\testController@index');
 Route::post('/test', 'test\testController@myauth');
 
-Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
+//modir
+Route::group(['middleware' => ['can:isModir', 'auth']], function () {
 
+    if (\Gate::allows('isModir')) {
+    }
+
+    Route::get('/modir/varizModir', 'modir\varizController@list');
+    Route::post('/modir/varizModir', 'modir\varizController@variz');
+
+    Route::get('/modir/acceptRegisterShow', 'modir\sabteNameController@index')->name('acceptReg');
+    Route::get('/modir/acceptRegister/{id}', 'modir\sabteNameController@accept')->name('acceptReg');
+
+    Route::get('/modir/darkhastList', 'modir\darkhastController@list');
+    // search
+    Route::post('/modir/darkhastList', 'modir\darkhastController@list');
+    Route::get('/modir/darkhast/{id}', 'modir\darkhastController@show');
+    Route::get('/modir/darkhast/{id}/taeed', 'modir\darkhastController@taeed');
+
+    Route::post('/changePm/{username}', 'user\userManagementController@changePass')->name('changePass');
+    Route::view( '/changePm','user_management\passwordChange')->name('changePass');
+
+});
+
+Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
     //admin/dashbord
     Route::get('/admin/dashbord', 'admin\dashbordController@index')->name('dashbord');
     Route::get('/home', 'admin\dashbordController@index')->name('dashbord');
     //admin/finance
     Route::get('/admin/varizha', 'admin\varizPayHelpController@varizList')->middleware('auth');
+    //search in varizha
+    Route::post('/admin/varizha', 'admin\varizPayHelpController@varizList')->middleware('auth');
     Route::get('/admin/helps', 'admin\varizPayHelpController@helps');
     Route::get('/admin/payList', 'admin\varizPayHelpController@paymentList');
+    // search in paylist
+    Route::post('/admin/payList', 'admin\varizPayHelpController@paymentList');
     //admin/demand
     Route::get('/admin/demand/list', 'admin\demandsController@list');
     Route::get('/admin/demand/{id}', 'admin\demandsController@show');
+    //search demand
+    Route::post('/admin/demand/list', 'admin\demandsController@list');
     //demand pay
     Route::get('/admin/demand/{id}/payShow', 'admin\demandsController@payShow');
     Route::post('/admin/demand/{id}/pay', 'admin\demandsController@pay');
@@ -59,12 +72,11 @@ Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
     //admin settings
     Route::get('/admin/settings', 'admin\settingsController@index');
     Route::post('/admin/settings/addType', 'admin\settingsController@addType');
-
     //change user
-    Route::post('/changeP/{username}', 'user\userManagementController@changePass');
+    Route::post('/changeP/{username}', 'user\userManagementController@changePass')->name('changePass');
+    Route::view( '/changeP','user_management/passwordChange')->name('changePass');
 
 });
-
 
 //registration routes
 Route::get('reg1', 'RegisterationRequest\RegisterRequestController@index');
@@ -82,9 +94,9 @@ Route::get('finalMessage', 'RegisterationRequest\RegisterRequestController@final
 
 //login
 Auth::routes();
+
 //Route::get('login', 'myLoginController@show');
 Route::get('logout', 'myLoginController@logout');
 Route::post('login', 'myLoginController@myauth');
 
-
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::redirect('/', '/login');

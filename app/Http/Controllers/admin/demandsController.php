@@ -13,8 +13,15 @@ use Hekmatinasser\Verta\Verta;
 
 class demandsController extends Controller
 {
-    public function list(){
-        $demands = Demand::where('status_code' , '!=' , 3)->paginate(6);
+    public function list(Request $request){
+
+        if(!empty($request->input('code_meli'))){
+            $demands = Demand::where('status_code' , '!=' , 3)->
+            where('student_code_meli', $request->code_meli )->paginate(6);
+        }else{
+            $demands = Demand::where('status_code' , '!=' , 3)->paginate(6);
+
+        }
         $sal = Salary::all();
         foreach($demands as $demand){
             $m1= Verta($demand->updated_at);
@@ -50,7 +57,7 @@ class demandsController extends Controller
         return view('admin.demand.pay', ['demandId' => $demandId, 'student' => $student]);
     }
     public function pay(Request $request, $id){
-        $payment = Payment::where('demand_code', 10)->first();
+        $payment = Payment::where('demand_code', $id)->first();
         if($payment){
             session()->flash('error', 'درخواست قبلا پرداخت شده.');
             return redirect()->back();
@@ -76,10 +83,8 @@ class demandsController extends Controller
 
         if ($request->hasFile('file')) {
             $image = $request->file('file');
-//            $name = time().$image->getClientOriginalName();
             $filename = time().'.'.$image->getClientOriginalExtension();
             $image->move($destination, $filename);
-//            return back()->with('success','Image Upload successfully');
         }
         // end of image uploading
 

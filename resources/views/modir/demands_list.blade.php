@@ -11,14 +11,17 @@
                 <h3 class="card-title"> جستجو </h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2">
-                        <input type="text" class="form-control" placeholder="مدرسه">
+                <form action="/modir/darkhastList" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-6 col-md-2">
+                            <input type="text" name="code_meli" class="form-control" placeholder="کد ملی">
+                        </div>
+                        <div class="col-sm-6 col-md-2">
+                            <input type="submit" class="form-control btn btn-info" value="جستجو">
+                        </div>
                     </div>
-                    <div class="col-sm-6 col-md-2">
-                        <input type="button" class="form-control btn btn-info" value="جستجو">
-                    </div>
-                </div>
+                </form>
             </div>
             <!-- /.card-body -->
         </div>
@@ -53,14 +56,14 @@
                                     <td> {{ $demand->student->family }} </td>
                                     <td>{{ $demand->student_code_meli }}</td>
                                     <td>{{ $demand->student->provider->job }}</td>
-                                    <td>{{ $demand->student->provider->salary_code }}</td>
+                                    <td>{{ $demand->s }}</td>
                                     <td>{{ $demand->id }}</td>
                                     <td>{{ $demand->m1 }} </td>
                                     <td>
                                         @if($demand->status_code == 2)
                                             <span class="badge badge-success"> تایید مدیر </span>
                                         @elseif($demand->status_code == 1)
-                                            <span class="badge badge-danger">  جدیر </span>
+                                            <span class="badge badge-danger">  جدید </span>
                                         @endif
                                     </td>
                                     <td> <a href="/modir/darkhast/{{$demand->id}}" class="btn btn-primary"> مشاهده </a> </td>

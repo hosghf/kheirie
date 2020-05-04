@@ -24,6 +24,7 @@ class sabteNameController extends Controller
         $demands->status_code = 1;
         $demands->save();
 
+        session()->flash('message', 'ثبت نام تایید شد و درخواست ثبت شد.');
         return redirect('/modir/acceptRegisterShow');
     }
 }

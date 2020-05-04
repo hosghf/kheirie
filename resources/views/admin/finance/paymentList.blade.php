@@ -4,21 +4,23 @@
 
 @section('content')
 
-
     <div class="row">
         <div class="card card-info col">
             <div class="card-header">
                 <h3 class="card-title"> جستجو </h3>
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2">
-                        <input type="text" class="form-control" placeholder="نام خانوادگی واریز کننده">
+                <form action="/admin/payList" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3">
+                            <input type="text" name="code_meli" class="form-control" placeholder="کد ملی طلبه">
+                        </div>
+                        <div class="col-sm-6 col-md-2">
+                            <input type="submit" class="form-control btn btn-info" value="جستجو">
+                        </div>
                     </div>
-                    <div class="col-sm-6 col-md-2">
-                        <input type="button" class="form-control btn btn-info" value="جستجو">
-                    </div>
-                </div>
+                </form>
             </div>
             <!-- /.card-body -->
         </div>
@@ -46,7 +48,7 @@
                             @foreach($pays as $pay)
                                 <tr>
                                     <td>{{ $x++ }}</td>
-                                    <td>{{ $pay->amount }}</td>
+                                    <td>{{ $pay->price }}</td>
                                     <td>{{ $pay->st_code_meli }} </td>
                                     <td> {{ $pay->demand_code }} </td>
                                     <td> {{ $pay->fishChkNum }} </td>
@@ -59,19 +61,11 @@
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
                     {{ $pays->links() }}
-                    {{--<ul class="pagination pagination-sm m-0 float-right">--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">«</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۱</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۲</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۳</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">»</a></li>--}}
-                    {{--</ul>--}}
                 </div>
                 <!-- /.card-footer-->
             </div>
             <!-- /.card -->
         </div>
     </div>
-
 
 @endsection

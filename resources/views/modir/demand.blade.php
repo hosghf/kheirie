@@ -14,7 +14,9 @@
                         <div class="col-12">
                             <h4>
                                 درخواست شماره
-                                @if(isset($demand)) <span> {{ $demand->shomare }}
+                                @if(isset($demand))
+                                    <span> {{ $demand->shomare }}</span>
+                                   @if($demand->status_code == 2) <small class="badge badge-success"> تایید شده</small> @endif
                                 <small class="float-left">تاریخ:
                                     <span> {{ $demand->tarikh }}</span> @endif
                                 </small>
@@ -81,12 +83,14 @@
                     <!-- /.row -->
 
                     <!-- this row will not appear when printing -->
+                    @if($demand->status_code != 2)
                     <div class="row no-print mt-3">
                         <div class="col-12">
                             <a type="button" href="/modir/darkhast/{{isset($demand) ? $demand->id : ''}}/taeed" class="btn btn-success float-left"> تایید درخواست
                             </a>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <!-- /.row -->

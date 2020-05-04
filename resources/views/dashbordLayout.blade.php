@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/dashbordResources/dist/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dashbordResources/dist/css/custom-style.css">
+    <link rel="stylesheet" href="/dashbordResources/dist/css/farsi_fonts.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -27,10 +28,13 @@
         </ul>
 
         <!-- Right navbar links -->
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto ml-3">
             <!-- Notifications Dropdown Menu -->
-            <i class="fa fa-home"></i>
-            <a href="/logout">خروج</a>
+            <a href="/logout" class="ml-2 ">
+                <span>خروج</span>
+            </a>
+            <i class="fa fa-sign-out mt-1"></i>
+
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -127,11 +131,19 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/changeP" class="nav-link {{ Route::currentRouteName() == 'changePass' ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                     تغییر رمز
+                                </p>
+                            </a>
+                        </li>
                         <br>
                         @endcan
                         @can('isModir')
                         <li class="nav-item">
-                            <a href="/modir/varizModir" class="nav-link">
+                            <a href="/modir/varizModir"  class="nav-link {{ isset($varizha) ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     واریر نقدی
@@ -139,7 +151,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/modir/acceptRegisterShow" class="nav-link">
+                            <a href="/modir/acceptRegisterShow" class="nav-link {{ Route::currentRouteName() == 'acceptReg' ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     تایید ثبت نام ها
@@ -147,10 +159,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/modir/darkhastList" class="nav-link">
+                            <a href="/modir/darkhastList" class="nav-link {{ isset($demands) ? 'active' : '' }}">
                                 <i class="nav-icon fa fa-th"></i>
                                 <p>
                                     درخواست ها
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/changePm" class="nav-link {{ Route::currentRouteName() == 'changePass' ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-th"></i>
+                                <p>
+                                    تغییر رمز
                                 </p>
                             </a>
                         </li>

@@ -23,7 +23,9 @@
                              به حساب ایشان واریز میشود و همین مبلغ از حساب موسسه کم میشود.
                             </p>
                     </div>
-                    <a href="/admin/demand/list">بازگشت به درخواست</a>
+                    <div class="card-footer">
+                        <a href="/admin/demand/list" class="btn btn-primary col-sm-12 col-md-3">بازگشت به درخواست</a>
+                    </div>
                     <!-- /.card-body -->
                 </div>
             </div>

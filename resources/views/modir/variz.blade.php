@@ -85,8 +85,8 @@
                             @foreach($varizha as $v)
                                 <tr>
                                     <td>{{ $v->id }}</td>
-                                    <td>{{ $v->amount }}</td>
-                                    <td>{{ $v->school_code }}</td>
+                                    <td>{{ number_format($v->amount) }}</td>
+                                    <td>{{ $v->school->school_name }}</td>
                                     <td>{{ $v->typeOfIncome->title }}</td>
                                     <td>{{ $v->type ? 'درگاه اینترنتی' : 'کارت به کارت' }}</td>
                                     <td>{{ $v->kartTransactNum }}</td>

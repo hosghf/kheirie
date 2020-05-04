@@ -3,21 +3,6 @@
 @section('title', 'درخواست')
 
 @section('content')
-<script>
-
-    var arabicNumbers = ['0', '۱', '۲', '۳', '4', '5', '6', '7', '8', '۹'];
-    $('.translate').text(function(i, v) {
-        var chars = v.split('');
-        for (var i = 0; i < chars.length; i++) {
-            if (/d/.test(chars[i])) {
-                chars[i] = arabicNumbers[chars[i]];
-            }
-        }
-        return chars.join('');
-    })
-
-</script>
-
     <div class="content">
         <div class="container-fluid">
 
@@ -28,8 +13,10 @@
                         <div class="col-12">
                             <h4>
                                 درخواست شماره
-                                @if(isset($demand)) <span> {{ $demand->shomare }}
-                                <small class="float-left">تاریخ:
+                                @if(isset($demand))
+                                    <span> {{ $demand->shomare }}</span>
+                                    @if($demand->status_code == 3) <small class="badge badge-success"> پرداخت شده </small> @endif
+                                    <small class="float-left">تاریخ:
                                     <span> {{ $demand->tarikh }}</span> @endif
                                 </small>
                             </h4>
@@ -95,12 +82,14 @@
                     <!-- /.row -->
 
                     <!-- this row will not appear when printing -->
+                    @if($demand->status_code != 3)
                     <div class="row no-print mt-3">
                         <div class="col-12">
                             <a type="button" href="/admin/demand/{{$id}}/payShow" class="btn btn-success float-left"> تایید درخواست و پرداخت
                             </a>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <!-- /.row -->

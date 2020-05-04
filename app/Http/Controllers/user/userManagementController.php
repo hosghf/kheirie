@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class userManagementController extends Controller
 {
@@ -14,6 +15,7 @@ class userManagementController extends Controller
         if($user) {
             $user->password = Hash::make($request->password);
             $user->save();
+            session()->flash('message', 'رمز تغییر کرد.');
             return redirect()->back();
         }else{
             echo 'oops';
