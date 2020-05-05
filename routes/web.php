@@ -53,6 +53,7 @@ Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
     Route::post('/admin/varizha', 'admin\varizPayHelpController@varizList')->middleware('auth');
     Route::get('/admin/helps', 'admin\varizPayHelpController@helps');
     Route::get('/admin/payList', 'admin\varizPayHelpController@paymentList');
+    Route::get('/admin/payDetail/{id}', 'admin\varizPayHelpController@payDetail');
     // search in paylist
     Route::post('/admin/payList', 'admin\varizPayHelpController@paymentList');
     //admin/demand

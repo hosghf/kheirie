@@ -4,26 +4,6 @@
 
 @section('content')
 
-
-    <div class="row">
-        <div class="card card-info col">
-            <div class="card-header">
-                <h3 class="card-title"> جستجو </h3>
-            </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-sm-6 col-md-2">
-                        <input type="text" class="form-control" placeholder="نام خانوادگی واریز کننده">
-                    </div>
-                    <div class="col-sm-6 col-md-2">
-                        <input type="button" class="form-control btn btn-info" value="جستجو">
-                    </div>
-                </div>
-            </div>
-            <!-- /.card-body -->
-        </div>
-    </div>
-
     <div class="row">
         <div class="col-12">
             <div class="card">

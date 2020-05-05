@@ -95,7 +95,7 @@
                                 <li class="nav-item">
                                     <a href="/admin/varizha" class="nav-link {{ isset($varizha) ? 'active' : '' }}">
                                         <p>واریز های مدیران
-                                            <span class="right badge badge-danger">جدید ۵</span>
+                                            {{--<span class="right badge badge-danger">جدید ۵</span>--}}
                                         </p>
                                     </a>
                                 </li>

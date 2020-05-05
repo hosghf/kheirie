@@ -17,7 +17,7 @@ class CreateProvidersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('family');
-            $table->string('code_meli')->unique();
+            $table->string('code_meli');
             $table->tinyInteger('nesbat_ba_talabe');
             $table->string('job');
             $table->string('explanation')->nullable();

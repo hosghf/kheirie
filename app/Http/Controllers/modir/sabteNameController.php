@@ -12,7 +12,7 @@ class sabteNameController extends Controller
 {
     public function index(){
         $school = School::where('manager_mobile', auth()->user()->username)->first();
-        $students = Student::where('status_code', 1)->where('school_id',$school->id )->paginate(6);
+        $students = Student::where('status_code', 1)->where('school_id',$school->id )->orderBy('created_at', 'desc')->paginate(6);
         return view('modir.acceptRegister', [ 'students' => $students]);
     }
     public function accept($id){

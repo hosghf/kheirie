@@ -17,9 +17,9 @@ class demandsController extends Controller
 
         if(!empty($request->input('code_meli'))){
             $demands = Demand::where('status_code' , '!=' , 3)->
-            where('student_code_meli', $request->code_meli )->paginate(6);
+            where('student_code_meli', $request->code_meli )->orderBy('created_at', 'desc')->paginate(6);
         }else{
-            $demands = Demand::where('status_code' , '!=' , 3)->paginate(6);
+            $demands = Demand::where('status_code' , '!=' , 3)->orderBy('created_at', 'desc')->paginate(6);
 
         }
         $sal = Salary::all();

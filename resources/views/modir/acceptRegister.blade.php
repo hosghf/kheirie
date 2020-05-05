@@ -43,7 +43,7 @@
                                     <a type="button" href="/modir/acceptRegister/{{$st->id}}" class="btn btn-block btn-success btn-sm">تایید ثبت نام</a>
                                 </td>
                                 <td>
-                                    <a type="button" class="btn btn-block btn-danger btn-sm"> رد ثبت نام </a>
+                                    <a type="button" class="btn btn-block btn-danger btn-sm disabled"> رد ثبت نام </a>
                                 </td>
                             </tr>
                         @endforeach

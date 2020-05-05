@@ -20,11 +20,11 @@ class darkhastController extends Controller
         if(!empty($request->code_meli)){
             $demands = Demand::whereHas('student', function (Builder $query) use ($school) {
                 $query->where('school_id', $school->id);
-            })->where('status_code', '!=', 3)->where('student_code_meli', $request->code_meli)->paginate(6);
+            })->where('status_code', '!=', 3)->where('student_code_meli', $request->code_meli)->orderBy('created_at', 'desc')->paginate(6);
         }else{
             $demands = Demand::whereHas('student', function (Builder $query) use ($school) {
                 $query->where('school_id', $school->id);
-            })->where('status_code', '!=', 3)->paginate(6);
+            })->where('status_code', '!=', 3)->orderBy('created_at', 'desc')->paginate(6);
         }
 
 

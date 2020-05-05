@@ -39,12 +39,13 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover">
+                    <table class="table table-hover text-center">
                         <tbody><tr>
                             <th>شماره</th>
                             <th>مبلغ</th>
                             <th>مدرسه</th>
                             <th>نوع</th>
+                            <th>شماره تراکنش</th>
                             <th> تصویر چک/فیش </th>
                             <th>تاریخ</th>
                         </tr>
@@ -54,10 +55,11 @@
                                 <tr>
                                     <td>{{ $x++ }}</td>
                                     <td>{{ $variz->price }}</td>
-                                    <td> {{ $variz->school->school_name }} </td>
+                                    <td>{{ $variz->school->school_name }}</td>
                                     <td>{{ $variz->typeOfIncome->title }}</td>
-                                    <td><a href="ss">کلیک کنید</a></td>
-                                    <td class="text-right"> {{ $variz->x }} </td>
+                                    <td> {{ $variz->kartTransactNum }} </td>
+                                    <td><a target="_blank" href="{{ URL::to('/') }}/fishImages/{{$variz->y}}/{{$variz->m}}/{{$variz->tasvirFish}}">کلیک کنید</a></td>
+                                    <td> {{ $variz->x }} </td>
                                 </tr>
                             @endforeach
                         @endif

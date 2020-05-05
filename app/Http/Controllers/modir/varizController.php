@@ -8,18 +8,21 @@ use App\Models\School;
 use App\Models\typeOfIncome;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class varizController extends Controller
 {
     public function list(){
         $school = School::where('manager_mobile', auth()->user()->username)->first();
-        $varizha = Income::where('school_code', $school->id)->paginate(6);
+        $varizha = Income::where('school_code', $school->id)->orderBy('created_at', 'desc')->paginate(6);
         $daste = typeOfIncome::all();
 
         foreach($varizha as $v) {
+            $v->y = Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->year;
+            $v->m = Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->month;
+            $v->m = $v->m < 10 ? '0' . $v->m : $v->m;
             $v->tarikh = Verta($v->created_at);
             $v->tarikh = $v->tarikh->format('Y-j-n');
-            $v->tarikh = Verta::persianNumbers($v->tarikh);
         }
         return view('modir.variz', ['varizha' => $varizha, 'daste' => $daste]);
     }
@@ -49,7 +52,6 @@ class varizController extends Controller
             $image = $request->file('file');
             $filename = time().'.'.$image->getClientOriginalExtension();
             $image->move($destination, $filename);
-//            return back()->with('success','Image Upload successfully');
         }
         // end of image uploading
 

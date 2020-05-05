@@ -19,7 +19,7 @@
                             با کد طلبگی
                             <span class="text-bold">{{ $student->code_talabegi }}</span>
                              تایید شد و مبلغ
-                            <span class="text-bold"> {{$amount}} </span>
+                            <span class="text-bold"> {{number_format($amount)}} </span>
                              به حساب ایشان واریز میشود و همین مبلغ از حساب موسسه کم میشود.
                             </p>
                     </div>

@@ -20,7 +20,8 @@ class myLoginController extends Controller
                 return redirect()->intended('/admin/dashbord');
             }
         }else{
-            return redirect('login');
+            session()->flash('error', 'نام کاربری یا پسوورد اشتباه میباشد.');
+            return redirect()->back();
         }
 
     }

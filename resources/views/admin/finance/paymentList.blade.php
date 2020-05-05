@@ -42,6 +42,7 @@
                             <th> کد درخواست </th>
                             <th>شماره تراکنش</th>
                             <th>تاریخ</th>
+                            <th> </th>
                         </tr>
                         @if(isset($pays))
                             <div class="d-none">{{ $x = 1 }}</div>
@@ -53,6 +54,7 @@
                                     <td> {{ $pay->demand_code }} </td>
                                     <td> {{ $pay->fishChkNum }} </td>
                                     <td> {{ $pay->x }} </td>
+                                    <td> <a href="/admin/payDetail/{{$pay->id}}" class="btn btn-primary"> مشاهده </a> </td>
                                 </tr>
                             @endforeach
                         @endif

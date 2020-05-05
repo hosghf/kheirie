@@ -18,6 +18,30 @@ class CreateRolesTable extends Migration
             $table->string('title');
             $table->timestamps();
         });
+        \App\Models\Role::create(
+            [
+                'id' => 1,
+                'title' => 'developer',
+            ]
+        );
+        \App\Models\Role::create(
+            [
+                'id' => 2,
+                'title' => 'admin',
+            ]
+        );
+        \App\Models\Role::create(
+            [
+                'id' => 3,
+                'title' => 'modir',
+            ]
+        );
+        \App\Models\Role::create(
+            [
+                'id' => 4,
+                'title' => 'student',
+            ]
+        );
     }
 
     /**

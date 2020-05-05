@@ -21,13 +21,10 @@
         </a>
     </div>
     <div class="row">
-        {{--<div class="img-holder">--}}
-            {{--<div class="bg"></div>--}}
-            {{--<div class="info-holder">--}}
-
-            {{--</div>--}}
-        {{--</div>--}}
         <div class="form-holder">
+            @if (session()->has('error'))
+                <li class="alert alert-danger text-right mb-0">{{ session('error') }}</li>
+            @endif
             <div class="form-content">
                 <div class="form-items">
                     <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>

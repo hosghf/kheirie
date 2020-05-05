@@ -29,6 +29,9 @@
         </div>
         <div class="form-holder">
             <div class="form-content">
+                @if (session()->has('error'))
+                    <li class="alert alert-danger">{{ session('error') }}</li>
+                @endif
                 <div class="form-items">
                     <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>
                     <p class="mt-4"> جهت ثبت درخواست در سیستم بر روی ثبت درخواست کلیک کنید </p>

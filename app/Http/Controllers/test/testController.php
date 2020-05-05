@@ -5,6 +5,7 @@ namespace App\Http\Controllers\test;
 use App\Http\Controllers\Controller;
 use App\Models\Demand;
 use App\Models\Dependent;
+use App\Models\Income;
 use App\Models\nesbateBaTalabe;
 use App\Models\Role;
 use App\Models\School;
@@ -15,6 +16,7 @@ use App\Models\User;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class testController extends Controller
 {
@@ -64,13 +66,19 @@ class testController extends Controller
 //        })->where('status_code', '!=', 3)->paginate();
 //        dd($demands);
 
-        echo auth()->user()->username;
-    }
-    public function myauth(Request $request){
-        $cr = $request->only('username', 'password');
-        if(Auth::attempt($cr)){
-            echo 'hiii';
-        }
+//        echo auth()->user()->username;
+
+        $income = Income::find(2)->created_at;
+       echo Carbon::createFromFormat('Y-m-d H:i:s', $income)->day;
+
+
 
     }
+//    public function myauth(Request $request){
+//        $cr = $request->only('username', 'password');
+//        if(Auth::attempt($cr)){
+//            echo 'hiii';
+//        }
+//
+//    }
 }

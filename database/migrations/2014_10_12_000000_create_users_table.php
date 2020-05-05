@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 class CreateUsersTable extends Migration
 {
@@ -26,6 +27,15 @@ class CreateUsersTable extends Migration
         Schema::table('users', function (Blueprint $table){
             $table->foreign('role_id')->references('id')->on('roles');
         });
+
+        \App\Models\User::create(
+            [
+                'id' => 1,
+                'username' => 'admin',
+                'role_id' => '2',
+                'password' => Hash::make('admin')
+            ]
+        );
 
     }
 

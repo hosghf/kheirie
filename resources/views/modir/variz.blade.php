@@ -10,7 +10,7 @@
         <li class="alert alert-danger">{{ session('error') }}</li>
     @endif
     @if (session()->has('message'))
-        <li class="alert alert-danger">{{ session('message') }}</li>
+        <li class="alert alert-success">{{ session('message') }}</li>
     @endif
     <div class="row">
         <div class="card card-info col">
@@ -78,7 +78,8 @@
                             <th>مدرسه</th>
                             <th>دسته</th>
                             <th>نوع پرداخت</th>
-                            <th>شماره چک یا فیش</th>
+                            <th>شماره چک/فیش</th>
+                            <th>تصویر چک/فیش</th>
                             <th>تاریخ</th>
                         </tr>
                         @if(isset($varizha))
@@ -90,6 +91,8 @@
                                     <td>{{ $v->typeOfIncome->title }}</td>
                                     <td>{{ $v->type ? 'درگاه اینترنتی' : 'کارت به کارت' }}</td>
                                     <td>{{ $v->kartTransactNum }}</td>
+                                    <td class="text-center"><a target="_blank" href="{{ URL::to('/') }}/fishImages/{{$v->y}}/{{$v->m}}/{{$v->tasvirFish}}">کلیک کنید</a></td>
+
                                     <td>{{ $v->tarikh }}</td>
                                 </tr>
                             @endforeach
