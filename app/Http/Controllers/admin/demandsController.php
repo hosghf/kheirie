@@ -66,16 +66,21 @@ class demandsController extends Controller
         $demandId = $id;
 
         $request->validate([
-            'file' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'amount' => 'numeric'
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'amount' => 'required|numeric',
+            'fishCheckNum' => 'required'
         ],[
             'file.max' => 'سایز تصویر کمتر از 2 مگابایت باشد.',
             'file.mimes' => 'فرمت تصویر jpg,pnp,gif باشد.',
-            'amount.numeric' => 'لطفابرای مبلغ مقدار صحیح وارد کنید.'
+            'file.required' => 'تصویر را وارد کنید.',
+            'amount.numeric' => ' برای مبلغ مقدار صحیح وارد کنید.',
+            'amount.required' => ' مبلغ را وارد کنید.',
+            'fishCheckNum.required' => ' شماره چک یا فیش پرداختی را وارد کنید. ',
         ]);
 
         // uploading images
-        $destination= base_path().'/public/fishImages/'.date('Y').'/'.date('m');
+//        $destination= base_path().'/public/fishimages/'.date('Y').'/'.date('m');
+        $destination= '/home2/maedehfa/public_html/fishimages/'.date('Y').'/'.date('m');
         if(!is_dir($destination))
         {
             mkdir($destination,0777,true);

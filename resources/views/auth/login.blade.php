@@ -25,12 +25,14 @@
             @if (session()->has('error'))
                 <li class="alert alert-danger text-right mb-0">{{ session('error') }}</li>
             @endif
-            <div class="form-content">
+            <div class="form-content pt-5">
                 <div class="form-items">
                     <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>
                     <p class="mt-4"> جهت ثبت درخواست در سیستم بر روی ثبت درخواست کلیک کنید </p>
-                    <div class="page-links">
-                        <a href="login" class="active ml-3">ورود</a><a href="reg1">ثبت درخواست</a>
+                    <div class="page-links mb-5">
+                        <a href="login" class="active ml-3">ورود</a>
+                        <a href="reg1" class="ml-3 mt-4">ثبت درخواست</a>
+                        <a href="help" class=" mt-4"> واریز کمک های مردمی </a>
                     </div>
                     <form method="post" action="/login">
                         @csrf

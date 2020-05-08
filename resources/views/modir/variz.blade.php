@@ -23,7 +23,7 @@
                     <div class="form-row">
                         <div class="col-md-2 col-sm-6 mt-4">
                             <label>مبلغ</label>
-                            <input type="text" name="amount" class="form-control" placeholder="مبلغ">
+                            <input type="text" name="amount" class="form-control" value="{{old('amount')}}" placeholder="مبلغ">
                         </div>
                         <div class="col-md-2 col-sm-6 mt-4">
                             <label> دسته </label>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
                             <label>شماره چک/فیش</label>
-                            <input type="text" name="checkFishNum" class="form-control">
+                            <input type="text" name="checkFishNum" class="form-control" value="{{ old('checkFishNum') }}">
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
                             <label>تصویر چک/فیش</label>
@@ -91,7 +91,7 @@
                                     <td>{{ $v->typeOfIncome->title }}</td>
                                     <td>{{ $v->type ? 'درگاه اینترنتی' : 'کارت به کارت' }}</td>
                                     <td>{{ $v->kartTransactNum }}</td>
-                                    <td class="text-center"><a target="_blank" href="{{ URL::to('/') }}/fishImages/{{$v->y}}/{{$v->m}}/{{$v->tasvirFish}}">کلیک کنید</a></td>
+                                    <td class="text-center"><a target="_blank" href="{{ URL::to('/') }}/fishimages/{{$v->y}}/{{$v->m}}/{{$v->tasvirFish}}">کلیک کنید</a></td>
 
                                     <td>{{ $v->tarikh }}</td>
                                 </tr>

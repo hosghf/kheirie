@@ -27,27 +27,27 @@
                         @csrf
                         <div class="card-body">
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label>
                                         <span class="text-danger">*</span>
                                         نام
                                     </label>
                                     <input type="text" class="form-control" name="school_name" id="school_name" placeholder="نام مدرسه">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label>آدرس مدرسه</label>
                                     <input type="text" class="form-control" name="school_address" id="" placeholder="آدرس مدرسه">
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label>
                                         <span class="text-danger">*</span>
                                         نام مدیر
                                     </label>
                                     <input type="text" class="form-control" name="managerName" id="" placeholder="نام مدیر">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label>
                                         <span class="text-danger">*</span>
                                         نام خانوادگی مدیر
@@ -56,11 +56,11 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label>تلفن مدرسه</label>
                                     <input type="text" class="form-control" name="school_phone" id="" placeholder=" تلفن مدرسه ">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label>
                                         <span class="text-danger">*</span>
                                         کد ملی مدیر
@@ -69,13 +69,13 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label><span class="text-danger">*</span>
                                         شماره همراه(نام کاربری)
                                     </label>
                                     <input type="text" class="form-control" name="modir_phone" id="" placeholder="همراه مدیر">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-sm-12 col-md-6">
                                     <label><span class="text-danger">*</span>
                                         پسورد
                                     </label>

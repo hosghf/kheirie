@@ -9,7 +9,7 @@
             <div class="content">
                 <div class="container-fluid">
 
-                    <div class="row col-6 m-auto">
+                    <div class="row col-sm-12 col-md-6 m-auto">
                         <div class="card card-info col">
                             <div class="card-header">
                                 <h3 class="card-title">افزودن نوع واریز ها </h3>

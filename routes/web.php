@@ -39,7 +39,7 @@ Route::group(['middleware' => ['can:isModir', 'auth']], function () {
     Route::get('/modir/darkhast/{id}/taeed', 'modir\darkhastController@taeed');
 
     Route::post('/changePm/{username}', 'user\userManagementController@changePass')->name('changePass');
-    Route::view( '/changePm','user_management\passwordChange')->name('changePass');
+    Route::view( '/changePm','user_management/passwordchange')->name('changePass');
 
 });
 
@@ -75,7 +75,7 @@ Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
     Route::post('/admin/settings/addType', 'admin\settingsController@addType');
     //change user
     Route::post('/changeP/{username}', 'user\userManagementController@changePass')->name('changePass');
-    Route::view( '/changeP','user_management/passwordChange')->name('changePass');
+    Route::view( '/changeP','user_management/passwordchange')->name('changePass');
 
 });
 
@@ -95,6 +95,11 @@ Route::get('finalMessage', 'RegisterationRequest\RegisterRequestController@final
 
 //login
 Auth::routes();
+
+Route::post('/zarinpal/request', 'zarinpal\reqController@request');
+Route::get('/zarinpal/verify', 'zarinpal\verifyController@reg');
+Route::view('/help', 'help.payment');
+
 
 //Route::get('login', 'myLoginController@show');
 Route::get('logout', 'myLoginController@logout');

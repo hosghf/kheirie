@@ -185,10 +185,11 @@
                                 <div class="col">
                                     <label> {{ $i++ }} -</label>
                                     <label> {{ $t[0] }} </label> <label> - </label>
-                                    <label> {{ $t[1] }} </label><label> - </label>
+                                    <label class="pl-2 pr-2"> {{ $t[1] }} </label><label> - </label>
                                     <label> {{ $t[2] }} </label>
                                 </div>
                             </div>
+                                <hr>
                             @endforeach
                         @endif
                         <div class="form-button text-right">

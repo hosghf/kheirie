@@ -32,7 +32,7 @@
                                 <div class="form-row">
                                     <div class="col-md-2 col-sm-6 mt-4">
                                         <label>مبلغ</label>
-                                        <input type="text" name="amount" class="form-control" placeholder="مبلغ">
+                                        <input type="text" name="amount" class="form-control" value="{{old('amount')}}" placeholder="مبلغ">
                                     </div>
                                     <div class="col-md-2 col-sm-6 mt-4">
                                         <label>نوع پرداخت</label>
@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="col-md-3 col-sm-6 mt-4">
                                         <label>شماره چک/فیش</label>
-                                        <input type="text" name="fishCheckNum" class="form-control" placeholder="">
+                                        <input type="text" name="fishCheckNum" value="{{ old('fishCheckNum') }}" class="form-control" placeholder="">
                                     </div>
                                     <div class="col-md-3 col-sm-6 mt-4">
                                         <label>تصویر چک/فیش</label>

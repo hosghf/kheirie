@@ -13,13 +13,6 @@
 </head>
 <body>
 <div class="form-body" class="container-fluid">
-    {{--<div class="website-logo">--}}
-        {{--<a href="index.html">--}}
-            {{--<div class="logo">--}}
-                {{--<img class="logo-size" src="" alt="">--}}
-            {{--</div>--}}
-        {{--</a>--}}
-    {{--</div>--}}
     <div class="row">
         <div class="img-holder">
             <div class="bg"></div>
@@ -32,20 +25,27 @@
                 @if (session()->has('error'))
                     <li class="alert alert-danger">{{ session('error') }}</li>
                 @endif
-                <div class="form-items">
-                    <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>
-                    <p class="mt-4"> جهت ثبت درخواست در سیستم بر روی ثبت درخواست کلیک کنید </p>
+                <div class="form-items text-right">
+                    <h3>واریز کمک های نقدی به حوزه علمیه خواهران شیراز</h3>
                     <div class="page-links">
-                        <a href="login" class="active ml-3">ورود</a>
-                        <a href="reg1" class="ml-3">ثبت درخواست</a>
-                        <a href="help"> واریز کمک های مردمی </a>
+                        <a href="login" class="active ml-3">صفحه اصلی</a>
                     </div>
-                    <form method="post" action="/login">
+                    <form method="post" action="/zarinpal/request">
                         @csrf
-                        <input class="form-control" type="text" name="username" placeholder=" نام کاربری " required>
-                        <input class="form-control" type="password" name="password" placeholder="کلمه عبور" required>
+                        <div class="form-group mb-1">
+                            <label> نام </label>
+                            <input class="form-control" type="text" name="name" placeholder="اختیاری " >
+                        </div>
+                        <div class="form-group mb-1">
+                            <label> خانوادگی </label>
+                            <input class="form-control" type="text" name="family" placeholder="اختیاری " >
+                        </div>
+                        <div class="form-group mb-1">
+                            <label>مبلغ</label>
+                            <input class="form-control" type="text" name="amount" placeholder=" به تومان " >
+                        </div>
                         <div class="form-button">
-                            <button id="submit" type="submit" class="ibtn">ورود</button>
+                            <button id="submit" type="submit" class="ibtn">پرداخت</button>
                         </div>
                     </form>
                 </div>

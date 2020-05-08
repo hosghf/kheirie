@@ -42,6 +42,7 @@
                             <th> کد درخواست </th>
                             <th>شماره تراکنش</th>
                             <th>تاریخ</th>
+                            <th>تصویر چک</th>
                             <th> </th>
                         </tr>
                         @if(isset($pays))
@@ -54,6 +55,7 @@
                                     <td> {{ $pay->demand_code }} </td>
                                     <td> {{ $pay->fishChkNum }} </td>
                                     <td> {{ $pay->x }} </td>
+                                    <td class="text-center"><a target="_blank" href="{{ URL::to('/') }}/fishimages/{{$pay->y}}/{{$pay->m}}/{{$pay->tasvirkartCheck}}">کلیک کنید</a></td>
                                     <td> <a href="/admin/payDetail/{{$pay->id}}" class="btn btn-primary"> مشاهده </a> </td>
                                 </tr>
                             @endforeach

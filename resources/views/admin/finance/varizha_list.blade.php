@@ -58,7 +58,7 @@
                                     <td>{{ $variz->school->school_name }}</td>
                                     <td>{{ $variz->typeOfIncome->title }}</td>
                                     <td> {{ $variz->kartTransactNum }} </td>
-                                    <td><a target="_blank" href="{{ URL::to('/') }}/fishImages/{{$variz->y}}/{{$variz->m}}/{{$variz->tasvirFish}}">کلیک کنید</a></td>
+                                    <td><a target="_blank" href="{{ URL::to('/') }}/fishimages/{{$variz->y}}/{{$variz->m}}/{{$variz->tasvirFish}}">کلیک کنید</a></td>
                                     <td> {{ $variz->x }} </td>
                                 </tr>
                             @endforeach

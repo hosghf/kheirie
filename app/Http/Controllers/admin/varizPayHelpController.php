@@ -58,8 +58,10 @@ class varizPayHelpController extends Controller
         }
         foreach($pays as $pay){
             $v= Verta($pay->created_at);
-            $v2 = $v->format('Y-n-j');
-            $pay->x = $v2;
+            $pay->x = $v->format('Y-n-j');
+            $pay->y = Carbon::createFromFormat('Y-m-d H:i:s', $pay->created_at)->year;
+            $pay->m = Carbon::createFromFormat('Y-m-d H:i:s', $pay->created_at)->month;
+            $pay->m = $pay->m < 10 ? '0' . $pay->m : $pay->m;
             $pay->price = number_format($pay->amount);
         }
         return view('admin.finance.paymentList', ['pays' => $pays]);

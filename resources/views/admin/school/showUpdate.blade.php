@@ -25,14 +25,14 @@
                         @csrf
                         <div class="card-body">
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         <span class="text-danger">*</span>
                                         نام مدرسه
                                     </label>
                                     <input type="text" class="form-control" name="school_name" value="{{$school->school_name }}" id="school_name" placeholder="نام مدرسه">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         آدرس مدرسه
                                     </label>
@@ -40,14 +40,14 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         <span class="text-danger">*</span>
                                         نام مدیر
                                     </label>
                                     <input type="text" class="form-control" name="managerName" value="{{$school->manager_name }}" id="" placeholder="نام مدیر">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         <span class="text-danger">*</span>
                                         نام خانوادگی مدیر
@@ -56,13 +56,13 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         تلفن مدرسه
                                     </label>
                                     <input type="text" class="form-control" name="school_phone" value="{{$school->school_phone }}" placeholder=" تلفن مدرسه ">
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         <span class="text-danger">*</span>
                                         کد ملی مدیر
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-md-6 col-sm-12">
                                     <label>
                                         <span class="text-danger">*</span>
                                         همراه مدیر(نام کاربری)

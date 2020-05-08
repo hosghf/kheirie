@@ -112,9 +112,17 @@ class RegisterRequestController extends Controller
         $validat = $request->validate([
             'prov_mobil' => 'required',
             'address' => 'required',
+            'postal_code' => 'required',
+            'state_phone' => 'required',
+            'prov_work_address' => 'required',
+            'work_phone' => 'required',
         ],[
             'prov_mobil.required' => 'همراه سرپرست را وارد کنید.',
             'address.required' => 'آدرس منزل را وارد کنید.',
+            'postal_code.required' => 'کد پستی منزل را وارد کنید.',
+            'state_phone.required' => 'تلفن ثابت را وارد کنید.',
+            'prov_work_address.required' => ' آدرس محل کار سرپرست را وارد کنید.',
+            'work_phone.required' => 'تلفن محل کار سرپرست را وارد کنید.',
         ]);
         $reg4 = $request->except('_token');
         $request->session()->put('reg4', $reg4);
