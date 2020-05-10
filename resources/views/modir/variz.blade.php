@@ -18,8 +18,10 @@
                 <h3 class="card-title"> واریز مدیر </h3>
             </div>
             <div class="card-body">
+                {{--<form method="post" class="col-12" enctype="multipart/form-data" action="/modir/varizModir">--}}
                 <form method="post" class="col-12" enctype="multipart/form-data" action="/modir/varizModir">
                     @csrf
+                    <input class="d-none" name="help" value="0">
                     <div class="form-row">
                         <div class="col-md-2 col-sm-6 mt-4">
                             <label>مبلغ</label>
@@ -37,18 +39,18 @@
                     <div class="form-row mt-4">
                         <div class="col-md-2 col-sm-6 mt-4">
                             <label>نوع پرداخت</label>
-                            <select name="darghah" class="form-control">
-                                <option value="1">درگاه پرداخت</option>
+                            <select name="darghah" id="tpardakht" class="form-control">
                                 <option value="0">کارت به کارت</option>
+                                <option value="1">درگاه پرداخت</option>
                             </select>
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
                             <label>شماره چک/فیش</label>
-                            <input type="text" name="checkFishNum" class="form-control" value="{{ old('checkFishNum') }}">
+                            <input type="text" name="checkFishNum" class="form-control kart" value="{{ old('checkFishNum') }}">
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
                             <label>تصویر چک/فیش</label>
-                            <input type="file" name="file" class="form-control" placeholder="انتخاب تصویر">
+                            <input type="file" name="file" class="form-control kart" placeholder="انتخاب تصویر">
                         </div>
                     </div>
 
@@ -109,4 +111,8 @@
         </div>
     </div>
 
+@endsection
+
+@section('js')
+    <script src="/dashbordResources/dist/js/modirvarizpg.js"></script>
 @endsection

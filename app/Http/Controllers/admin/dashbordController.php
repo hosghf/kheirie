@@ -20,16 +20,19 @@ class dashbordController extends Controller
         $payments = Payment::sum('amount');
         $total = ($incomeAmount + $helpAmount) - $payments;
 
-        $incomeAmount = Verta::persianNumbers(number_format($incomeAmount));
-        $helpAmount = Verta::persianNumbers(number_format($helpAmount));
-        $payments = Verta::persianNumbers(number_format($payments));
-        $total = Verta::persianNumbers(number_format($total));
+        $incomeAmount = number_format($incomeAmount);
+        $helpAmount = number_format($helpAmount);
+        $payments = number_format($payments);
+        $total = number_format($total);
 
         $daste = typeOfIncome::all();
 
         foreach ($daste as $d){
-            $d->m = Income::where('type', $d->id)->sum('amount');
-            $d->m = Verta::persianNumbers(number_format($d->m));
+            $income = Income::where('type', $d->id)->sum('amount');
+            $help = Help::where('type', $d->id)->sum('amount');
+            $payment = Payment::where('type', $d->id)->sum('amount');
+            $t = ($income + $help) - $payment;
+            $d->m = number_format($t);
         }
 
         return view('admin.Dashbord', ['total' => $total,

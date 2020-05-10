@@ -10,6 +10,7 @@ use App\Models\Salary;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Hekmatinasser\Verta\Verta;
+use App\Models\typeOfIncome;
 
 class demandsController extends Controller
 {
@@ -51,10 +52,11 @@ class demandsController extends Controller
         return view('admin.demand.demand', ['student' => $student, 'provider' => $provider, 'dependents' => $dependents, 'id' => $id, 'demand' => $demand ]);
     }
     public function payShow($id){
+        $daste = typeOfIncome::all();
         $demandId = $id;
         $codeMeli = Demand::find($id)->student_code_meli;
         $student = Student::where('code_meli', $codeMeli)->first();
-        return view('admin.demand.pay', ['demandId' => $demandId, 'student' => $student]);
+        return view('admin.demand.pay', ['demandId' => $demandId, 'student' => $student, 'daste' => $daste]);
     }
     public function pay(Request $request, $id){
         $payment = Payment::where('demand_code', $id)->first();
@@ -79,8 +81,8 @@ class demandsController extends Controller
         ]);
 
         // uploading images
-//        $destination= base_path().'/public/fishimages/'.date('Y').'/'.date('m');
-        $destination= '/home2/maedehfa/public_html/fishimages/'.date('Y').'/'.date('m');
+        $destination= base_path().'/public/fishimages/'.date('Y').'/'.date('m');
+//        $destination= '/home2/maedehfa/public_html/fishimages/'.date('Y').'/'.date('m');
         if(!is_dir($destination))
         {
             mkdir($destination,0777,true);
@@ -100,7 +102,6 @@ class demandsController extends Controller
         $codeMeli = Demand::find($id)->student_code_meli;
         $student = Student::where('code_meli', $codeMeli)->first();
 
-        var_dump($payment);
         $payment = new Payment;
         $payment->st_code_meli = $codeMeli;
         $payment->demand_code = $id;
@@ -108,8 +109,8 @@ class demandsController extends Controller
         $payment->tasvirkartCheck = $filename;
         $payment->fishChkNum = $request->fishCheckNum;
         $payment->amount = $request->amount;
+        $payment->type = $request->daste;
         $payment->save();
-
 
         return view('admin.demand.payConfirm', ['demandId' => $demandId, 'student' => $student, 'amount' => $request->amount]);
     }

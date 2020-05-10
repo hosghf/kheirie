@@ -80,25 +80,26 @@ Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
 });
 
 //registration routes
-Route::get('reg1', 'registerationrequest\RegisterRequestController@index');
-Route::post('reg1', 'registerationrequest\RegisterRequestController@reg1');
-Route::get('backReg1', 'registerationrequest\RegisterRequestController@backReg1');
-Route::post('reg2', 'registerationrequest\RegisterRequestController@reg2');
-Route::get('backReg2', 'registerationrequest\RegisterRequestController@backReg2');
-Route::post('reg3', 'registerationrequest\RegisterRequestController@reg3');
-Route::get('backReg3', 'registerationrequest\RegisterRequestController@backReg3');
-Route::post('reg4', 'registerationrequest\RegisterRequestController@reg4');
-Route::get('backReg4', 'registerationrequest\RegisterRequestController@backReg4');
-Route::get('confirm', 'registerationrequest\RegisterRequestController@confirm');
-Route::get('storeReg', 'registerationrequest\RegisterRequestController@store');
-Route::get('finalMessage', 'registerationrequest\RegisterRequestController@finalMessage');
+Route::get('reg1', 'RegisterationRequest\RegisterRequestController@index');
+Route::post('reg1', 'RegisterationRequest\RegisterRequestController@reg1');
+Route::get('backReg1', 'RegisterationRequest\RegisterRequestController@backReg1');
+Route::post('reg2', 'RegisterationRequest\RegisterRequestController@reg2');
+Route::get('backReg2', 'RegisterationRequest\RegisterRequestController@backReg2');
+Route::post('reg3', 'RegisterationRequest\RegisterRequestController@reg3');
+Route::get('backReg3', 'RegisterationRequest\RegisterRequestController@backReg3');
+Route::post('reg4', 'RegisterationRequest\RegisterRequestController@reg4');
+Route::get('backReg4', 'RegisterationRequest\RegisterRequestController@backReg4');
+Route::get('confirm', 'RegisterationRequest\RegisterRequestController@confirm');
+Route::get('storeReg', 'RegisterationRequest\RegisterRequestController@store');
+Route::get('finalMessage', 'RegisterationRequest\RegisterRequestController@finalMessage');
 
 //login
 Auth::routes();
 
 Route::post('/zarinpal/request', 'zarinpal\reqController@request');
-Route::get('/zarinpal/verify', 'zarinpal\verifyController@verify');
-Route::get('/help', 'help\helpController@show');
+Route::get('/zarinpal/verify', 'zarinpal\verifyController@reg');
+Route::view('/help', 'help.payment');
+
 
 //Route::get('login', 'myLoginController@show');
 Route::get('logout', 'myLoginController@logout');

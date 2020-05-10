@@ -14,19 +14,25 @@ class reqController extends Controller
 
         $zarinpal = new Zarinpal('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX');
         $zarinpal->enableSandbox(); // active sandbox mod for test env
-        $results = $zarinpal->request(
-            "http://localhost:8000/zarinpal/verify",          //required
-            $amount,                                  //required
-            'کمک به حوزه علمیه خواهران',  //required
-            '',                      //optional
-            ''                        //optional
-        );
+//        $results = $zarinpal->request(
+//            "http://localhost:8000/zarinpal/verify",          //required
+//            $amount,                                  //required
+//            'کمک به حوزه علمیه خواهران',  //required
+//            '',                      //optional
+//            ''                      //optional
+//        );
+//
+//        echo json_encode($results);
+//        if (isset($results['Authority'])) {
+//            file_put_contents('Authority', $results['Authority']);
+//            session('autority', $results['Authority']);
+//            $zarinpal->redirect();
+//        }
+        echo 'hi';
+        session()->put('help', $request->help);
+        session()->put('amount', $amount);
+        return redirect('/zarinpal/verify');
+        echo '<br>hi';
 
-        echo json_encode($results);
-        if (isset($results['Authority'])) {
-            file_put_contents('Authority', $results['Authority']);
-            session('autority', $results['Authority']);
-            $zarinpal->redirect();
-        }
     }
 }

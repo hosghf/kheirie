@@ -53,6 +53,10 @@
                                 <span class="text-danger">*</span>
                                 <input type="text" class="form-control col-11 d-inline @error('prov_code_meli')border border-danger @enderror" value="{{ isset($reg2) ? $reg2['prov_code_meli'] : old('prov_code_meli')}}" name="prov_code_meli" placeholder=" کد ملی ">
                             </div>
+                            <div class="col-sm-6">
+                                <span class="text-danger">*</span>
+                                <input type="text" class="form-control col-11 d-inline @error('shomarehesab')border border-danger @enderror" value="{{ isset($reg2) ? $reg2['shomarehesab'] : old('shomarehesab')}}" name="shomarehesab" placeholder=" شماره حساب ">
+                            </div>
                         </div>
 
                         <div class="form-group mt-3" style="text-align: right;">

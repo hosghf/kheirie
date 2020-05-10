@@ -125,6 +125,12 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="col">
+                                <label> شماره حساب سرپرست </label>
+                                <p>{{ $reg2['shomarehesab'] ?? '' }}</p>
+                            </div>
+                        </div>
+                        <div class="form-row">
                             <div class="col-12">
                                 <label>میزان درآمد</label>
                                 <p>@if(isset($reg2))

@@ -19,8 +19,9 @@ class CreatePaymentsTable extends Migration
             $table->bigInteger('demand_code')->unique();
             $table->decimal('amount', 18, 2);
             $table->tinyInteger('chek')->default(1);
-            $table->string('tasvirkartCheck')->nullable();
-            $table->string('fishChkNum')->nullable();
+            $table->string('tasvirkartCheck');
+            $table->string('fishChkNum');
+            $table->tinyInteger('type')->default(1);
             $table->timestamps();
         });
     }

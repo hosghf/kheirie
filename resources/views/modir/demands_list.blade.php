@@ -86,5 +86,5 @@
 @endsection
 
 @section('js')
-    <script src="/dashbordResources/dist/js/clickTable.js"></script>
+    {{--<script src="/dashbordResources/dist/js/clickTable.js"></script>--}}
 @endsection

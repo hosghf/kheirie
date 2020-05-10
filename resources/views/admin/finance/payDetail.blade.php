@@ -68,14 +68,14 @@
                         </div>
                         <div class="row invoice-col col-12 mt-2 pr-4">
                             <div class="row col-12 mb-2">
-                                <p class="col-2 text-bold">نام</p>
-                                <p class="col-2 text-bold">نام خانوادگی</p>
+                                <p class="col-3 ml-3 text-bold">نام</p>
+                                <p class="col-3 ml-3 text-bold">نام خانوادگی</p>
                                 <p class="col-2 text-bold">نسبت</p>
                             </div>
                             @foreach($dependents as $d)
                                 <div class="row col-12">
-                                    <p class="col-2">{{$d->name}}</p>
-                                    <p class="col-2"> {{$d->family}}</p>
+                                    <p class="col-3 ml-3">{{$d->name}}</p>
+                                    <p class="col-3 ml-3"> {{$d->family}}</p>
                                     <p class="col-2">{{$d->relation}}</p>
                                 </div>
                             @endforeach

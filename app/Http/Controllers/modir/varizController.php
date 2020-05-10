@@ -29,7 +29,6 @@ class varizController extends Controller
 
     public function variz(Request $request){
 
-        $daste = typeOfIncome::all();
         $school = School::where('manager_mobile', auth()->user()->username)->first();
 
         $request->validate([

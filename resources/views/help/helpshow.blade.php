@@ -41,6 +41,14 @@
                             <input class="form-control" type="text" name="family" placeholder="اختیاری " >
                         </div>
                         <div class="form-group mb-1">
+                            <label> نوع کمک </label>
+                            <select class="form-control" name="daste">
+                                @foreach($daste as $d)
+                                    <option value="{{$d->id}}"> {{ $d->title }}  </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-1">
                             <label>مبلغ</label>
                             <input class="form-control" type="text" name="amount" placeholder=" به تومان " >
                         </div>

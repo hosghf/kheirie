@@ -41,6 +41,14 @@
                                             <option value="0">کارت به کارت</option>
                                         </select>
                                     </div>
+                                    <div class="col-md-2 col-sm-6 mt-4">
+                                        <label>دسته</label>
+                                        <select class="form-control" name="daste">
+                                            @foreach($daste as $d)
+                                                <option value="{{$d->id}}"> {{ $d->title }}  </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     <div class="col-md-3 col-sm-6 mt-4">
                                         <label>شماره چک/فیش</label>
                                         <input type="text" name="fishCheckNum" value="{{ old('fishCheckNum') }}" class="form-control" placeholder="">

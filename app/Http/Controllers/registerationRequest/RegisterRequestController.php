@@ -62,14 +62,16 @@ class RegisterRequestController extends Controller
             'prov_family' => 'required',
             'prov_code_meli' => 'required',
             'prov_job' => 'required',
-            'prov_salary' => 'required'
+            'prov_salary' => 'required',
+            'shomarehesab' => 'required'
          ],
          [
              'prov_name.required' => 'لطفا نام سرپرست را وارد کنید',
              'prov_family.required' => 'لطفا نام خانوادگی سرپرست را وارد کنید',
              'prov_code_meli.required' => 'لطفا کد ملی سرپرست را وارد کنید',
              'prov_job.required' => 'لطفا شغل سرپرست را وارد کنید',
-             'prov_salary.required' => 'لطفا میزان درآمد سرپرست را وارد کنید'
+             'prov_salary.required' => 'لطفا میزان درآمد سرپرست را وارد کنید',
+             'shomarehesab.required' => 'شماره حساب سرپرست را وارد کنید.'
         ]);
 
         $reg2 = $request->except('_token');
@@ -170,6 +172,7 @@ class RegisterRequestController extends Controller
         $provider->explanation = $reg2['prov_job_explain'];
         $provider->salary_code = $reg2['prov_salary'];
         $provider->nesbat_ba_talabe = $reg2['relation_to_st']; //نسبت با دانشجو
+        $provider->shomarehesab = $reg2['shomarehesab'];
         $provider->address = $reg4['address'];
         $provider->postal_code = $reg4['postal_code'];
         $provider->phone = $reg4['state_phone'];

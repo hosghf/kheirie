@@ -28,7 +28,7 @@ class CreateProvidersTable extends Migration
             $table->string('mobile');
             $table->string('work_address');
             $table->string('work_phone');
-            $table->string('work_postal_code')->nullable();
+            $table->string('shomarehesab');
             $table->bigInteger('student_id')->unsigned();
             $table->timestamps();
         });

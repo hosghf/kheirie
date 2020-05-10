@@ -49,6 +49,7 @@
                             <p class="col-md-4 col-sm-6  mt-4"><span class="text-bold"> شغل سرپرست </span> : {{ $provider->job }}</p>
                             <p class="col-md-4 col-sm-6  mt-4"> <span class="text-bold"> توضیحات </span> : {{ $provider->explanation }}</p>
                             <p class="col-md-4 col-sm-6  mt-4"> <span class="text-bold"> درآمد ماهیانه </span> : {{ $provider->salary }}</p>
+                            <p class="col-md-4 col-sm-6  mt-4"> <span class="text-bold"> شماره حساب </span> : {{ $provider->shomarehesab }}</p>
                         </div>
                         <div class="row invoice-col mt-5">
                             <h5>اطلاعت تماس</h5>
@@ -66,15 +67,15 @@
                         </div>
                         <div class="row invoice-col col-12 mt-2 pr-4">
                             <div class="row col-12 mb-2">
-                                <p class="col-2 text-bold">نام</p>
-                                <p class="col-2 text-bold">نام خانوادگی</p>
-                                <p class="col-2 text-bold">نسبت</p>
+                                <p class="col-3 ml-3 text-bold">نام</p>
+                                <p class="col-3 ml-3 text-bold">نام خانوادگی</p>
+                                <p class="col-3 text-bold">نسبت</p>
                             </div>
                             @foreach($dependents as $d)
                                 <div class="row col-12">
-                                    <p class="col-2">{{$d->name}}</p>
-                                    <p class="col-2"> {{$d->family}}</p>
-                                    <p class="col-2">{{$d->relation}}</p>
+                                    <p class="col-3 ml-3">{{$d->name}}</p>
+                                    <p class="col-3 ml-3"> {{$d->family}}</p>
+                                    <p class="col-3">{{$d->relation}}</p>
                                 </div>
                             @endforeach
                         </div>
