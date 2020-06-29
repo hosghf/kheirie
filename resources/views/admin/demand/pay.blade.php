@@ -58,7 +58,13 @@
                                         <input type="file" name="file" class="form-control" placeholder="انتخاب تصویر">
                                     </div>
                                 </div>
-                                <div class="col-sm-6 col-md-2 mt-4">
+                                <div class="form-row mt-4">
+                                    <div class="col-md-4 col-sm-12">
+                                        <label> توضیحات </label>
+                                        <textarea name="tozihat" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-3 mt-4">
                                     <label> </label>
                                     <input type="submit" class="form-control btn btn-info" value="تایید و پرداخت">
                                 </div>

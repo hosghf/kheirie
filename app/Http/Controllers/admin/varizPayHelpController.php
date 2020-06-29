@@ -33,6 +33,7 @@ class varizPayHelpController extends Controller
             $v= Verta($variz->created_at);
             $v2 = $v->format('Y-n-j');
             $variz->x = $v2;
+            $variz->tzs = substr($variz->tozihat, 0, 16) . '...';
             $variz->price = number_format($variz->amount);
         }
         return view('admin.finance.varizha_list', ['varizha' => $varizha, 'school' => $school]);
@@ -45,6 +46,7 @@ class varizPayHelpController extends Controller
             $v2 = $v->format('Y-n-j');
             $help->x = Verta::persianNumbers($v2);
             $help->price = number_format($help->amount);
+            $help->tzs = substr($help->tozihat, 0, 16) . '...';
         }
         return view('admin.finance.helps', ['helps' => $helps]);
     }
@@ -63,6 +65,7 @@ class varizPayHelpController extends Controller
             $pay->m = Carbon::createFromFormat('Y-m-d H:i:s', $pay->created_at)->month;
             $pay->m = $pay->m < 10 ? '0' . $pay->m : $pay->m;
             $pay->price = number_format($pay->amount);
+            $pay->tzs = substr($pay->tozihat, 0, 16) . '...';
         }
         return view('admin.finance.paymentList', ['pays' => $pays]);
     }

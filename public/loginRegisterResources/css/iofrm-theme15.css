@@ -16,7 +16,7 @@
 ------------------------------------*/
 .website-logo {
     display: inline-block;
-    top: 140px;
+    top: 100px;
     left: 80px;
     right: initial;
     bottom: initial;
@@ -27,7 +27,9 @@
 }
 
 .website-logo .logo {
-    background-image: url("../images/logo-light.svg");
+    /*background-image: url("../images/logo-light.svg");*/
+    background-image: url("../images/logo.png");
+
 }
 
 .website-logo .logo img {
@@ -39,7 +41,8 @@
 }
 
 .website-logo-inside .logo {
-    background-image: url("../images/logo-light.svg");
+    /*background-image: url("../images/logo-light.svg");*/
+    background-image: url("../images/logo.png");
 }
 
 .website-logo-inside .logo img {
@@ -246,7 +249,8 @@
     }
 
     .website-logo .logo {
-        background-image: url("../images/logo-dark.svg");
+        /*background-image: url("../images/logo-dark.svg");*/
+        background-image: url("../images/logo.png");
     }
 }
 

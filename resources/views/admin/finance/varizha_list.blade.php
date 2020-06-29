@@ -47,6 +47,7 @@
                             <th>نوع</th>
                             <th>شماره تراکنش</th>
                             <th> تصویر چک/فیش </th>
+                            <th> توضیحات </th>
                             <th>تاریخ</th>
                         </tr>
                         @if(isset($varizha))
@@ -59,6 +60,11 @@
                                     <td>{{ $variz->typeOfIncome->title }}</td>
                                     <td> {{ $variz->kartTransactNum }} </td>
                                     <td><a target="_blank" href="{{ URL::to('/') }}/fishimages/{{$variz->y}}/{{$variz->m}}/{{$variz->tasvirFish}}">کلیک کنید</a></td>
+                                    <td>
+                                        @if(strlen($variz->tozihat) > 0)
+                                            <div class="tooltip">{{ $variz->tzs }}<span class="tooltiptext">{{ $variz->tozihat }}</span></div>
+                                        @endif
+                                    </td>
                                     <td> {{ $variz->x }} </td>
                                 </tr>
                             @endforeach

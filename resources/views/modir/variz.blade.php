@@ -41,16 +41,22 @@
                             <label>نوع پرداخت</label>
                             <select name="darghah" id="tpardakht" class="form-control">
                                 <option value="0">کارت به کارت</option>
-                                <option value="1">درگاه پرداخت</option>
+                                {{--<option value="1">درگاه پرداخت</option>--}}
                             </select>
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
-                            <label>شماره چک/فیش</label>
-                            <input type="text" name="checkFishNum" class="form-control kart" value="{{ old('checkFishNum') }}">
+                            <label>شماره رسید</label>
+                            <input type="text" name="kartTransactNum" class="form-control kart" value="{{ old('kartTransactNum') }}">
                         </div>
                         <div class="col-md-3 col-sm-6 mt-4">
                             <label>تصویر چک/فیش</label>
                             <input type="file" name="file" class="form-control kart" placeholder="انتخاب تصویر">
+                        </div>
+                    </div>
+                    <div class="form-row mt-4">
+                        <div class="col-md-4 col-sm-12">
+                            <label> توضیحات </label>
+                            <textarea name="tozihat" class="form-control"></textarea>
                         </div>
                     </div>
 
@@ -80,6 +86,7 @@
                             <th>مدرسه</th>
                             <th>دسته</th>
                             <th>نوع پرداخت</th>
+                            <th>توضیحات</th>
                             <th>شماره چک/فیش</th>
                             <th>تصویر چک/فیش</th>
                             <th>تاریخ</th>
@@ -92,9 +99,13 @@
                                     <td>{{ $v->school->school_name }}</td>
                                     <td>{{ $v->typeOfIncome->title }}</td>
                                     <td>{{ $v->type ? 'درگاه اینترنتی' : 'کارت به کارت' }}</td>
+                                    <td>
+                                    @if(strlen($v->tozihat))
+                                        <div class="tooltip">{{ $v->tzs }}<span class="tooltiptext">{{ $v->tozihat }}</span></div>
+                                    @endif
+                                    </td>
                                     <td>{{ $v->kartTransactNum }}</td>
                                     <td class="text-center"><a target="_blank" href="{{ URL::to('/') }}/fishimages/{{$v->y}}/{{$v->m}}/{{$v->tasvirFish}}">کلیک کنید</a></td>
-
                                     <td>{{ $v->tarikh }}</td>
                                 </tr>
                             @endforeach

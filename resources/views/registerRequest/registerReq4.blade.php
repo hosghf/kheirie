@@ -9,24 +9,23 @@
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-theme15.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/farsi_fonts.css">
-
+    <link rel="icon" href="/loginRegisterResources/images/logo.png"/>
 </head>
 <body>
 <div class="form-body" class="container-fluid">
-    {{--<div class="website-logo">--}}
-        {{--<a href="index.html">--}}
-            {{--<div class="logo">--}}
-                {{--<img class="logo-size" src="" alt="">--}}
-            {{--</div>--}}
-        {{--</a>--}}
-    {{--</div>--}}
+    <div class="website-logo">
+        <a href="">
+            <div class="logo">
+                <img class="logo-size"  src="loginRegisterResources/images/logo.png" alt="">
+            </div>
+        </a>
+    </div>
     <div class="row">
         <div class="img-holder">
             <div class="bg"></div>
             <div class="info-holder">
-                <h3>عطر گل یاس</h3>
-                <p>سامانه بسته معیشتی خانواده های حوزه<br><br>
-                    مرحله چهارم اطلاعات تماس</p>
+                <h3> {{$texts[1]['text']}} </h3>
+                <p style="line-height: normal"> {{$texts[2]['text']}} </p>
             </div>
         </div>
         <div class="form-holder">

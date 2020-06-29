@@ -10,14 +10,24 @@
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-theme3.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/farsi_fonts.css">
+    <link rel="icon" href="/loginRegisterResources/images/logo3.png"/>
 </head>
 <body>
 <div class="form-body" class="container-fluid">
     <div class="row">
+        <div class="website-logo">
+            <a href="">
+                <div class="logo">
+                    <img class="logo-size"  src="loginRegisterResources/images/logo.png" alt="">
+                </div>
+            </a>
+        </div>
         <div class="img-holder">
-            <div class="bg"></div>
+            <div class=""></div>
             <div class="info-holder">
-
+                <h3>عطر گل یاس</h3>
+                <p>سامانه بسته معیشتی خانواده های حوزه<br><br>
+                    مرحله اول وارد کردن اطلاعات</p>
             </div>
         </div>
         <div class="form-holder">
@@ -41,6 +51,7 @@
                             <input class="form-control" type="text" name="family" placeholder="اختیاری " >
                         </div>
                         <div class="form-group mb-1">
+                            <label class="text-danger">*</label>
                             <label> نوع کمک </label>
                             <select class="form-control" name="daste">
                                 @foreach($daste as $d)
@@ -48,7 +59,14 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-row mt-4">
+                            <div class="col-12">
+                                <label> توضیحات </label>
+                                <textarea name="tozihat" class="form-control"></textarea>
+                            </div>
+                        </div>
                         <div class="form-group mb-1">
+                            <label class="text-danger">*</label>
                             <label>مبلغ</label>
                             <input class="form-control" type="text" name="amount" placeholder=" به تومان " >
                         </div>

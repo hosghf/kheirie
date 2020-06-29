@@ -17,10 +17,11 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->string('st_code_meli');
             $table->bigInteger('demand_code')->unique();
-            $table->decimal('amount', 18, 2);
+            $table->decimal('amount', 18);
             $table->tinyInteger('chek')->default(1);
             $table->string('tasvirkartCheck');
             $table->string('fishChkNum');
+            $table->text('tozihat')->nullable();
             $table->tinyInteger('type')->default(1);
             $table->timestamps();
         });

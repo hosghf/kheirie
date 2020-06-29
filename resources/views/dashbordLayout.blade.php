@@ -12,6 +12,8 @@
     <!-- template rtl version -->
     <link rel="stylesheet" href="/dashbordResources/dist/css/custom-style.css">
     <link rel="stylesheet" href="/dashbordResources/dist/css/farsi_fonts.css">
+    <link rel="stylesheet" href="/dashbordResources/dist/css/tooltip.css">
+    <link rel="icon" href="/loginRegisterResources/images/logo3.png"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">

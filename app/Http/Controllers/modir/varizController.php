@@ -23,6 +23,7 @@ class varizController extends Controller
             $v->m = $v->m < 10 ? '0' . $v->m : $v->m;
             $v->tarikh = Verta($v->created_at);
             $v->tarikh = $v->tarikh->format('Y-j-n');
+            $v->tzs = substr($v->tozihat, 0, 16) . '...';
         }
         return view('modir.variz', ['varizha' => $varizha, 'daste' => $daste]);
     }
@@ -34,14 +35,15 @@ class varizController extends Controller
         $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'amount' => 'required|numeric',
-            'checkFishNum' => 'required'
+            'kartTransactNum' => 'required|unique:incomes'
         ],[
             'file.max' => 'سایز تصویر کمتر از 2 مگابایت باشد.',
             'file.mimes' => 'فرمت تصویر jpg,pnp,gif باشد.',
             'file.required' => 'تصویر را وارد کنید.',
             'amount.numeric' => ' برای مبلغ مقدار صحیح وارد کنید.',
             'amount.required' => ' مبلغ را وارد کنید.',
-            'checkFishNum.required' => ' شماره چک یا فیش پرداختی را وارد کنید. ',
+            'kartTransactNum.required' => ' شماره چک یا فیش پرداختی را وارد کنید. ',
+            'kartTransactNum.unique' => ' شماره فیش تکراریست. ',
         ]);
 
         // uploading images
@@ -67,7 +69,8 @@ class varizController extends Controller
         $variz->school_code = $school->id;
         $variz->type = $request->daste;
         $variz->dargah = $request->darghah;
-        $variz->kartTransactNum = $request->checkFishNum;
+        $variz->kartTransactNum = $request->kartTransactNum;
+        $variz->tozihat = $request->tozihat;
         $variz->tasvirFish = $filename;
         $variz->save();
 

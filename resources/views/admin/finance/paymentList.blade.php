@@ -41,6 +41,8 @@
                             <th>کد ملی دانشجو</th>
                             <th> کد درخواست </th>
                             <th>شماره تراکنش</th>
+                            <th>دسته</th>
+                            <th>توضیحات</th>
                             <th>تاریخ</th>
                             <th>تصویر چک</th>
                             <th> </th>
@@ -54,6 +56,12 @@
                                     <td>{{ $pay->st_code_meli }} </td>
                                     <td> {{ $pay->demand_code }} </td>
                                     <td> {{ $pay->fishChkNum }} </td>
+                                    <td> {{ $pay->typeOfIncome->title }} </td>
+                                    <td>
+                                    @if(strlen($pay->tozihat))
+                                        <div class="tooltip">{{ $pay->tzs }}<span class="tooltiptext">{{ $pay->tozihat }}</span></div>
+                                    @endif
+                                    </td>
                                     <td> {{ $pay->x }} </td>
                                     <td class="text-center"><a target="_blank" href="{{ URL::to('/') }}/fishimages/{{$pay->y}}/{{$pay->m}}/{{$pay->tasvirkartCheck}}">کلیک کنید</a></td>
                                     <td> <a href="/admin/payDetail/{{$pay->id}}" class="btn btn-primary"> مشاهده </a> </td>

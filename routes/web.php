@@ -23,9 +23,6 @@ Route::post('/test', 'test\testController@myauth');
 //modir
 Route::group(['middleware' => ['can:isModir', 'auth']], function () {
 
-    if (\Gate::allows('isModir')) {
-    }
-
     Route::get('/modir/varizModir', 'modir\varizController@list');
     Route::post('/modir/varizModir', 'modir\varizController@variz');
 
@@ -73,6 +70,7 @@ Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
     //admin settings
     Route::get('/admin/settings', 'admin\settingsController@index');
     Route::post('/admin/settings/addType', 'admin\settingsController@addType');
+    Route::post('/admin/settings/changetext', 'admin\settingsController@changeText');
     //change user
     Route::post('/changeP/{username}', 'user\userManagementController@changePass')->name('changePass');
     Route::view( '/changeP','user_management/passwordchange')->name('changePass');

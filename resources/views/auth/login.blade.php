@@ -10,24 +10,32 @@
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/iofrm-theme3.css">
     <link rel="stylesheet" type="text/css" href="loginRegisterResources/css/farsi_fonts.css">
+    <link rel="icon" href="/loginRegisterResources/images/logo3.png"/>
 </head>
 <body>
 <div class="form-body" class="container-fluid">
     <div class="website-logo">
-        <a href="index.html">
+        <a href="">
             <div class="logo">
-                <img class="logo-size" src="" alt="">
+                <img class="logo-size"  src="loginRegisterResources/images/logo.png" alt="">
             </div>
         </a>
     </div>
     <div class="row">
+        <div class="img-holder">
+            <div class=""></div>
+            <div class="info-holder">
+                <h3> {{$texts[1]['text']}} </h3>
+                <p style="line-height: normal"> {{$texts[2]['text']}} </p>
+            </div>
+        </div>
         <div class="form-holder">
             @if (session()->has('error'))
                 <li class="alert alert-danger text-right mb-0">{{ session('error') }}</li>
             @endif
             <div class="form-content pt-5">
                 <div class="form-items">
-                    <h3>سامانه ثبت نام کمک های معیشیتی مدارس حوزه علمیه خواهران شیراز</h3>
+                    <h3>{{$texts[0]['text']}}</h3>
                     <p class="mt-4"> جهت ثبت درخواست در سیستم بر روی ثبت درخواست کلیک کنید </p>
                     <div class="page-links mb-5">
                         <a href="login" class="active ml-3">ورود</a>

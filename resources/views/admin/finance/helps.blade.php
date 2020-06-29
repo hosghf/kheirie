@@ -20,6 +20,7 @@
                             <th>نام خانوادگی</th>
                             <th> سازمان </th>
                             <th>نوع</th>
+                            <th>توضیحات</th>
                             <th>شماره تراکنش</th>
                             <th>تاریخ</th>
                         </tr>
@@ -33,6 +34,11 @@
                                     <td> {{$help->family}} </td>
                                     <td> {{ $help->organization }} </td>
                                     <td>{{ $help->typeOfIncome->title }}</td>
+                                    <td>
+                                        @if(strlen($help->tozihat) > 0)
+                                            <div class="tooltip">{{ $help->tzs }}<span class="tooltiptext">{{ $help->tozihat }}</span></div>
+                                        @endif
+                                    </td>
                                     <td> {{ $help->transaction_number }} </td>
                                     <td> {{ $help->x }} </td>
                                 </tr>
@@ -43,13 +49,6 @@
                 <!-- /.card-body -->
                 <div class="card-footer clearfix">
                     {{ $helps->links() }}
-                    {{--<ul class="pagination pagination-sm m-0 float-right">--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">«</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۱</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۲</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">۳</a></li>--}}
-                        {{--<li class="page-item"><a class="page-link" href="#">»</a></li>--}}
-                    {{--</ul>--}}
                 </div>
                 <!-- /.card-footer-->
             </div>

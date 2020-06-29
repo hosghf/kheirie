@@ -24,9 +24,8 @@
         <div class="img-holder">
             <div class="bg"></div>
             <div class="info-holder">
-                <h3>عطر گل یاس</h3>
-                <p>سامانه بسته معیشتی خانواده های حوزه<br><br>
-                    مرحله اول وارد کردن اطلاعات</p>
+                <h3> {{$texts[1]['text']}} </h3>
+                <p style="line-height: normal"> {{$texts[2]['text']}} </p>
             </div>
         </div>
         <div class="form-holder">

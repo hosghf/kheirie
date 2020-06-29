@@ -9,6 +9,7 @@ use App\Models\Provider;
 use App\Models\Salary;
 use App\Models\School;
 use App\Models\Student;
+use App\models\Text;
 use Illuminate\Http\Request;
 Use Exception;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,8 @@ class RegisterRequestController extends Controller
         session()->forget('reg4');
         session()->forget('takafols');
         $school = School::all();
-        return view('registerRequest.registerReq1', ['school' => $school]);
+        $texts = Text::all();
+        return view('registerRequest.registerReq1', ['school' => $school, 'texts' => $texts]);
     }
     public function reg1(Request $request){
 
@@ -53,7 +55,9 @@ class RegisterRequestController extends Controller
     public function backReg1(){
         $reg1 = session('reg1');
         $school = School::all();
-        return view('registerRequest.registerReq1', ['reg1' => $reg1, 'school' => $school]);
+        $texts = Text::all();
+        return view('registerRequest.registerReq1', ['reg1' => $reg1, 'school' => $school,
+            'texts' => $texts]);
     }
     public function reg2(Request $request){
 
@@ -84,8 +88,10 @@ class RegisterRequestController extends Controller
         $reg2 = session('reg2');
         $relations = nesbateBaTalabe::all();
         $salaries = Salary::all();
+        $texts = Text::all();
         return view('registerRequest.registerReq2', ['reg2' => $reg2,
-            'relations' => $relations, 'salaries' => $salaries]);
+            'relations' => $relations, 'salaries' => $salaries,
+            'texts' => $texts]);
     }
 
     public function reg3(Request $request){
@@ -107,7 +113,11 @@ class RegisterRequestController extends Controller
     public function backReg3(){
         $takafols = session()->get('takafols');
         $last_id = session('last_id') !== null ? session('last_id') : 0;
-        return view('registerRequest.registerReq3', ['takafols' => $takafols, 'last_id' => $last_id]);
+        $texts = Text::all();
+        return view('registerRequest.registerReq3', ['takafols' => $takafols,
+            'last_id' => $last_id,
+            'texts' => $texts
+            ]);
     }
     public function reg4(Request $request){
 
@@ -133,7 +143,10 @@ class RegisterRequestController extends Controller
     }
     public function backReg4(){
         $reg4 = session('reg4');
-        return view('registerRequest.registerReq4', ['reg4' => $reg4]);
+        $texts = Text::all();
+        return view('registerRequest.registerReq4', ['reg4' => $reg4,
+                      'texts' => $texts]
+        );
     }
     public function confirm(){
         $reg1 = session('reg1');
@@ -143,8 +156,12 @@ class RegisterRequestController extends Controller
         $school = School::all();
         $relation = nesbateBaTalabe::all();
         $salary = Salary::all();
+        $texts = Text::all();
         return view('registerRequest.confirm', [ 'reg1' => $reg1, 'reg2' => $reg2 ,
-            'reg4' => $reg4, 'takafols' => $takafols, 'school' => $school, 'relation' => $relation, 'salary' => $salary]);
+            'reg4' => $reg4, 'takafols' => $takafols, 'school' => $school,
+            'relation' => $relation, 'salary' => $salary,
+            'texts' => $texts
+            ]);
     }
     public function store(){
         $reg1 = session('reg1');

@@ -70,7 +70,7 @@ class demandsController extends Controller
         $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'amount' => 'required|numeric',
-            'fishCheckNum' => 'required'
+            'fishCheckNum' => 'required|unique:payments'
         ],[
             'file.max' => 'سایز تصویر کمتر از 2 مگابایت باشد.',
             'file.mimes' => 'فرمت تصویر jpg,pnp,gif باشد.',
@@ -78,6 +78,7 @@ class demandsController extends Controller
             'amount.numeric' => ' برای مبلغ مقدار صحیح وارد کنید.',
             'amount.required' => ' مبلغ را وارد کنید.',
             'fishCheckNum.required' => ' شماره چک یا فیش پرداختی را وارد کنید. ',
+            'fishCheckNum.unique' => ' شماره چک یا فیش قبلا وارد شده. ',
         ]);
 
         // uploading images
@@ -109,6 +110,7 @@ class demandsController extends Controller
         $payment->tasvirkartCheck = $filename;
         $payment->fishChkNum = $request->fishCheckNum;
         $payment->amount = $request->amount;
+        $payment->tozihat = $request->tozihat;
         $payment->type = $request->daste;
         $payment->save();
 

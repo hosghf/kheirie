@@ -18,7 +18,8 @@ class CreateHelpsTable extends Migration
             $table->string('name')->nullable();
             $table->string('family')->nullable();
             $table->string('organization')->nullable();
-            $table->decimal('amount', 18,2);
+            $table->decimal('amount', 18);
+            $table->text('tozihat')->nullable();
             $table->string('transaction_number');
             $table->tinyInteger('type');
             $table->timestamps();
