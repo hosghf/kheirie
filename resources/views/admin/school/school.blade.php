@@ -65,7 +65,7 @@
                                         <span class="text-danger">*</span>
                                         کد ملی مدیر
                                     </label>
-                                    <input type="text" class="form-control @error('code_meli_modir') border border-danger @enderror" name="code_meli_modir" id="" placeholder=" کد ملی مدیر ">
+                                    <input type="text" class="form-control @error('manager_code_meli') border border-danger @enderror" name="manager_code_meli" id="" placeholder=" کد ملی مدیر ">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -73,7 +73,7 @@
                                     <label><span class="text-danger">*</span>
                                         شماره همراه(نام کاربری)
                                     </label>
-                                    <input type="text" class="form-control" name="modir_phone" id="" placeholder="همراه مدیر">
+                                    <input type="text" class="form-control" name="manager_mobile" id="" placeholder="همراه مدیر">
                                 </div>
                                 <div class="form-group col-sm-12 col-md-6">
                                     <label><span class="text-danger">*</span>

@@ -3,7 +3,9 @@
 @section('title', 'مدارس')
 
 @section('content')
-
+    @foreach ($errors->all() as $error)
+        <li class="alert alert-danger">{{ $error }}</li>
+    @endforeach
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -67,7 +69,7 @@
                                         <span class="text-danger">*</span>
                                         کد ملی مدیر
                                     </label>
-                                    <input type="text" class="form-control" name="code_meli_modir" value="{{$school->manager_code_meli }}" id="" placeholder=" کد ملی مدیر ">
+                                    <input type="text" class="form-control" name="manager_code_meli" value="{{$school->manager_code_meli }}" id="" placeholder=" کد ملی مدیر ">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -76,7 +78,7 @@
                                         <span class="text-danger">*</span>
                                         همراه مدیر(نام کاربری)
                                     </label>
-                                    <input type="text" class="form-control" name="modir_phone" value="{{$school->manager_mobile }}" id="" placeholder="همراه مدیر">
+                                    <input type="text" class="form-control" name="manager_mobile" value="{{$school->manager_mobile }}" id="" placeholder="همراه مدیر">
                                 </div>
                             </div>
                             <div class="form-row mt-3">
@@ -99,7 +101,7 @@
                         <h3 class="card-title"> تغییر رمز </h3>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="/changeP/{{$school->school_phone}}">
+                        <form method="post" action="/changeP/{{$school->manager_mobile}}">
                             @csrf
                             <div class="row">
                                 <div class="col-sm-6 col-md-3">

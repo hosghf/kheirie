@@ -36,7 +36,7 @@ Route::group(['middleware' => ['can:isModir', 'auth']], function () {
     Route::get('/modir/darkhast/{id}/taeed', 'modir\darkhastController@taeed');
 
     Route::post('/changePm/{username}', 'user\userManagementController@changePass')->name('changePass');
-    Route::view( '/changePm','user_management/passwordchange')->name('changePass');
+    Route::view( '/changePm','user_management\passwordchange')->name('changePass');
 
 });
 
@@ -73,7 +73,7 @@ Route::group(['middleware' => ['can:isAdmin','auth'] ], function () {
     Route::post('/admin/settings/changetext', 'admin\settingsController@changeText');
     //change user
     Route::post('/changeP/{username}', 'user\userManagementController@changePass')->name('changePass');
-    Route::view( '/changeP','user_management/passwordchange')->name('changePass');
+    Route::view( '/changeP','user_management\passwordchange')->name('changePass');
 
 });
 

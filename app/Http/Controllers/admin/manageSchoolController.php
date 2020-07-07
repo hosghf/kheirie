@@ -18,15 +18,17 @@ class manageSchoolController extends Controller
     public function add(Request $request){
 
         $request->validate([
-            'code_meli_modir' => 'required',
-            'modir_phone' => 'required',
+            'manager_code_meli' => 'required|unique:schools',
+            'manager_mobile' => 'required|unique:schools',
             'password' => 'required',
             'school_name' => 'required',
             'managerFamily' => 'required',
             'managerName' => 'required',
         ],[
-            'code_meli_modir.required' => 'کد ملی مدیر را وارد کنید.',
-            'modir_phone.required' => 'همراه مدیر را وارد کنید.',
+            'manager_code_meli.required' => 'کد ملی مدیر را وارد کنید.',
+            'manager_code_meli.unique' => 'کد ملی مدیر تکراری میباشد',
+            'manager_mobile.required' => 'همراه مدیر را وارد کنید.',
+            'manager_mobile.unique' => 'شماره همراه مدیر تکراری میباشد',
             'school_name.required' => 'نام مدرسه را وارد کنید',
             'password.required' => ' پسورد را وارد کنید.',
             'managerFamily.required' => 'نام خانوادگی مدیر را وارد کنید',
@@ -39,8 +41,8 @@ class manageSchoolController extends Controller
         $school->school_phone = $request->school_phone;
         $school->manager_name = $request->managerName;
         $school->manager_family = $request->managerFamily;
-        $school->manager_code_meli = $request->code_meli_modir;
-        $school->manager_mobile = $request->modir_phone;
+        $school->manager_code_meli = $request->manager_code_meli;
+        $school->manager_mobile = $request->manager_mobile;
         $school->save();
         $request->session()->flash('message', 'مدرسه اضافه شد');
 
@@ -63,6 +65,22 @@ class manageSchoolController extends Controller
     }
     public function update(Request $request, $id){
 
+        $request->validate([
+            'manager_code_meli' => 'required|unique:schools,manager_code_meli,' . $id,
+            'manager_mobile' => 'required|unique:schools,manager_mobile,' . $id,
+            'school_name' => 'required',
+            'managerFamily' => 'required',
+            'managerName' => 'required'
+        ],[
+            'manager_code_meli.required' => 'کد ملی مدیر را وارد کنید.',
+            'manager_code_meli.unique' => 'کد ملی مدیر تکراری میباشد',
+            'manager_mobile.required' => 'همراه مدیر را وارد کنید.',
+            'manager_mobile.unique' => 'شماره همراه مدیر تکراری میباشد',
+            'school_name.required' => 'نام مدرسه را وارد کنید',
+            'managerFamily.required' => 'نام خانوادگی مدیر را وارد کنید',
+            'managerName.required' => 'نام خانوادگی مدیر را وارد کنید'
+        ]);
+
         $school = School::find($id);
         $oldUsername = $school->manager_mobile;
         $school->school_name = $request->school_name;
@@ -70,23 +88,23 @@ class manageSchoolController extends Controller
         $school->school_phone = $request->school_phone;
         $school->manager_name = $request->managerName;
         $school->manager_family = $request->managerFamily;
-        $school->manager_code_meli = $request->code_meli_modir;
-        $school->manager_mobile = $request->modir_phone;
+        $school->manager_code_meli = $request->manager_code_meli;
+        $school->manager_mobile = $request->manager_mobile;
         $school->save();
         $request->session()->flash('message', 'تغییرات اعمال شد');
 
         $user = User::where('username', $oldUsername)->first();
         if($user) {
-            $user->username = $request->modir_phone;
+            $user->username = $request->manager_mobile;
         } else {
             $user = new User;
-            $user->username = $request->modir_phone;
+            $user->username = $request->manager_mobile;
             $user->password = Hash::make($school->manager_code_meli);
             $user->role_id =3;
         }
         $user->save();
 
         $schools = School::all();
-//        return view('admin.school.school', ['schools' => $schools]);
+        return view('admin.school.school', ['schools' => $schools]);
     }
 }

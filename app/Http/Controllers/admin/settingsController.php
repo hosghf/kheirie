@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\models\Text;
+use App\Models\Text;
 use App\Models\typeOfIncome;
 use Illuminate\Http\Request;
 

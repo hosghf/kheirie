@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\registerationRequest;
+namespace App\Http\Controllers\registerationrequest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Dependent;
@@ -9,7 +9,7 @@ use App\Models\Provider;
 use App\Models\Salary;
 use App\Models\School;
 use App\Models\Student;
-use App\models\Text;
+use App\Models\Text;
 use Illuminate\Http\Request;
 Use Exception;
 use Illuminate\Support\Facades\DB;
